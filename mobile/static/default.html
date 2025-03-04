@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.basiscore.net/basisfly.com/css/swiper-bundle.min.css">
     <link rel="stylesheet" href="../assets/css/output.css">
     <title>Document</title>
     <style>
@@ -13,6 +14,7 @@
 
 <body>
     <main>
+        <h1 class="absolute left-full top-full">hotelMotel</h1>
         <section class="mx-auto max-lg:w-[90%] max-xl:w-[97%] xl:max-w-7xl mt-10">
 
         </section>
@@ -56,8 +58,24 @@
                 </div>
             </div>
         </section>
+        <section class="mx-auto max-lg:w-[90%] max-xl:w-[97%] xl:max-w-7xl mt-5">
+            <div class="flex flex-col gap-3 ">
+                <div class="relative flex items-center justify-end">
+                    <div class="absolute w-[53%] ml-4">
+                        <h2 class="text-primary-900 mb-2 font-bold">هتل ات رو الان رزرو کن</h2>
+                        <div class="text-xs text-zinc-900 mb-4">خرید بلیط هواپیما از با خدماتی همچون پرداخت کارت اعتباری</div>
+                        <a href="" class="flex items-center justify-center w-24 h-10 text-xs text-white font-bold bg-primary-900 rounded-[40px]">رزرو کنید
+                            <svg width="24" height="24" class="flex-shrink-0">
+                                <use xlink:href="../assets/images/sprite-icons.svg#icon-chevron-left-white"></use>
+                            </svg>
+                        </a>
+                    </div>
+                    <img src="../assets/images/dynamic-img2.jpg" class="h-36 object-cover rounded-3xl" alt="" width="100%" height="140" loading="lazy">
+                </div>
+            </div>
+        </section>
         <section class="mx-auto max-lg:w-[90%] max-xl:w-[97%] xl:max-w-7xl mt-6">
-            <h2 class="text-primary-900 mb-6">هتل های پیشنهادی</h2>
+            <h2 class="text-primary-900 mb-6 text-center">هتل های پیشنهادی</h2>
             <div class="flex flex-col gap-2">
                 <!-- items hotel -->
                 <div class="border border-solid border-primary-100 bg-zinc-50 rounded-[42px] px-3 pt-3 pb-6">
@@ -185,7 +203,7 @@
             <h2 class="text-primary-900 text-lg mb-3">سوالات متداول</h2>
             <div class="flex flex-col divide-y divide-primary-100">
                 <div class="faq-box cursor-pointer text-primary-900 text-sm flex flex-col py-3">
-                    <div class="flex items-center justify-between text-justify">
+                    <div class="flex items-center text-justify">
                         <svg width="48" height="49" class="flex-shrink-0 faq-btn">
                             <use xlink:href="../assets/images/sprite-icons.svg#icon-question"></use>
                         </svg>
@@ -193,7 +211,7 @@
                         وجود دارد؟
                     </div>
                     <div
-                        class="flex items-center text-zinc-900 mr-auto pl-4 text-sm text-justify faq-answer overflow-hidden transition-all duration-300 max-h-0 opacity-0">
+                        class="flex items-center text-primary-900 mr-auto text-sm text-justify faq-answer overflow-hidden transition-all duration-300 max-h-0 opacity-0">
                         <svg width="48" height="49" class="flex-shrink-0">
                             <use xlink:href="../assets/images/sprite-icons.svg#icon-chevron-left"></use>
                         </svg>
@@ -202,7 +220,7 @@
                     </div>
                 </div>
                 <div class="faq-box cursor-pointer text-primary-900 text-sm flex flex-col py-3">
-                    <div class="flex items-center justify-between text-justify">
+                    <div class="flex items-center text-justify">
                         <svg width="48" height="49" class="flex-shrink-0 faq-btn">
                             <use xlink:href="../assets/images/sprite-icons.svg#icon-question"></use>
                         </svg>
@@ -210,7 +228,7 @@
                         وجود دارد؟
                     </div>
                     <div
-                        class="flex items-center text-zinc-900 mr-auto pl-4 text-sm text-justify faq-answer overflow-hidden transition-all duration-300 max-h-0 opacity-0">
+                        class="flex items-center text-primary-900 mr-auto text-sm text-justify faq-answer overflow-hidden transition-all duration-300 max-h-0 opacity-0">
                         <svg width="48" height="49" class="flex-shrink-0">
                             <use xlink:href="../assets/images/sprite-icons.svg#icon-chevron-left"></use>
                         </svg>
@@ -221,35 +239,136 @@
             </div>
         </section>
         <section class="mx-auto max-lg:w-[90%] max-xl:w-[97%] xl:max-w-7xl mt-6 mb-10">
-            <h2 class="text-primary-900 mb-6">هتل های پیشنهادی</h2>
-            <div class="flex flex-col gap-2">
-                <div class="border border-solid border-primary-100 bg-zinc-50 rounded-3xl p-2">
-                    <div class="mask-image relative">
-                        <img src="../assets/images/article-card.jpg" alt=""
-                            class="h-[429px] object-cover rounded-tr-3xl" width="100%" height="429" loading="lazy">
-                        <div class="article-shadow absolute inset-0"></div>
-                        <div class="absolute z-10 px-6 bottom-0 mb-20">
-                            <h2 class="text-lg font-bold text-white mb-2">تحصیل در دانشگاه های پاریس</h2>
-                            <div class="text-sm text-white line-clamp-3">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم
-                                از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون ...</div>
+
+            <!-- If we need navigation buttons -->
+            <div class="flex items-center justify-between w-full mb-6 ">
+                <div
+                    class="swiper-button-prev-custom w-12 h-12 rounded-full bg-zinc-100 flex items-center justify-center">
+                    <svg width="24" height="25" class="flex-shrink-0">
+                        <use xlink:href="../assets/images/sprite-icons.svg#icon-chevron-right"></use>
+                    </svg>
+                </div>
+                <h2 class="text-primary-900 text-center">مجله گردشگری</h2>
+                <div
+                    class="swiper-button-next-custom w-12 h-12 rounded-full bg-zinc-100 flex items-center justify-center">
+                    <svg width="48" height="48" class="flex-shrink-0">
+                        <use xlink:href="../assets/images/sprite-icons.svg#icon-chevron-left"></use>
+                    </svg>
+                </div>
+            </div>
+            <!-- Slider main container -->
+            <div class="swiper swiper-article-mobile">
+                <!-- Additional required wrapper -->
+                <div class="swiper-wrapper">
+                    <!-- Slides -->
+                    <div class="swiper-slide">
+                        <div class="border border-solid border-primary-100 bg-zinc-50 rounded-3xl p-2">
+                            <div class="mask-image relative">
+                                <img src="../assets/images/article-card.jpg" alt=""
+                                    class="h-[429px] object-cover rounded-tr-3xl" width="100%" height="429"
+                                    loading="lazy">
+                                <div class="article-shadow absolute inset-0"></div>
+                                <div class="absolute z-10 px-6 bottom-0 mb-20">
+                                    <h2 class="text-lg font-bold text-white mb-2">تحصیل در دانشگاه های پاریس</h2>
+                                    <div class="text-sm text-white line-clamp-3">لورم ایپسوم متن ساختگی با تولید سادگی
+                                        نامفهوم
+                                        از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون ...</div>
+                                </div>
+                            </div>
+                            <div class="flex items-center justify-end gap-14 -mt-6">
+                                <span class="flex items-center gap-1 text-sm text-primary-300">
+                                    <svg width="24" height="25" class="flex-shrink-0">
+                                        <use xlink:href="../assets/images/sprite-icons.svg#icon-calender"></use>
+                                    </svg>
+                                    1403/2/2
+                                </span>
+                                <a href=""
+                                    class="flex items-center justify-center w-[106px] h-12 text-lg text-white font-bold bg-primary-900 rounded-[40px]">بخوانید</a>
+                            </div>
                         </div>
                     </div>
-                    <div class="flex items-center justify-end gap-14 -mt-6">
-                        <span class="flex items-center gap-1 text-sm text-primary-300">
-                            <svg width="24" height="25" class="flex-shrink-0">
-                                <use xlink:href="../assets/images/sprite-icons.svg#icon-calender"></use>
-                            </svg>
-                            1403/2/2
-                        </span>
-                        <a href=""
-                            class="flex items-center justify-center w-[106px] h-12 text-lg text-white font-bold bg-primary-900 rounded-[40px]">بخوانید</a>
+                    <div class="swiper-slide">
+                        <div class="border border-solid border-primary-100 bg-zinc-50 rounded-3xl p-2">
+                            <div class="mask-image relative">
+                                <img src="../assets/images/article-card.jpg" alt=""
+                                    class="h-[429px] object-cover rounded-tr-3xl" width="100%" height="429"
+                                    loading="lazy">
+                                <div class="article-shadow absolute inset-0"></div>
+                                <div class="absolute z-10 px-6 bottom-0 mb-20">
+                                    <h2 class="text-lg font-bold text-white mb-2">تحصیل در دانشگاه های پاریس</h2>
+                                    <div class="text-sm text-white line-clamp-3">لورم ایپسوم متن ساختگی با تولید سادگی
+                                        نامفهوم
+                                        از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون ...</div>
+                                </div>
+                            </div>
+                            <div class="flex items-center justify-end gap-14 -mt-6">
+                                <span class="flex items-center gap-1 text-sm text-primary-300">
+                                    <svg width="24" height="25" class="flex-shrink-0">
+                                        <use xlink:href="../assets/images/sprite-icons.svg#icon-calender"></use>
+                                    </svg>
+                                    1403/2/2
+                                </span>
+                                <a href=""
+                                    class="flex items-center justify-center w-[106px] h-12 text-lg text-white font-bold bg-primary-900 rounded-[40px]">بخوانید</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="border border-solid border-primary-100 bg-zinc-50 rounded-3xl p-2">
+                            <div class="mask-image relative">
+                                <img src="../assets/images/article-card.jpg" alt=""
+                                    class="h-[429px] object-cover rounded-tr-3xl" width="100%" height="429"
+                                    loading="lazy">
+                                <div class="article-shadow absolute inset-0"></div>
+                                <div class="absolute z-10 px-6 bottom-0 mb-20">
+                                    <h2 class="text-lg font-bold text-white mb-2">تحصیل در دانشگاه های پاریس</h2>
+                                    <div class="text-sm text-white line-clamp-3">لورم ایپسوم متن ساختگی با تولید سادگی
+                                        نامفهوم
+                                        از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون ...</div>
+                                </div>
+                            </div>
+                            <div class="flex items-center justify-end gap-14 -mt-6">
+                                <span class="flex items-center gap-1 text-sm text-primary-300">
+                                    <svg width="24" height="25" class="flex-shrink-0">
+                                        <use xlink:href="../assets/images/sprite-icons.svg#icon-calender"></use>
+                                    </svg>
+                                    1403/2/2
+                                </span>
+                                <a href=""
+                                    class="flex items-center justify-center w-[106px] h-12 text-lg text-white font-bold bg-primary-900 rounded-[40px]">بخوانید</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
+
+
+
+
             </div>
         </section>
     </main>
 
+    <script src="https://cdn.basiscore.net/basisfly.com/js/swiper-bundle.min.js"></script>
     <script src="../assets/js/hotelmotel-core.js"></script>
+    <script>
+        var swiperArticleMobile = new Swiper(".swiper-article-mobile", {
+            slidesPerView: 1,
+            speed: 400,
+            centeredSlides: false,
+            spaceBetween: 8,
+            grabCursor: true,
+            autoplay: {
+                delay: 2500,
+                disableOnInteraction: false,
+            },
+            loop: true,
+            navigation: {
+                nextEl: '.swiper-button-next-custom',
+                prevEl: '.swiper-button-prev-custom',
+            },
+        });
+    </script>
+
 </body>
 
 </html>
