@@ -137,6 +137,8 @@ document.addEventListener("DOMContentLoaded", function () {
         var container = document.getElementById("search-box");
         container.innerHTML = xhrobj.responseText;
 
+        let r = document.querySelector(".flighttype-field");
+        r.classList.add("flighttype-dropDown");
         var scripts = container.getElementsByTagName("script");
         for (var i = 0; i < scripts.length; i++) {
           var scriptTag = document.createElement("script");

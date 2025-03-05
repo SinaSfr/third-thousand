@@ -297,7 +297,7 @@ table {
   /* 1 */
   border-color: inherit;
   /* 2 */
-  border-collapse: collapse;
+  
   /* 3 */
 }
 
@@ -550,7 +550,7 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
 
 img,
 video {
-  max-width: 100%;
+  /* max-width: 100%; */
   height: auto;
 }
 
@@ -1044,7 +1044,7 @@ body {
 
   font-weight: 400;
 
-  src: url("../fonts/YekanBakh-Regular.ttf") format("truetype");
+  src: url("../_fonts/YekanBakh-Regular.ttf") format("truetype");
 }
 
 @font-face {
@@ -1056,7 +1056,7 @@ body {
 
   font-weight: 700;
 
-  src: url("../fonts/YekanBakh-Bold.ttf") format("truetype");
+  src: url("../_fonts/YekanBakh-Bold.ttf") format("truetype");
 }
 
 .hover\:scale-105:hover {
