@@ -1212,6 +1212,11 @@ body {
   cursor: pointer;
 }
 
+.reserve-field.passengers-field div:first-of-type{
+  display: flex;
+  align-items: center;
+}
+
 .reserve-field.passengers-field label span {
   display: none;
 }
