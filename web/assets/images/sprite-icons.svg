@@ -524,16 +524,14 @@
 <path d="M26.1887 29.185L28.2534 27.2605L26.1887 25.3359" stroke="#CBB06B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
 </symbol>   
 
-<symbol id="engine-passenger-icon" viewBox="0 0 48 48" fill="none">
-<path d="M24.4261 25.385C27.0177 25.385 29.1186 23.2841 29.1186 20.6925C29.1186 18.1009 27.0177 16 24.4261 16C21.8345 16 19.7336 18.1009 19.7336 20.6925C19.7336 23.2841 21.8345 25.385 24.4261 25.385Z" stroke="#CBB06B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M26.6216 25.668H22.3457C19.9205 25.668 17.9546 27.6339 17.9546 30.0591C17.9546 30.1462 17.9537 30.2336 17.9526 30.3213C17.9395 31.2937 18.7296 31.9999 19.7021 31.9999H29.2651C30.2377 31.9999 31.0277 31.2937 31.0147 30.3213C31.0135 30.2336 31.0127 30.1462 31.0127 30.0591C31.0127 27.6339 29.0467 25.668 26.6216 25.668Z" stroke="#CBB06B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<symbol id="engine-passenger-icon" viewBox="0 0 25 24" fill="none">
+<path d="M12.4261 13.385C15.0177 13.385 17.1186 11.2841 17.1186 8.6925C17.1186 6.1009 15.0177 4 12.4261 4C9.83455 4 7.73364 6.1009 7.73364 8.6925C7.73364 11.2841 9.83455 13.385 12.4261 13.385Z" stroke="#CBB06B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M14.6216 13.668H10.3457C7.92052 13.668 5.95456 15.6339 5.95456 18.0591C5.95456 18.1462 5.95372 18.2336 5.95255 18.3213C5.93952 19.2937 6.72956 19.9999 7.70208 19.9999H17.2651C18.2377 19.9999 19.0277 19.2937 19.0147 18.3213C19.0135 18.2336 19.0127 18.1462 19.0127 18.0591C19.0127 15.6339 17.0467 13.668 14.6216 13.668Z" stroke="#CBB06B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+
 </symbol>
 
-<symbol id="engine-passenger-icon" viewBox="0 0 48 48" fill="none">
-    <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+<symbol id="engine-down-icon" viewBox="0 0 48 48" fill="none">
 <path d="M31 20.5L24 27.5L17 20.5" stroke="#242453" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>
-
 </symbol>
 
 <symbol id="engine-exchange-icon" viewBox="0 0 24 24" fill="none">

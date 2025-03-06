@@ -878,9 +878,17 @@ body {
   gap: 12px;
 }
 
-.reservation-item li{
+.reservation-item li {
   height: auto !important;
   padding: 0;
+}
+
+.reservation-item li:hover {
+  background-color: #ffffff;
+  border-radius: 8px;
+}
+.reservation-item li:hover span {
+  color: #242453;
 }
 
 .reserve-btn {
@@ -953,10 +961,6 @@ body {
   color: #242453 !important;
 }
 
-.module-name:hover {
-  color: #8e7430 !important;
-}
-
 .active-module .module-name:hover {
   color: #242453 !important;
 }
@@ -966,13 +970,31 @@ body {
 #multi {
   padding: 8px !important;
 }
-.search-box-container .active-r-btn {
-  border-radius: 8px;
+#oneway:hover,
+#backtoback:hover,
+#multi:hover,
+.FlightClass.hidden-box li:hover {
+  background-color: #242453;
+  border-radius: 8px !important;
 }
-.search-box-container .active-r-btn span {
+
+#oneway:hover span,
+#backtoback:hover span,
+#multi:hover span,
+.FlightClass.hidden-box li:hover span {
+  color: white !important;
+}
+.search-box-container .active-r-btn,
+.active-FlightClass {
+  border-radius: 8px !important;
+  background-color: #242453 !important;
+}
+.search-box-container .active-r-btn span,
+.active-FlightClass span {
   color: #ffffff !important;
 }
-.search-box-container .active-r-btn:hover span {
+.search-box-container .active-r-btn:hover span,
+.search-box-container .active-FlightClass:hover span {
   color: #ffffff !important;
 }
 .search-box-container input::placeholder {
@@ -980,6 +1002,11 @@ body {
 }
 .passenger-counts {
   color: #242453 !important;
+}
+
+.search-box-container svg {
+  width: 48px;
+  height: 48px;
 }
 
 .flighttype-items {
@@ -1038,9 +1065,19 @@ body {
 .reserve-field.flightclass-field div:first-of-type {
   display: flex;
   align-items: center;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0 12px;
+}
+.reserve-field.flightclass-field .down-icon {
+  margin-top: 0;
+}
+.reserve-field.flightclass-field .clr {
+  position: absolute;
 }
 
-.reserve-field.flightclass-field label span {
+.reserve-field.flightclass-field label.float-right.w-full:first-of-type span {
   display: none;
 }
 
@@ -1051,7 +1088,7 @@ body {
   background-color: #ffffff !important;
   height: 64px !important;
   border-radius: 12px;
-  padding: 8px 12px;
+  padding: 8px 12px !important;
   border: 1px solid #c4c8dc;
 }
 .click-content::placeholder {
@@ -1163,7 +1200,12 @@ body {
 .Basis_Date_Box,
 .form-search.formflight,
 .flight-routes,
-.Flightclass-Passenger {
+.Flightclass-Passenger,
+#insuranceSearch,
+#flightHotelSearch div:first-of-type,
+#serviceSearch,
+#tourSearch,
+#hotelSearch {
   gap: 0.25rem !important;
 }
 
@@ -1223,9 +1265,12 @@ body {
   cursor: pointer;
 }
 
-.reserve-field.passengers-field div:first-of-type {
+.reserve-field.passengers-field
+  div.border-type-1.h-full.rounded-type-1.px-2:first-child {
   display: flex;
   align-items: center;
+  gap: 12px;
+  padding: 0 8px 0 0 !important;
 }
 
 .reserve-field.passengers-field label:first-of-type span {
@@ -1238,10 +1283,6 @@ body {
 
 .reserve-field.passengers-field label svg:nth-child(2) {
   margin-top: 0 !important;
-}
-
-.reserve-field.passengers-field div:first-of-type {
-  padding: 0 !important;
 }
 
 .passengers-field div:nth-child(1) div:first-of-type {
@@ -1257,7 +1298,13 @@ body {
 }
 
 .multicity-flight-form .route-content {
-  margin-bottom: 30px !important;
+  margin-bottom: 10px !important;
+}
+.multi-route-tlt {
+  margin-bottom: 12px !important;
+}
+.route-minus-btn span {
+  display: none;
 }
 
 .multicity-flight-form .route-minus-btn {
@@ -1273,7 +1320,10 @@ body {
   flex: 0.9;
 }
 .multicity-flight-form .flight-routes {
-  flex: 2.2;
+  flex: 1.4;
+}
+.multicity-flight-form .Basis_Date_Box {
+  flex: 1;
 }
 
 .multicity-flight-form .reserve-field.passengers-field {
@@ -1294,7 +1344,7 @@ body {
 }
 
 .multicity-flight-form .search-flight:hover {
-  background-color: #f52c2b;
+  background-color: #242453;
 }
 
 .multicity-flight-form .add-routs {
@@ -1310,7 +1360,29 @@ body {
   transition: all 300ms ease;
 }
 .multicity-flight-form .add-routs:hover {
-  border: 1px solid #f52c2b;
+  border: 1px solid #8e7430;
+  color: #8e7430 !important;
+}
+.addroute-icon {
+  display: none;
+}
+
+.FlightClass.hidden-box {
+  padding: 8px;
+  border-radius: 0.25rem;
+  border: 1px solid #737373;
+  background-color: #fff;
+  width: 100%;
+}
+
+.FlightClass.hidden-box li {
+  line-height: 2rem;
+  font-size: 1rem;
+  text-align: right;
+  display: block;
+  margin: 5px 0;
+  border: unset;
+  padding: 6px;
 }
 
 .remove-multiroute-icon::after {
@@ -1340,60 +1412,48 @@ body {
   text-align: center;
 }
 .ul-list ul li:first-of-type {
-  background-color: #f52c2b;
+  background-color: #242453;
   color: white !important;
 }
 
-.passenger-item.child-passenger-item {
-  display: flex;
-  flex-direction: column;
+.ul-list ul li:hover {
+  background-color: #242453;
+  color: white !important;
+  transition: all 300ms ease;
 }
 
-.passenger-item.child-passenger-item ul {
+.passenger-item.child-passenger-item ul,
+.passenger-item.adult-passenger-item ul,
+.passenger-item.infant-passenger-item ul, 
+.passenger-item.room-passenger-item ul {
   height: auto !important;
   line-height: normal !important;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
-.passenger-item.adult-passenger-item {
+.passenger-item.adult-passenger-item,
+.passenger-item.child-passenger-item,
+.passenger-item.infant-passenger-item,
+.passenger-item.room-passenger-item {
   display: flex;
   flex-direction: column;
 }
 
-.passenger-item.adult-passenger-item ul {
-  height: auto !important;
-  line-height: normal !important;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-.plus-count {
-  width: auto !important;
-  height: auto !important;
-  line-height: normal !important;
-}
-.plus-count div {
-  width: 40px !important;
-  height: 40px !important;
-  background: #ad924c;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  border-radius: 12px;
-}
 .plus-count span {
   font-size: 35px;
   padding-top: 0.25rem;
   color: white;
 }
 
-.minus-count {
+.minus-count,
+.plus-count {
   width: auto !important;
   height: auto !important;
   line-height: normal !important;
 }
-.minus-count div {
+.minus-count div,
+.plus-count div {
   width: 40px !important;
   height: 40px !important;
   background: #ad924c;
