@@ -192,10 +192,6 @@ body {
   margin-top: 2rem;
 }
 
-.mt-9 {
-  margin-top: 2.25rem;
-}
-
 .line-clamp-3 {
   overflow: hidden;
   display: -webkit-box;
@@ -785,7 +781,7 @@ body {
 .loader {
   width: 48px;
   height: 48px;
-  border: 3px dotted #fff;
+  border: 3px dotted #7a82ab;
   border-style: solid solid dotted dotted;
   border-radius: 50%;
   display: inline-block;
@@ -802,7 +798,7 @@ body {
   top: 0;
   bottom: 0;
   margin: auto;
-  border: 3px dotted #ff3d00;
+  border: 3px dotted #cbb06b;
   border-style: solid solid dotted;
   width: 24px;
   height: 24px;
@@ -1189,6 +1185,17 @@ body {
   flex: 2;
   width: auto !important;
 }
+.Wrapper-ExteraHoteldate .Basis_Date_Box {
+  width: 100% !important;
+}
+
+.Basis_Date_ExteraHoteldate,
+.Basis_Date_ExteraHoteldate{
+  padding: 0 !important;
+  position: static !important;
+
+}
+
 .Flightclass-Passenger {
   flex: 1;
 }
@@ -1236,6 +1243,7 @@ body {
 
 .reserve-search {
   height: 64px !important;
+  width: auto !important;
 }
 
 .reserve-field.passengers-field {
@@ -1273,7 +1281,8 @@ body {
   padding: 0 8px 0 0 !important;
 }
 
-.reserve-field.passengers-field label:first-of-type span {
+.reserve-field.passengers-field label[for="passenger1"]  span,
+.reserve-field.passengers-field label[for="passenger8"]  span {
   display: none;
 }
 
@@ -1285,8 +1294,8 @@ body {
   margin-top: 0 !important;
 }
 
-.passengers-field div:nth-child(1) div:first-of-type {
-  display: inline;
+.passengers-field .birthdate-dates {
+  display: block !important; 
 }
 
 .multicity-flight-form .route-content:first-of-type div.route-minus-btn,
@@ -1327,7 +1336,7 @@ body {
 }
 
 .multicity-flight-form .reserve-field.passengers-field {
-  width: 517px !important;
+  max-width: 379px !important;
 }
 
 .multicity-flight-form .remove-routs {
@@ -1354,7 +1363,7 @@ body {
   width: 170px !important;
   height: 64px !important;
   color: #242453 !important;
-  margin-right: 26px !important;
+  margin-right: auto !important;
   border: 1px solid #242453;
   border-radius: 40px;
   transition: all 300ms ease;
@@ -1425,7 +1434,8 @@ body {
 .passenger-item.child-passenger-item ul,
 .passenger-item.adult-passenger-item ul,
 .passenger-item.infant-passenger-item ul, 
-.passenger-item.room-passenger-item ul {
+.passenger-item.room-passenger-item ul,
+.passengerbox.hidden-box .passenger-item ul {
   height: auto !important;
   line-height: normal !important;
   display: flex;
@@ -1435,7 +1445,8 @@ body {
 .passenger-item.adult-passenger-item,
 .passenger-item.child-passenger-item,
 .passenger-item.infant-passenger-item,
-.passenger-item.room-passenger-item {
+.passenger-item.room-passenger-item,
+.passengerbox.hidden-box .passenger-item {
   display: flex;
   flex-direction: column;
 }
@@ -1478,4 +1489,19 @@ body {
   border-radius: 8px;
   outline: none;
   height: 48px !important;
+}
+
+.search-box-container .birthdate-dates div::after{
+  top: 0.8em !important;
+}
+.birthdate-day-value,
+.birthdate-month-value,
+.birthdate-year-value {
+  border: 1px solid #7a82ab !important;
+  border-radius: 8px;
+  margin-top: 0.5rem;
+}
+
+.reserve-field.CheckHotelDate{
+  margin-top: 3rem !important;
 }

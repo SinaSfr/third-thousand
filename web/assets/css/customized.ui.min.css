@@ -297,7 +297,7 @@ table {
   /* 1 */
   border-color: inherit;
   /* 2 */
-  
+
   /* 3 */
 }
 
@@ -823,12 +823,20 @@ body {
   border-width: 1px;
 }
 
+.bg-primary {
+  background-color: var(--primary);
+}
+
 .bg-primary-900 {
   background-color: var(--primary-900);
 }
 
 .bg-primary-950 {
   background-color: var(--primary-950);
+}
+
+.bg-secondary {
+  background-color: var(--secondary);
 }
 
 .bg-secondary-600 {
@@ -899,6 +907,10 @@ body {
 
 .pl-5 {
   padding-left: 1.25rem;
+}
+
+.pr-5 {
+  padding-right: 1.25rem /* 20px */;
 }
 
 .pr-8 {
@@ -1171,6 +1183,10 @@ body {
 
   .lg\:top-16 {
     top: 4rem;
+  }
+
+  .lg\:pr-8 {
+    padding-right: 2rem /* 32px */;
   }
 
   .lg\:mt-0 {

@@ -541,4 +541,15 @@
 <path d="M7.92894 21.1665L3.83228 17.0887L7.92894 13.0109" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
 </symbol>
 
+<symbol id="engine-removeroute-icon" viewBox="0 0 24 25" fill="none" >
+<path fill-rule="evenodd" clip-rule="evenodd" d="M15.711 15.4237L14.65 16.4847L12.249 14.0857L9.849 16.4817L8.789 15.4207L11.188 13.0257L8.789 10.6277L9.85 9.56667L12.25 11.9657L14.651 9.56867L15.711 10.6307L13.311 13.0257L15.711 15.4237ZM12.25 3.28467C6.874 3.28467 2.5 7.65867 2.5 13.0347C2.5 18.4107 6.874 22.7847 12.25 22.7847C17.626 22.7847 22 18.4107 22 13.0347C22 7.65867 17.626 3.28467 12.25 3.28467Z" fill="#FFCDD2"/>
+
+</symbol>
+
+  <symbol id="engine-close-icon" stroke-width="1.5" viewBox="0 0 24 24" stroke="currentColor" fill="none">
+
+  <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+
+  </symbol>
+
 </svg>
