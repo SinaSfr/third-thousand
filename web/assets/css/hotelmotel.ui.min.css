@@ -323,6 +323,10 @@ body {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
+.grid-cols-4 {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
 .justify-end {
   justify-content: flex-end;
 }
@@ -728,6 +732,10 @@ body {
 
 .group:hover .group-hover\:text-secondary-600 {
   color: var(--secondary-600);
+}
+
+.group:hover .group-hover\:fill-white {
+  fill: #fff;
 }
 
 .group:hover .group-hover\:opacity-0 {

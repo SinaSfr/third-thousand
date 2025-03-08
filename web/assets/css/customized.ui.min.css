@@ -1056,7 +1056,7 @@ body {
 
   font-weight: 400;
 
-  src: url("../_fonts/YekanBakh-Regular.ttf") format("truetype");
+  src: url("../_fonts/YekanBakh-Regular.woff") format("woff");
 }
 
 @font-face {
@@ -1068,7 +1068,11 @@ body {
 
   font-weight: 700;
 
-  src: url("../_fonts/YekanBakh-Bold.ttf") format("truetype");
+  src: url("../_fonts/YekanBakh-Bold.ttf") format("ttf");
+}
+
+.direction-ltr{
+  direction: ltr;
 }
 
 .hover\:scale-105:hover {

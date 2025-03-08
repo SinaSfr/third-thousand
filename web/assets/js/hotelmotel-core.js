@@ -45,29 +45,30 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 document.addEventListener("DOMContentLoaded", function () {
-  const faqBox = document.querySelectorAll(".faq-box");
-  const faqAnswers = document.querySelectorAll(".faq-answer");
+  const fetchContentArticle = document;
+  
+  fetchContentArticle.addEventListener("click", function (event) {
+      const button = event.target.closest(".faq-box");
+      if (!button) return;
 
-  faqBox.forEach((button, index) => {
-    button.addEventListener("click", function () {
-      const faqAnswer = faqAnswers[index];
+      const faqBtn = button.querySelector(".faq-btn");
+      const faqAnswer = button.querySelector(".faq-answer");
 
-      faqAnswers.forEach((answer, i) => {
-        if (i !== index) {
-          answer.classList.add("max-h-0", "opacity-0");
-          answer.classList.remove("max-h-screen", "opacity-100");
-        }
+      document.querySelectorAll(".faq-box").forEach(otherBox => {
+          if (otherBox !== button) {
+              const otherAnswer = otherBox.querySelector(".faq-answer");
+              otherAnswer.classList.add("max-h-0", "opacity-0");
+              otherAnswer.classList.remove("max-h-screen", "opacity-100");
+          }
       });
 
       if (faqAnswer.classList.contains("max-h-0")) {
-        faqAnswer.classList.remove("max-h-0", "opacity-0");
-        faqAnswer.classList.add("max-h-screen", "opacity-100");
-        faqAnswer.style.marginTop = "8px";
+          faqAnswer.classList.remove("max-h-0", "opacity-0");
+          faqAnswer.classList.add("max-h-screen", "opacity-100");
       } else {
-        faqAnswer.classList.add("max-h-0", "opacity-0");
-        faqAnswer.classList.remove("max-h-screen", "opacity-100");
+          faqAnswer.classList.add("max-h-0", "opacity-0");
+          faqAnswer.classList.remove("max-h-screen", "opacity-100");
       }
-    });
   });
 });
 
@@ -294,4 +295,30 @@ document.addEventListener("DOMContentLoaded", function () {
   } catch (error) {
     // console.error('مشکلی رخ داده است لطفا صبور باشید.', error);
   }
+});
+
+function initSwiper() {
+  var swiperArticleMobile = new Swiper(".swiper-article", {
+    slidesPerView: 4,
+    speed: 400,
+    centeredSlides: false,
+    spaceBetween: 8,
+    grabCursor: true,
+    autoplay: {
+        delay: 2500,
+        disableOnInteraction: false,
+    },
+    loop: true,
+    pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+    },
+    navigation: {
+        nextEl: '.swiper-button-next-custom',
+        prevEl: '.swiper-button-prev-custom',
+    },
+  });
+}
+document.addEventListener('fetchComplete', function() {
+  initSwiper();
 });

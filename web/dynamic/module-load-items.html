@@ -145,7 +145,7 @@
                     @child
                 </div>
                 <div class="flex justify-center">
-                    <a href=""
+                    <a href="/tour-list.bc?catid=153206"
                         class="relative group text-xl mt-16 font-bold text-blue-500 transition-all duration-300 hover:text-secondary-600">مشاهده
                         بیشتر
                         <span
@@ -275,7 +275,7 @@
                     @child
                 </div>
                 <div class="flex justify-center">
-                    <a href=""
+                    <a href="/"
                         class="relative group text-xl mt-16 font-bold text-blue-500 transition-all duration-300 hover:text-secondary-600">مشاهده
                         بیشتر
                         <span
@@ -462,7 +462,7 @@
 </section>
 
 <basis core="dbsource" source="basiscore" lid="1" mid="1" name="db" catid="[##cms.query.articlecatid##]">
-    <member name="article-list" type="list" link="article.bc" propertyid="7244" perpage="12" size="397x216"
+    <member name="article-list" type="list" link="article.bc" propertyid="7244,7249" perpage="12" size="397x216"
         pageno="[##cms.query.pagenum|(1)##]" order="ord" />
 </basis>
 <section class="mx-auto max-lg:w-[90%] max-xl:w-[97%] xl:max-w-7xl mt-20 mb-24">
@@ -506,21 +506,18 @@
                 <!-- If we need pagination -->
                 <div class="swiper-pagination"></div>
             </layout>
-            <face>
+            <face filter="link is null">
                 <div class="swiper-slide group">
                     <div class="border border-solid border-primary-100 bg-zinc-50 rounded-3xl p-2">
                         <div class="mask-image relative">
-                            <img src="[##cms.cms.cdn##]/images/article-card.jpg" alt=""
+                            <img src="@00397X00216prp" alt="@title"
                                 class="h-[429px] object-cover rounded-tr-3xl transition-all duration-300 group-hover:sepia"
                                 width="100%" height="429" loading="lazy">
                             <div class="article-shadow absolute inset-0"></div>
                             <div class="absolute z-10 px-6 bottom-0 mb-28">
-                                <h2 class="text-lg font-bold text-white mb-2">تحصیل در دانشگاه های پاریس
+                                <h2 class="text-lg font-bold text-white mb-2">@title
                                 </h2>
-                                <div class="text-sm text-white line-clamp-3">لورم ایپسوم متن ساختگی با تولید
-                                    سادگی
-                                    نامفهوم
-                                    از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون ...</div>
+                                <div class="text-sm text-white line-clamp-3">@prp_7244</div>
                             </div>
                         </div>
                         <div class="flex items-center justify-end gap-14 -mt-10">
@@ -528,9 +525,36 @@
                                 <svg width="24" height="25" class="flex-shrink-0">
                                     <use xlink:href="./images/sprite-icons.svg#icon-calender"></use>
                                 </svg>
-                                1403/2/2
+                                @prp_7249
                             </span>
-                            <a href=""
+                            <a href="/article.bc?id=@id"
+                                class="relative z-10 flex items-center justify-center w-[106px] h-12 text-lg text-white font-bold bg-primary-900 rounded-[40px] transition-all duration-300 hover:bg-secondary-600">بخوانید</a>
+                        </div>
+                    </div>
+                </div>
+            </face>
+            <face>
+                <div class="swiper-slide group">
+                    <div class="border border-solid border-primary-100 bg-zinc-50 rounded-3xl p-2">
+                        <div class="mask-image relative">
+                            <img src="@00397X00216prp" alt="@title"
+                                class="h-[429px] object-cover rounded-tr-3xl transition-all duration-300 group-hover:sepia"
+                                width="100%" height="429" loading="lazy">
+                            <div class="article-shadow absolute inset-0"></div>
+                            <div class="absolute z-10 px-6 bottom-0 mb-28">
+                                <h2 class="text-lg font-bold text-white mb-2">@title
+                                </h2>
+                                <div class="text-sm text-white line-clamp-3">@prp_7244</div>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-end gap-14 -mt-10">
+                            <span class="flex items-center gap-1 text-sm text-primary-300">
+                                <svg width="24" height="25" class="flex-shrink-0">
+                                    <use xlink:href="./images/sprite-icons.svg#icon-calender"></use>
+                                </svg>
+                                @prp_7249
+                            </span>
+                            <a href="@link"
                                 class="relative z-10 flex items-center justify-center w-[106px] h-12 text-lg text-white font-bold bg-primary-900 rounded-[40px] transition-all duration-300 hover:bg-secondary-600">بخوانید</a>
                         </div>
                     </div>
@@ -539,26 +563,3 @@
         </basis>
     </div>
 </section>
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-<script>
-    var swiperArticleMobile = new Swiper(".swiper-article", {
-        slidesPerView: 4,
-        speed: 400,
-        centeredSlides: false,
-        spaceBetween: 8,
-        grabCursor: true,
-        autoplay: {
-            delay: 2500,
-            disableOnInteraction: false,
-        },
-        loop: true,
-        pagination: {
-            el: ".swiper-pagination",
-            clickable: true,
-        },
-        navigation: {
-            nextEl: '.swiper-button-next-custom',
-            prevEl: '.swiper-button-prev-custom',
-        },
-    });
-</script>
