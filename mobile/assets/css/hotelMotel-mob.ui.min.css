@@ -851,7 +851,7 @@ body {
   flex-direction: row-reverse;
   justify-content: space-between;
   width: 100%;
-  padding: 0 12px;
+  padding: 0 12px 0 0;
 }
 .reserve-field.flightclass-field .down-icon {
   margin-top: 0;

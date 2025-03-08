@@ -1,0 +1,76 @@
+<basis core="dbsource" source="basiscore" lid="1" mid="1" name="db" usedforid="[##cms.query.id##]">
+    <member name="faq" type="view" propertyid="" />
+</basis>
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,shrink-to-fit=no,viewport-fit=cover">
+    <!-- Title & Description -->
+    <title>[##cms.seo.title|(هتل متل)##]
+    </title>
+    <meta name="description" content="[##cms.seo.description|(هتل متل)##]">
+    <!-- Title & Description -->
+    <basis core="dbsource" source="hosting" name="tag" urlid="[##cms.seo.urlid##]">
+        <member type="list" name="list" request="taglist" preview=""></member>
+    </basis>
+    <basis core="print" datamembername="tag.list">
+        <face filter="key = 'canonical'">
+            <link rel="canonical" href="@value" />
+        </face>
+        <face>
+            <meta property="@key" content="@value" />
+        </face>
+    </basis>
+    <!-- pwa metatags -->
+    <basis core="call" file="pwa.inc" />
+    <!-- common styles for all page -->
+    <basis core="call" file="style.inc" />
+</head>
+
+<body>
+    <basis core="call" file="header.inc" />
+    <main>
+        <section class="xl:w-[97%] mx-auto mt-6">
+            <img src="[##cms.cms.cdn##]/images/faq-back.jpg" alt="faq-back" class="h-[519px] object-cover rounded-3xl"
+                width="100%" height="519" loading="lazy">
+        </section>
+        <section class="mx-auto max-lg:w-[90%] max-xl:w-[97%] xl:max-w-7xl mb-28">
+            <div
+                class="relative bg-white z-10 max-lg:w-[95%] mx-auto -mt-80 faq-shadow rounded px-6 pt-6 pb-2 border-[0.2px] border-solid border-zinc-100">
+                <h1 class="text-primary-900 text-2xl font-bold mb-3">قوانین و مقررات</h1>
+                <basis core="print" datamembername="db.faq">
+                    <layout>
+                        <div class="flex flex-col divide-y divide-primary-100">
+                            @child
+                        </div>
+                    </layout>
+                    <face filter="TypeID in(250)">
+                        <div class="faq-box cursor-pointer text-primary-900 flex flex-col py-3">
+                            <div class="flex items-center text-justify text-sm">
+                                <svg width="48" height="49" class="flex-shrink-0 faq-btn">
+                                    <use xlink:href="./images/sprite-icons.svg#icon-question"></use>
+                                </svg>
+                                @text
+                            </div>
+                            <div
+                                class="flex items-center text-primary-900 text-sm text-justify faq-answer overflow-hidden transition-all duration-300 max-h-0 opacity-0">
+                                <svg width="48" height="49" class="flex-shrink-0">
+                                    <use xlink:href="./images/sprite-icons.svg#icon-chevron-left"></use>
+                                </svg>
+                                @largetext
+                            </div>
+                        </div>
+                    </face>
+                </basis>
+
+            </div>
+        </section>
+    </main>
+    <basis core="call" file="footer.inc" />
+
+    <script src="../assets/js/hotelmotel-core.js"></script>
+</body>
+
+</html>

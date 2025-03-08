@@ -52,7 +52,6 @@ document.addEventListener("DOMContentLoaded", function () {
     button.addEventListener("click", function () {
       const faqAnswer = faqAnswers[index];
 
-      // بستن همه پاسخ‌ها به‌جز پاسخ انتخاب‌شده
       faqAnswers.forEach((answer, i) => {
         if (i !== index) {
           answer.classList.add("max-h-0", "opacity-0");
@@ -60,7 +59,6 @@ document.addEventListener("DOMContentLoaded", function () {
         }
       });
 
-      // باز یا بسته کردن پاسخ موردنظر
       if (faqAnswer.classList.contains("max-h-0")) {
         faqAnswer.classList.remove("max-h-0", "opacity-0");
         faqAnswer.classList.add("max-h-screen", "opacity-100");
@@ -72,7 +70,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 });
-
 
 let i = document.querySelectorAll(".ticket-article");
 i.forEach((e) => {
@@ -152,6 +149,111 @@ document.addEventListener("DOMContentLoaded", function () {
             .appendChild(scriptTag)
             .parentNode.removeChild(scriptTag);
         }
+        if (document.getElementById("search-box")) {
+          const fetchContentModule = document.querySelector(".fetch-content-module");
+          const reserveBtn = document.querySelectorAll(".reserve-btn");
+        
+          const classMapping = {
+            "hotel-btn": 213870,
+            "flight-btn": 213871,
+            "tour-btn": 153206,
+            "flighthotel-btn": 213899,
+            "insurance-btn": 213900,
+          };
+        
+          const idMapping = {
+            "hotel-btn": 2375544,
+            "flight-btn": 2375572,
+            "tour-btn": 2313340,
+          };
+        
+          const faqcatidMapping = {
+            "hotel-btn": 2375547,
+            "flight-btn": 2312905,
+            "tour-btn": 2312908,
+            "flighthotel-btn": 2312474,
+            "insurance-btn": 2312907,
+          };
+        
+          const articlecatidMapping = {
+            "hotel-btn": 213873,
+            "flight-btn": 213874,
+            "tour-btn": 213875,
+            "flighthotel-btn": 213892,
+            "insurance-btn": 213890,
+          };
+        
+          function showLoading() {
+            fetchContentModule.innerHTML = `<div class="flex justify-center mt-20 mb-24"><span class="loader-fetch"></span></div>`;
+          }
+        
+          if (fetchContentModule) {
+            async function firstContent() {
+              try {
+                showLoading()
+                const firstResponse = await fetch(
+                  `/module-load-items.bc?catid=213870&module=hotel&id=2375544&faqcatid=2375547&articlecatid=213873`
+                );
+                if (!firstResponse.ok) {
+                  throw new Error(`HTTP error! Status: ${firstResponse.status}`);
+                }
+                const firstData = await firstResponse.text();
+                fetchContentModule.innerHTML = firstData;
+              } catch (error) {
+                console.error("Fetch اول با مشکل مواجه شد:", error);
+                fetchContentModule.innerHTML =
+                  "<p>مشکلی در دریافت اطلاعات رخ داد: " + error.message + "</p>";
+              }
+            }
+            firstContent();
+        
+            reserveBtn.forEach((item) => {
+              item.addEventListener("click", function () {
+                let cmsQuery = null;
+                let module = null;
+                let id = null;
+                let faqcatid = null;
+                let articlecatid = null;
+        
+                for (const className in classMapping) {
+                  if (item.classList.contains(className)) {
+                    cmsQuery = classMapping[className];
+                    module = className.replace("-btn", "");
+                    id = idMapping[className] || "default";
+                    faqcatid = faqcatidMapping[className];
+                    articlecatid = articlecatidMapping[className];
+                    break;
+                  }
+                }
+        
+                if (!cmsQuery || !module || !id || !faqcatid || !articlecatid) {
+                  return;
+                }
+        
+                async function secondContent() {
+                  try {
+                    showLoading();
+                    const firstResponse = await fetch(
+                      `/module-load-items.bc?catid=${cmsQuery}&module=${module}&id=${id}&faqcatid=${faqcatid}&articlecatid=${articlecatid}`
+                    );
+                    if (!firstResponse.ok) {
+                      throw new Error(`HTTP error! Status: ${firstResponse.status}`);
+                    }
+                    const firstData = await firstResponse.text();
+                    fetchContentModule.innerHTML = firstData;
+                  } catch (error) {
+                    console.error("Fetch دوم با مشکل مواجه شد:", error);
+                    fetchContentModule.innerHTML =
+                      "<p>مشکلی در دریافت اطلاعات رخ داد: " + error.message + "</p>";
+                  }
+                }
+                secondContent();
+              });
+            });
+          }
+        }
+        
+        
       }
 
       let s = JSON.parse(localStorage.getItem("flightData"));

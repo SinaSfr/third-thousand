@@ -824,6 +824,34 @@ body {
   }
 }
 
+.loader-fetch {
+  width: 48px;
+  height: 48px;
+  border:10px solid #FFF;
+  border-radius: 50%;
+  position: relative;
+  transform:rotate(45deg);
+  box-sizing: border-box;
+}
+.loader-fetch::before {
+  content: "";
+  position: absolute;
+  box-sizing: border-box;
+  inset:-10px;
+  border-radius: 50%;
+  border:10px solid #8e7430;
+  animation: prixClipFix 2s infinite linear;
+}
+
+@keyframes prixClipFix {
+    0%   {clip-path:polygon(50% 50%,0 0,0 0,0 0,0 0,0 0)}
+    25%  {clip-path:polygon(50% 50%,0 0,100% 0,100% 0,100% 0,100% 0)}
+    50%  {clip-path:polygon(50% 50%,0 0,100% 0,100% 100%,100% 100%,100% 100%)}
+    75%  {clip-path:polygon(50% 50%,0 0,100% 0,100% 100%,0 100%,0 100%)}
+    100% {clip-path:polygon(50% 50%,0 0,100% 0,100% 100%,0 100%,0 0)}
+}
+  
+
 .r-flight.module-form {
   padding: 18px 16px 34px 16px;
 }
@@ -1125,9 +1153,9 @@ body {
 .search-tour,
 .search-service,
 .search-insurance {
-  width: 170px !important;
+  width: 150px !important;
   background-color: #242453 !important;
-  height: 64px !important;
+  height: 60px !important;
   color: white !important;
   margin-right: 26px !important;
   border-radius: 40px;
@@ -1326,13 +1354,13 @@ body {
 }
 
 .multicity-flight-form .reserve-field.destination-route {
-  flex: 0.9;
+  flex: 1;
 }
 .multicity-flight-form .flight-routes {
   flex: 1.4;
 }
 .multicity-flight-form .Basis_Date_Box {
-  flex: 1;
+  flex: 0.9;
 }
 
 .multicity-flight-form .reserve-field.passengers-field {
@@ -1360,10 +1388,11 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 170px !important;
-  height: 64px !important;
+  width: 150px !important;
+  height: 60px !important;
   color: #242453 !important;
   margin-right: auto !important;
+  font-size: 16px !important;
   border: 1px solid #242453;
   border-radius: 40px;
   transition: all 300ms ease;
