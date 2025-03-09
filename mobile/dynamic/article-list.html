@@ -1,7 +1,7 @@
-<basis core="dbsource" source="basiscore" lid="1" mid="1" name="db" catid="[##cms.query.catid##]">
-    <member name="hotel-list" type="list" link="article.bc" propertyid="3087597,3087598" perpage="12" size="397x284"
+<basis core="dbsource" source="basiscore" lid="1" mid="1" name="db" catid="[##cms.query.articlecatid##]">
+    <member name="article-list" type="list" link="article.bc" propertyid="7244,7249" perpage="6" size="272x429"
         pageno="[##cms.query.pagenum|(1)##]" order="ord" />
-    <member name="paging" type="list" request="paging" count="3" parentname="hotel-list" />
+        <member name="paging" type="list" request="paging" count="3" parentname="article-list" />
 </basis>
 <basis core="dbsource" source="basiscore" lid="1" mid="1" name="db" catid="[##cms.query.catid##]">
     <member name="navigation" type="tree" request="navcatid" parentid="[##cms.query.catid##]" />
@@ -36,21 +36,22 @@
         </face>
     </basis>
     <!-- pwa metatags -->
-    <basis core="call" file="pwa.inc" />
+    <basis core="call" file="pwa.inc" pageindex="[##cms.cms.pageindex##]"/>
     <!-- common styles for all page -->
-    <basis core="call" file="style.inc" />
+    <basis core="call" file="style.inc" pageindex="[##cms.cms.pageindex##]"/>
 </head>
 
 <body>
-    <basis core="call" file="header.inc" />
+    <basis core="call" file="header.inc" pageindex="[##cms.cms.pageindex##]"/>
     <main>
-        <section class="relative mt-6">
-            <div class="absolute flex flex-col items-center justify-center w-full h-full">
+        <section class="relative flex items-center justify-center mt-6">
+            <div class="absolute flex flex-col items-center">
                 <basis core="print" datamembername="db.scalar">
                     <face>
                         <h1 class="text-white text-3xl">@column1</h1>
                     </face>
                 </basis>
+                
                 <ul itemscope itemtype="https://schema.org/BreadcrumbList" class="flex items-center text-sm gap-1 mt-2">
                     <li class="inline-block font-normal" itemprop="itemListElement" itemscope
                         itemtype="https://schema.org/ListItem">
@@ -104,71 +105,65 @@
                     height="320" loading="lazy">
                 </face>
             </basis>
-
         </section>
         <section class="mx-auto max-lg:w-[90%] max-xl:w-[97%] xl:max-w-7xl my-10">
             <basis core="list" datamembername="db.hotel-list">
                 <layout>
-                    <div class="grid grid-cols-3 gap-6">
+                    <div class="flex flex-col gap-6">
                         @child
                     </div>
                 </layout>
                 <face filter="link is null">
-                    <div class="group border border-solid border-primary-100 bg-zinc-50 rounded-[42px] px-3 pt-3 pb-6">
-                        <img src="@00397X00284prp"
-                            class="h-72 object-cover rounded-[30px] transition-all duration-300 group-hover:grayscale"
-                            alt="@title" width="100%" height="284" loading="lazy">
-                        <div class="flex flex-col gap-2 mt-4">
-                            <div class="flex items-center justify-between">
-                                <h2 class="font-bold text-xl">@title</h2>
-                                <span class="flex items-center gap-1 text-sm text-zinc-900 flex-shrink-0">
+                        <div class="border border-solid border-primary-100 bg-zinc-50 rounded-3xl p-2">
+                            <div class="mask-image relative">
+                                <img src="@00272X00429prp" alt="@title"
+                                    class="h-[429px] object-cover rounded-tr-3xl" width="100%" height="429"
+                                    loading="lazy">
+                                <div class="article-shadow absolute inset-0"></div>
+                                <div class="absolute z-10 px-6 bottom-0 mb-20">
+                                    <h2 class="text-lg font-bold text-white mb-2">@title</h2>
+                                    <div class="text-sm text-white line-clamp-3">@prp_7244</div>
+                                </div>
+                            </div>
+                            <div class="flex items-center justify-end gap-14 -mt-6">
+                                <span class="flex items-center gap-1 text-sm text-primary-300">
                                     <svg width="24" height="25" class="flex-shrink-0">
-                                        <use xlink:href="./images/sprite-icons.svg#icon-star"></use>
+                                        <use xlink:href="./images/sprite-icons.svg#icon-calender"></use>
                                     </svg>
-                                    @prp_3087597 ستاره
+                                    @prp_7249
                                 </span>
+                                <a href="/article.bc?id=@id"
+                                    class="flex items-center justify-center w-[106px] h-12 text-lg text-white font-bold bg-primary-900 rounded-[40px]">بخوانید</a>
                             </div>
-                            <div>
-                                <span class="text-primary-300 text-sm">قیمت هر یک شب</span>
-                                <div class="text-zinc-900 text-xl mt-1">@prp_3087598</div>
-                            </div>
-                            <a href="/article.bc?id=@id"
-                                class="relative group/leveltwo z-10 overflow-hidden border border-solid border-primary-900 flex items-center justify-center h-12 text-lg text-white font-bold bg-primary-900 rounded-[40px] transition-all duration-300 hover:text-primary-900">مشاهده
-                                <span
-                                    class="absolute inset-0 transition-transform duration-300 h-12 origin-right scale-x-0 -z-10 bg-zinc-50 group-hover/leveltwo:scale-x-100"></span>
-                            </a>
                         </div>
-                    </div>
                 </face>
                 <face>
-                    <div class="group border border-solid border-primary-100 bg-zinc-50 rounded-[42px] px-3 pt-3 pb-6">
-                        <img src="@00397X00284prp"
-                            class="h-72 object-cover rounded-[30px] transition-all duration-300 group-hover:grayscale"
-                            alt="@title" width="100%" height="284" loading="lazy">
-                        <div class="flex flex-col gap-2 mt-4">
-                            <div class="flex items-center justify-between">
-                                <h2 class="font-bold text-xl">@title</h2>
-                                <span class="flex items-center gap-1 text-sm text-zinc-900 flex-shrink-0">
-                                    <svg width="24" height="25" class="flex-shrink-0">
-                                        <use xlink:href="./images/sprite-icons.svg#icon-star"></use>
-                                    </svg>
-                                    @prp_3087597 ستاره
-                                </span>
+                    <div class="border border-solid border-primary-100 bg-zinc-50 rounded-3xl p-2">
+                        <div class="mask-image relative">
+                            <img src="@00272X00429prp" alt="@title"
+                                class="h-[429px] object-cover rounded-tr-3xl" width="100%" height="429"
+                                loading="lazy">
+                            <div class="article-shadow absolute inset-0"></div>
+                            <div class="absolute z-10 px-6 bottom-0 mb-20">
+                                <h2 class="text-lg font-bold text-white mb-2">@title</h2>
+                                <div class="text-sm text-white line-clamp-3">@prp_7244</div>
                             </div>
-                            <div>
-                                <span class="text-primary-300 text-sm">قیمت هر یک شب</span>
-                                <div class="text-zinc-900 text-xl mt-1">@prp_3087598</div>
-                            </div>
+                        </div>
+                        <div class="flex items-center justify-end gap-14 -mt-6">
+                            <span class="flex items-center gap-1 text-sm text-primary-300">
+                                <svg width="24" height="25" class="flex-shrink-0">
+                                    <use xlink:href="./images/sprite-icons.svg#icon-calender"></use>
+                                </svg>
+                                @prp_7249
+                            </span>
                             <a href="@link"
-                                class="relative group/leveltwo z-10 overflow-hidden border border-solid border-primary-900 flex items-center justify-center h-12 text-lg text-white font-bold bg-primary-900 rounded-[40px] transition-all duration-300 hover:text-primary-900">مشاهده
-                                <span
-                                    class="absolute inset-0 transition-transform duration-300 h-12 origin-right scale-x-0 -z-10 bg-zinc-50 group-hover/leveltwo:scale-x-100"></span>
-                            </a>
+                                class="flex items-center justify-center w-[106px] h-12 text-lg text-white font-bold bg-primary-900 rounded-[40px]">بخوانید</a>
                         </div>
                     </div>
-                </face>
+            </face>
             </basis>
-            <div id="paging" class="flex justify-center mt-20">
+
+            <div id="paging" class="flex justify-center mt-9">
                 <ul class="flex items-center gap-1 cd-pagination no-space direction-ltr" id="wibpaging">
                     <basis core="print" datamembername="db.paging">
                         <face filter="(@sta='pre')and('[##cms.cms.pageurl##]'='')">
@@ -263,7 +258,7 @@
             </div>
         </section>
     </main>
-    <basis core="call" file="footer.inc" />
+    <basis core="call" file="footer.inc" pageindex="[##cms.cms.pageindex##]"/>
 </body>
 
 </html>
