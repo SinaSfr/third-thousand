@@ -1321,3 +1321,8 @@ body {
     max-width: 80rem;
   }
 }
+
+.itemInput,
+.login-btn {
+  font-family: "YekanBakh" !important;
+}

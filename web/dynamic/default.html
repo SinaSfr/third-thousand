@@ -114,9 +114,10 @@
                     <div class="relative flex items-center justify-end rounded-3xl overflow-hidden">
                         <div class="absolute w-[54%] ml-4">
                             <h2 class="text-primary-900 mb-2 text-xl font-bold">@title</h2>
-                            <div class="text-sm text-zinc-900 mb-4">خرید بلیط هواپیما از با خدماتی همچون پرداخت کارت اعتباری
+                            <div class="text-sm text-zinc-900 mb-4">
+                                @urldescription 
                             </div>
-                            <a href=""
+                            <a href="/article-list.bc?catid=@catid"
                                 class="flex items-center justify-center w-32 h-10 text-sm text-white font-bold bg-primary-900 rounded-[40px] transition-all duration-300 hover:bg-secondary-600">رزرو
                                 کنید
                                 <svg width="24" height="24" class="flex-shrink-0">
@@ -124,7 +125,7 @@
                                 </svg>
                             </a>
                         </div>
-                        <img src="[##cms.cms.cdn##]/images/dynamic-img2.jpg" class="h-52 object-cover" alt="" width="100%"
+                        <img src="@image" class="h-52 object-cover" alt="@title" width="100%"
                             height="208" loading="lazy">
                     </div>
                 </face>
@@ -132,9 +133,10 @@
                     <div class="relative flex items-center justify-end rounded-3xl overflow-hidden">
                         <div class="absolute w-[54%] ml-4">
                             <h2 class="text-primary-900 mb-2 text-xl font-bold">@title</h2>
-                            <div class="text-sm text-zinc-900 mb-4">خرید بلیط هواپیما از با خدماتی همچون پرداخت کارت اعتباری
+                            <div class="text-sm text-zinc-900 mb-4">
+                                @urldescription 
                             </div>
-                            <a href=""
+                            <a href="@link"
                                 class="flex items-center justify-center w-32 h-10 text-sm text-white font-bold bg-primary-900 rounded-[40px] transition-all duration-300 hover:bg-secondary-600">رزرو
                                 کنید
                                 <svg width="24" height="24" class="flex-shrink-0">
@@ -142,7 +144,7 @@
                                 </svg>
                             </a>
                         </div>
-                        <img src="[##cms.cms.cdn##]/images/dynamic-img2.jpg" class="h-52 object-cover" alt="" width="100%"
+                        <img src="@image" class="h-52 object-cover" alt="@title" width="100%"
                             height="208" loading="lazy">
                     </div>
                 </face>

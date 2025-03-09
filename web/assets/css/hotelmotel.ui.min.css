@@ -207,6 +207,10 @@ body {
   height: 2.5rem;
 }
 
+.h-15 {
+  height: 3.75rem;
+}
+
 .h-36 {
   height: 9rem;
 }
@@ -251,6 +255,10 @@ body {
   height: 519px;
 }
 
+.w-16 {
+  width: 4rem;
+}
+
 .w-32 {
   width: 8rem;
 }
@@ -259,12 +267,20 @@ body {
   width: 9rem;
 }
 
+.w-44 {
+  width:11rem;
+}
+
 .w-60 {
   width: 15rem;
 }
 
 .w-\[106px\] {
   width: 106px;
+}
+
+.w-\[323px\] {
+  width: 323px;
 }
 
 .w-\[54\%\] {
@@ -1541,4 +1557,149 @@ body {
 
 .reserve-field.CheckHotelDate{
   margin-top: 3rem !important;
+}
+
+.contact-form
+  [data-bc-schema-direction="rtl"]
+  [data-bc-title-container]
+  [data-bc-question-title] {
+  display: none !important;
+}
+.contact-form [data-bc-answer-container] input[type="text"] {
+  background-color: white !important;
+  color: #18181B !important;
+  height: 56px !important;
+  padding: 16px 12px;
+  font-weight: 400 !important;
+  outline: none !important;
+  border-radius: 8px !important;
+  border: none !important;
+  font-size: 16px !important;
+}
+.contact-form [data-bc-answer-container] textarea {
+  background-color: white !important;
+  color: #18181B !important;
+  height: 56px;
+  padding: 16px 12px;
+  font-weight: 400 !important;
+  outline: none !important;
+  border-radius: 8px !important;
+  border: none !important;
+  font-size: 16px !important;
+}
+.contact-form [data-bc-schema-direction="rtl"] [data-bc-part-container] {
+  width: 100%;
+}
+.contact-form [data-bc-answer-container] input[type="text"]::placeholder {
+  color: #18181B !important;
+}
+.contact-form [data-bc-answer-container] textarea::placeholder {
+  color: #18181B !important;
+}
+.contact-form [data-bc-answer-container] {
+  width: 100% !important;
+}
+.contact-form [data-bc-schema-column] {
+  display: flex;
+  gap: 12px;
+}
+.contact-form [data-bc-schema-info-part="1"] [data-bc-part-related-cell] {
+  width: 100% !important;
+}
+
+.contact-form legend {
+  display: none;
+}
+.contact-form [data-bc-section] {
+  width: 50% !important;
+  margin-bottom: 0 !important;
+  padding: 0 !important;
+}
+
+
+.contact-form [data-bc-part] {
+  margin-bottom: 0 !important;
+}
+
+
+.suggest-form [data-bc-schema-direction="rtl"] [data-bc-title-container] {
+  display: none !important;
+}
+.suggest-form
+  [data-bc-schema-direction="rtl"]
+  [data-bc-title-container]
+  [data-bc-question-title] {
+  display: none !important;
+}
+.suggest-form [data-bc-answer-container] input[type="text"] {
+  background-color: white !important;
+  color: #18181B !important;
+  height: 56px !important;
+  padding: 16px 12px !important;
+  font-weight: 400 !important;
+  outline: none !important;
+  border-radius: 8px !important;
+  border: none !important;
+  font-size: 16px !important; 
+}
+.suggest-form [data-bc-answer-container]  textarea {
+  background-color: white !important;
+  color: #18181B !important;
+  height: 71px !important;
+  padding: 16px 12px !important;
+  font-weight: 400 !important;
+  outline: none !important;
+  border-radius: 8px !important;
+  border: none !important;
+  font-size: 16px !important;
+}
+.suggest-form [data-bc-answer-container] select{
+  background-color: white !important;
+  color: #18181B !important;
+  height: 56px !important;
+  padding: 16px 12px !important;
+  font-weight: 400 !important;
+  outline: none !important;
+  border-radius: 8px !important;
+  border: none !important;
+  font-size: 16px !important; 
+}
+.suggest-form [data-bc-schema-direction="rtl"] [data-bc-part-container] {
+  width: 100%;
+}
+.suggest-form [data-bc-answer-container] input[type="text"]::placeholder {
+  color: #18181B !important;
+}
+.suggest-form [data-bc-answer-container] textarea::placeholder {
+  color: #18181B !important;
+}
+.suggest-form [data-bc-answer-container] {
+  width: 100% !important;
+}
+.suggest-form [data-bc-schema-info-part="1"] [data-bc-part-related-cell] {
+  width: 100% !important;
+}
+.suggest-form [data-bc-section]{
+  margin: 0 !important;
+  padding: 0 !important;
+}
+.suggest-form fieldset:first-of-type legend {
+  display: none;
+}
+.suggest-form fieldset:nth-child(2) legend {
+  margin-bottom: 8px;
+}
+
+.suggest-form fieldset:first-of-type {
+  border-bottom: 1px solid #E0CFA5;
+  margin-bottom: 24px !important;
+  padding-bottom: 24px !important;
+}
+
+.suggest-form .left-form-message{
+  margin-bottom: 0;
+}
+
+.suggest-form [data-bc-question]:nth-child(2){
+  margin-bottom: 0 !important;
 }

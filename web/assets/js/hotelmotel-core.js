@@ -166,6 +166,8 @@ document.addEventListener("DOMContentLoaded", function () {
             "hotel-btn": 2375544,
             "flight-btn": 2375572,
             "tour-btn": 2313340,
+            "flighthotel-btn": 2375575,
+            "insurance-btn": 2375578,
           };
         
           const faqcatidMapping = {
@@ -297,6 +299,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
+
 function initSwiper() {
   var swiperArticleMobile = new Swiper(".swiper-article", {
     slidesPerView: 4,
@@ -322,3 +325,134 @@ function initSwiper() {
 document.addEventListener('fetchComplete', function() {
   initSwiper();
 });
+
+
+//form contact
+function uploadDocumentContact(args) {
+  document.querySelector("#contact-form-resize .Loading_Form").style.display =
+    "block";
+  const captcha = document
+    .querySelector("#contact-form-resize")
+    .querySelector("#captchaContainer input[name='captcha']").value;
+  const captchaid = document
+    .querySelector("#contact-form-resize")
+    .querySelector("#captchaContainer input[name='captchaid']").value;
+  const stringJson = JSON.stringify(args.source?.rows[0]);
+  $bc.setSource("cms.uploadContact", {
+    value: stringJson,
+    captcha: captcha,
+    captchaid: captchaid,
+    run: true,
+  });
+}
+
+function refreshCaptchaContact(e) {
+  $bc.setSource("captcha.refreshContact", true);
+}
+
+async function OnProcessedEditObjectContact(args) {
+  var response = args.response;
+  var json = await response.json();
+  var errorid = json.errorid;
+  if (errorid == "6") {
+    document.querySelector("#contact-form-resize .Loading_Form").style.display =
+      "none";
+    document.querySelector("#contact-form-resize .message-api").innerHTML =
+      "درخواست شما با موفقیت ثبت شد.";
+  } else {
+    refreshCaptchaContact();
+    setTimeout(() => {
+      document.querySelector(
+        "#contact-form-resize .Loading_Form"
+      ).style.display = "none";
+      document.querySelector("#contact-form-resize .message-api").innerHTML =
+        "خطایی رخ داده, لطفا مجدد اقدام کنید.";
+    }, 2000);
+  }
+}
+
+async function RenderFormContact() {
+  var inputElementVisa7 = document.querySelector(
+    " .about-form-message textarea[data-bc-text-input]"
+  );
+  inputElementVisa7.setAttribute("placeholder", "متن");
+
+  var inputElementVisa7 = document.querySelector(
+    " .about-form-email input[data-bc-text-input]"
+  );
+  inputElementVisa7.setAttribute("placeholder", "ایمیل");
+
+}
+
+
+//form suggest
+function uploadDocumentSuggest(args) {
+  document.querySelector("#suggest-form-resize .Loading_Form").style.display =
+    "block";
+  const captcha = document
+    .querySelector("#suggest-form-resize")
+    .querySelector("#captchaContainer input[name='captcha']").value;
+  const captchaid = document
+    .querySelector("#suggest-form-resize")
+    .querySelector("#captchaContainer input[name='captchaid']").value;
+  const stringJson = JSON.stringify(args.source?.rows[0]);
+  $bc.setSource("cms.uploadSuggest", {
+    value: stringJson,
+    captcha: captcha,
+    captchaid: captchaid,
+    run: true,
+  });
+}
+
+function refreshCaptchaSuggest(e) {
+  $bc.setSource("captcha.refreshSuggest", true);
+}
+
+async function OnProcessedEditObjectSuggest(args) {
+  var response = args.response;
+  var json = await response.json();
+  var errorid = json.errorid;
+  if (errorid == "6") {
+    document.querySelector("#suggest-form-resize .Loading_Form").style.display =
+      "none";
+    document.querySelector("#suggest-form-resize .message-api").innerHTML =
+      "درخواست شما با موفقیت ثبت شد.";
+  } else {
+    refreshCaptchaSuggest();
+    setTimeout(() => {
+      document.querySelector(
+        "#suggest-form-resize .Loading_Form"
+      ).style.display = "none";
+      document.querySelector("#suggest-form-resize .message-api").innerHTML =
+        "خطایی رخ داده, لطفا مجدد اقدام کنید.";
+    }, 2000);
+  }
+}
+
+async function RenderFormSuggest() {
+
+  var inputElementVisa7 = document.querySelector(
+    " .left-form-message textarea[data-bc-text-input]"
+  );
+  inputElementVisa7.setAttribute("placeholder", "متن");
+
+  var inputElementVisa7 = document.querySelector(
+    " .left-form-name input[data-bc-text-input]"
+  );
+  inputElementVisa7.setAttribute("placeholder", "نام و نام خانوادگی");
+
+  var inputElementVisa7 = document.querySelector(
+    " .left-form-number input[data-bc-text-input]"
+  );
+  inputElementVisa7.setAttribute("placeholder", "شماره موبایل");
+
+  var inputElementVisa7 = document.querySelector(
+    " .left-form-payment input[data-bc-text-input]"
+  );
+  inputElementVisa7.setAttribute("placeholder", "شماره صورت حساب");
+
+  var inputElementVisa7 = document.querySelector(
+    " .left-form-email input[data-bc-text-input]"
+  );
+  inputElementVisa7.setAttribute("placeholder", "ایمیل");
+}

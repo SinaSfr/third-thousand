@@ -39,8 +39,8 @@
                                     پرواز</a>
                             </li>
                             <li class="relative flex items-center h-full group">
-                                <a href="Hotels"
-                                    class="flex items-center gap-2 transition-all duration-300 h-full group text-zinc-900 hover:text-secondary-600 text-xl font-semibold">
+                                <div
+                                    class="flex items-center gap-2 cursor-pointer transition-all duration-300 h-full group text-zinc-900 hover:text-secondary-600 text-xl font-semibold">
                                     بیشتر
                                     <svg width="48" height="48" viewBox="0 0 48 48" fill="none"
                                         class="transition-all duration-300 group-hover:rotate-180"
@@ -49,18 +49,20 @@
                                             class="group-hover:stroke-secondary-600" stroke-linecap="round"
                                             stroke-linejoin="round" />
                                     </svg>
-                                </a>
+                                </div>
                                 <!-- submenu -->
                                 <ul
                                     class="absolute z-30 flex flex-col invisible w-64 gap-2 p-2 font-medium transition-all duration-100 bg-white shadow-md opacity-0 rounded-xl top-full group-hover:visible group-hover:opacity-100">
                                     <li
                                         class="py-1 px-2 transition-all duration-300 rounded-md hover:bg-primary-800 group/leveltwo">
-                                        <a href=""
-                                            class="transition-all duration-300 block text-secondary-800 group-hover/leveltwo:text-white">ویزای
-                                            شینگن</a>
+                                        <a href="/درباره-ما"
+                                            class="transition-all duration-300 block text-zinc-900  group-hover/leveltwo:text-white">درباره ما</a>
                                     </li>
-                                    <li class="py-1"><a href="">ویزای شینگن</a></li>
-                                    <li class="py-1"><a href="">ویزای شینگن</a></li>
+                                    <li
+                                    class="py-1 px-2 transition-all duration-300 rounded-md hover:bg-primary-800 group/leveltwo">
+                                    <a href="/تماس-با-ما"
+                                        class="transition-all duration-300 block text-zinc-900  group-hover/leveltwo:text-white">تماس با ما</a>
+                                </li>
                                 </ul>
                                 <!-- submenu end -->
                             </li>
@@ -93,10 +95,13 @@
             <div class="pb-5 bg-white w-[90%] mx-auto">
                 <nav class="pt-2">
                     <ul class="text-sm divide-y divide-primary-50">
-                        <li class="py-3"><a href="/" class="text-zinc-900">صفحه اصلی</a></li>
+                        <li class="py-3"><a href="/" class="text-zinc-900">هتل</a></li>
+                        <li class="flex items-center py-3 ">
+                            <a href="" class="w-full text-zinc-900">پرواز</a>
+                        </li>
                         <li class="">
                             <div class="flex items-center justify-between cursor-pointer toggle-dropdown">
-                                <a href="" class="ttext-zinc-900">تورهای گردشگران</a>
+                                <span class="text-zinc-900 cursor-pointer">بیشتر</span>
                                 <svg width="48" class="transition-all duration-300 dropdown-icon" height="48"
                                     viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M31 20.5L24 27.5L17 20.5" stroke="#181C47" stroke-width="2"
@@ -106,93 +111,11 @@
                             <!-- submenu -->
                             <ul
                                 class="flex flex-col overflow-hidden transition-all duration-300 bg-white divide-y opacity-0 submenu divide-primary-50 max-h-0">
-                                <li class="px-10 py-2 "><a href="" class="text-zinc-900">ویزای شینگن</a></li>
-                                <li class="px-10 py-2"><a href="">ویزای شینگن</a></li>
-                                <li class="px-10 py-2"><a href="">ویزای شینگن</a></li>
+                                <li class="px-10 py-2 "><a href="/درباره-ما" class="text-zinc-900">درباره ما</a></li>
+                                <li class="px-10 py-2 "><a href="/تماس-با-ما" class="text-zinc-900">تماس با ما</a></li>
                             </ul>
                             <!-- submenu end -->
                         </li>
-                        <li class="">
-                            <div class="flex items-center justify-between cursor-pointer toggle-dropdown">
-                                <a href="" class="text-zinc-900">تور های نوروز1404</a>
-                                <svg width="48" height="48" class="transition-all duration-300 dropdown-icon"
-                                    viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M31 20.5L24 27.5L17 20.5" stroke="#181C47" stroke-width="2"
-                                        stroke-linecap="round" stroke-linejoin="round" />
-                                </svg>
-                            </div>
-                            <!-- submenu -->
-                            <ul
-                                class="flex flex-col overflow-hidden transition-all duration-300 bg-white divide-y opacity-0 submenu divide-primary-50 max-h-0">
-                                <li class="px-10 py-2 "><a href="" class="text-zinc-900">ویزای شینگن</a></li>
-                                <li class="px-10 py-2"><a href="">ویزای شینگن</a></li>
-                                <li class="px-10 py-2"><a href="">ویزای شینگن</a></li>
-                            </ul>
-                            <!-- submenu end -->
-
-                        </li>
-
-                        <li class="">
-                            <div class="flex items-center justify-between cursor-pointer toggle-dropdown">
-                                <a href="" class="text-zinc-900">تور های نمایشگاهی</a>
-                                <svg width="48" height="48" class="transition-all duration-300 dropdown-icon"
-                                    viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M31 20.5L24 27.5L17 20.5" stroke="#181C47" stroke-width="2"
-                                        stroke-linecap="round" stroke-linejoin="round" />
-                                </svg>
-                            </div>
-                            <!-- submenu -->
-                            <ul
-                                class="flex flex-col overflow-hidden transition-all duration-300 bg-white divide-y opacity-0 submenu divide-primary-50 max-h-0">
-                                <li class="px-10 py-2 "><a href="" class="text-zinc-900">ویزای شینگن</a></li>
-                                <li class="px-10 py-2"><a href="">ویزای شینگن</a></li>
-                                <li class="px-10 py-2"><a href="">ویزای شینگن</a></li>
-                            </ul>
-                            <!-- submenu end -->
-
-                        </li>
-                        <li class="flex items-center py-3 ">
-                            <a href="" class="w-full text-zinc-900">خدمات ویزا</a>
-                        </li>
-                        <li class="">
-                            <div class="flex items-center justify-between cursor-pointer toggle-dropdown">
-                                <a href="" class="text-zinc-900">سبک سفر</a>
-                                <svg width="48" height="48" class="transition-all duration-300 dropdown-icon"
-                                    viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M31 20.5L24 27.5L17 20.5" stroke="#181C47" stroke-width="2"
-                                        stroke-linecap="round" stroke-linejoin="round" />
-                                </svg>
-                            </div>
-                            <!-- submenu -->
-                            <ul
-                                class="flex flex-col overflow-hidden transition-all duration-300 bg-white divide-y opacity-0 submenu divide-primary-50 max-h-0">
-                                <li class="px-10 py-2 "><a href="" class="text-zinc-900">ویزای شینگن</a></li>
-                                <li class="px-10 py-2"><a href="">ویزای شینگن</a></li>
-                                <li class="px-10 py-2"><a href="">ویزای شینگن</a></li>
-                            </ul>
-                            <!-- submenu end -->
-
-                        </li>
-                        <li class="">
-                            <div class="flex items-center justify-between cursor-pointer toggle-dropdown">
-                                <a href="" class="text-zinc-900">مجله گردشگری</a>
-                                <svg width="48" height="48" class="transition-all duration-300 dropdown-icon"
-                                    viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M31 20.5L24 27.5L17 20.5" stroke="#181C47" stroke-width="2"
-                                        stroke-linecap="round" stroke-linejoin="round" />
-                                </svg>
-                            </div>
-                            <!-- submenu -->
-                            <ul
-                                class="flex flex-col overflow-hidden transition-all duration-300 bg-white divide-y opacity-0 submenu divide-primary-50 max-h-0">
-                                <li class="px-10 py-2 "><a href="" class="text-zinc-900">ویزای شینگن</a></li>
-                                <li class="px-10 py-2"><a href="">ویزای شینگن</a></li>
-                                <li class="px-10 py-2"><a href="">ویزای شینگن</a></li>
-                            </ul>
-                            <!-- submenu end -->
-
-                        </li>
-
                     </ul>
                 </nav>
             </div>
