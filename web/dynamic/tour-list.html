@@ -3,7 +3,7 @@
         pageno="[##cms.query.pagenum|(1)##]" order="ord" />
     <member name="paging" type="list" request="paging" count="3" parentname="tour-list" />
 </basis>
-<basis core="dbsource" source="basiscore" lid="1" mid="1" name="db" catid="[##cms.query.catid##]">
+<basis core="dbsource" source="basiscore" lid="1" mid="20" name="db" catid="[##cms.query.catid##]">
     <member name="navigation" type="tree" request="navcatid" parentid="[##cms.query.catid##]" />
 </basis>
 <basis core="dbsource" source="basiscore" lid="1" mid="18" name="db" usedforid="[##cms.query.catid##]">
@@ -61,14 +61,14 @@
                     </li>
                     <span class="text-white"> > </span>
                     <basis core="print" datamembername="db.navigation">
-                        <face filter="RowNumber=max(RowNumber) and parentcatid<>152240">
+                        <face filter="RowNumber=max(RowNumber) and parentcatid<>152239">
                             <li class="inline-block font-normal" itemprop="itemListElement" itemscope
                                 itemtype="https://schema.org/ListItem">
                                 <span itemprop="name">@title</span>
                                 <meta itemprop="position" content="@rownumber" />
                             </li>
                         </face>
-                        <face filter="link is null and parentcatid<>152240">
+                        <face filter="link is null and parentcatid<>152239">
                             <li class="flex gap-1 font-normal " itemprop="itemListElement" itemscope
                                 itemtype="https://schema.org/ListItem">
                                 <a class="text-white transition-all duration-300 hover:text-secondary-600" itemprop="item"
@@ -79,7 +79,7 @@
                                 <span class="text-white"> > </span>
                             </li>
                         </face>
-                        <face filter="parentcatid<>152240">
+                        <face filter="parentcatid<>152239">
                             <li class="flex gap-1 font-normal " itemprop="itemListElement" itemscope
                                 itemtype="https://schema.org/ListItem">
                                 <a class="text-white transition-all duration-300 hover:text-secondary-600" itemprop="item" href="@link"
@@ -95,7 +95,7 @@
             </div>
             <basis core="print" datamembername="db.bannerimage">
                 <layout>
-                    <div>
+                    <div class="rounded-[43px] overflow-hidden mx-auto w-[99%]">
                         @child
                     </div>
                 </layout>

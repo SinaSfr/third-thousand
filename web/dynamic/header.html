@@ -1,7 +1,7 @@
 <basis core="dbsource" source="basiscore" name="db" mid="5" lid="1" usedforid="[##cms.cms.ownerid##]">
     <member name="info" type="view" />
 </basis>
-<header class="mx-auto max-lg:w-[90%] max-xl:w-[97%] xl:max-w-7xl">
+<header class="header-landing-items mx-auto max-lg:w-[90%] max-xl:w-[97%] xl:max-w-7xl">
     <section class="relative z-30 bg-white rounded-2xl lg:rounded-3xl">
         <div class="flex items-center justify-between">
             <div class="flex items-center gap-2 h-14 lg:h-[70px] lg:flex-row-reverse lg:w-full lg:justify-between">
@@ -28,15 +28,15 @@
                             loading="lazy" class="hidden transition-all duration-300 lg:block hover:scale-90" /></a>
                     <nav class="hidden h-full lg:flex">
                         <ul class="flex items-center gap-6">
-                            <li class="flex">
-                                <a href="/Articles"
+                            <li class="flex items-center h-full cursor-pointer landing-item" data-id="hotel" data-nav="hotel" onclick="check_searchHistory('hotel'); check_landing('hotel')">
+                                <span
                                     class="transition-all duration-300 pl-3 text-zinc-900 hover:text-secondary-600 text-xl font-semibold">
-                                    هتل</a>
+                                    هتل</span>
                             </li>
-                            <li class="flex items-center h-full">
-                                <a href=""
+                            <li class="flex items-center h-full cursor-pointer landing-item" data-id="flight" data-nav="flight" onclick="check_searchHistory('flight'); check_landing('flight')">
+                                <span
                                     class="flex items-center transition-all duration-300 text-zinc-900 hover:text-secondary-600 text-xl font-semibold">
-                                    پرواز</a>
+                                    پرواز</span>
                             </li>
                             <li class="relative flex items-center h-full group">
                                 <div
@@ -95,9 +95,9 @@
             <div class="pb-5 bg-white w-[90%] mx-auto">
                 <nav class="pt-2">
                     <ul class="text-sm divide-y divide-primary-50">
-                        <li class="py-3"><a href="/" class="text-zinc-900">هتل</a></li>
-                        <li class="flex items-center py-3 ">
-                            <a href="" class="w-full text-zinc-900">پرواز</a>
+                        <li class="py-3 landing-item" data-id="hotel" data-nav="hotel" onclick="check_searchHistory('hotel'); check_landing('hotel')"><span class="text-zinc-900">هتل</span></li>
+                        <li class="flex items-center py-3 landing-item" data-id="flight" data-nav="flight" onclick="check_searchHistory('flight'); check_landing('flight')">
+                            <span class="w-full text-zinc-900">پرواز</span>
                         </li>
                         <li class="">
                             <div class="flex items-center justify-between cursor-pointer toggle-dropdown">

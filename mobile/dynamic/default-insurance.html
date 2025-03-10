@@ -1,0 +1,196 @@
+<basis core="dbsource" source="basiscore" lid="1" mid="1" name="db" catid="213900">
+    <member name="insurance-list" type="list" link="article.bc" propertyid="3087598" perpage="6" size="264x184"
+        pageno="[##cms.query.pagenum|(1)##]" order="ord" />
+</basis>
+<basis core="dbsource" source="basiscore" lid="1" mid="1" name="db" usedforid="2375578">
+    <member name="p-undermodule" type="view" propertyid="" />
+</basis>
+<basis core="dbsource" source="basiscore" lid="1" mid="1" name="db" usedforid="2312907">
+    <member name="faq-list" type="view" propertyid="" />
+</basis>
+<basis core="dbsource" source="basiscore" lid="1" mid="1" name="db" catid="213890">
+    <member name="article-list" type="list" link="article.bc" propertyid="7244,7249" perpage="12" size="298x429"
+        pageno="[##cms.query.pagenum|(1)##]" order="ord" />
+</basis>
+
+<section class="mx-auto max-lg:w-[90%] max-xl:w-[97%] xl:max-w-7xl mt-6">
+    <basis core="list" datamembername="db.insurance-list">
+        <layout>
+            <h2 class="text-primary-900 mb-6 text-center">بیمه های پیشنهادی</h2>
+            <div class="flex flex-col gap-2">
+                <!-- items insurance -->
+                @child
+            </div>
+            <button class="flex justify-center text-sm mt-6 text-blue-500">مشاهده بیشتر</button>
+        </layout>
+        <face filter="link is null">
+            <div class="border border-solid border-primary-100 bg-zinc-50 rounded-[42px] px-3 pt-3 pb-6">
+                <img src="@00264X00184prp" class="h-48 object-cover rounded-[30px]" alt="@title" width="100%"
+                    height="184" loading="lazy">
+                <div class="flex flex-col gap-2 mt-4">
+                    <h3 class="text-zinc-900 font-bold text-xl">@title</h3>
+                    <div class="flex items-center gap-3 pr-3 py-1 text-zinc-900 text-xl bg-primary-50 rounded-lg">
+                        <svg width="24" height="24">
+                            <use xlink:href="./images/sprite-icons.svg#icon-insurance"></use>
+                        </svg>
+                        <span>قیمت : <span>@prp_3087598</span></span>
+                    </div>
+                    <a href="/article.bc?id=@id"
+                        class="flex items-center justify-center h-12 text-lg text-primary-900 font-bold border border-primary-900 rounded-[40px]">انتخاب
+                        سرویس</a>
+                </div>
+            </div>
+        </face>
+        <face>
+            <div class="border border-solid border-primary-100 bg-zinc-50 rounded-[42px] px-3 pt-3 pb-6">
+                <img src="@00264X00184prp" class="h-48 object-cover rounded-[30px]" alt="@title" width="100%"
+                    height="184" loading="lazy">
+                <div class="flex flex-col gap-2 mt-4">
+                    <h3 class="text-zinc-900 font-bold text-xl">@title</h3>
+                    <div class="flex items-center gap-3 pr-3 py-1 text-zinc-900 text-xl bg-primary-50 rounded-lg">
+                        <svg width="24" height="24">
+                            <use xlink:href="./images/sprite-icons.svg#icon-insurance"></use>
+                        </svg>
+                        <span>قیمت : <span>@prp_3087598</span></span>
+                    </div>
+                    <a href="@link"
+                        class="flex items-center justify-center h-12 text-lg text-primary-900 font-bold border border-primary-900 rounded-[40px]">انتخاب
+                        سرویس</a>
+                </div>
+            </div>
+        </face>
+    </basis>
+</section>
+<section class="mx-auto max-lg:w-[90%] max-xl:w-[97%] xl:max-w-7xl mt-6">
+    <basis core="print" datamembername="db.p-undermodule">
+        <layout>
+            <div>
+                @child
+            </div>
+        </layout>
+        <face filter="TypeID in(150)">
+            <h2 class="text-zinc-900 mb-4">@text</h2>
+        </face>
+        <face filter="TypeID in(129)">
+            <h2 class="text-zinc-900 mb-4">@text</h2>
+            <div class="text-zinc-700 text-sm text-justify">
+                @largetext
+            </div>
+        </face>
+        <face filter="TypeID in(250)">
+            <h2 class="text-zinc-900 mb-4">@text</h2>
+            <div class="text-zinc-700 text-sm text-justify">
+                @largetext
+            </div>
+        </face>
+    </basis>
+
+</section>
+<section
+    class="mx-auto max-lg:w-[90%] max-xl:w-[97%] xl:max-w-7xl mt-6 faq-shadow rounded pt-3 px-3 border-[0.2px] border-solid border-zinc-300">
+    <h2 class="text-primary-900 text-lg mb-3">سوالات متداول</h2>
+    <basis core="print" datamembername="db.faq-list">
+        <layout>
+            <div class="flex flex-col divide-y divide-primary-100">
+                @child
+            </div>
+        </layout>
+        <face filter="TypeID in(250)">
+            <div class="faq-box cursor-pointer text-primary-900 text-sm flex flex-col py-3">
+                <div class="flex items-center text-justify">
+                    <svg width="48" height="49" class="flex-shrink-0 faq-btn">
+                        <use xlink:href="./images/sprite-icons.svg#icon-question"></use>
+                    </svg>
+                    @text
+                </div>
+                <div
+                    class="flex items-center text-primary-900 mr-auto text-sm text-justify faq-answer overflow-hidden transition-all duration-300 max-h-0 opacity-0">
+                    <svg width="48" height="49" class="flex-shrink-0">
+                        <use xlink:href="./images/sprite-icons.svg#icon-chevron-left"></use>
+                    </svg>
+                    @largetext
+                </div>
+            </div>
+        </face>
+    </basis>
+
+</section>
+<section class="mx-auto max-lg:w-[90%] max-xl:w-[97%] xl:max-w-7xl mt-6 mb-10">
+
+    <!-- If we need navigation buttons -->
+    <div class="flex items-center justify-between w-full mb-6 ">
+        <div class="swiper-button-prev-custom w-12 h-12 rounded-full bg-zinc-100 flex items-center justify-center">
+            <svg width="24" height="25" class="flex-shrink-0">
+                <use xlink:href="./images/sprite-icons.svg#icon-chevron-right"></use>
+            </svg>
+        </div>
+        <h2 class="text-primary-900 text-center">مجله گردشگری</h2>
+        <div class="swiper-button-next-custom w-12 h-12 rounded-full bg-zinc-100 flex items-center justify-center">
+            <svg width="48" height="48" class="flex-shrink-0">
+                <use xlink:href="./images/sprite-icons.svg#icon-chevron-left"></use>
+            </svg>
+        </div>
+    </div>
+    <!-- Slider main container -->
+    <div class="swiper swiper-article-mobile">
+        <basis core="list" datamembername="db.article-list">
+            <layout>
+                <!-- Additional required wrapper -->
+                <div class="swiper-wrapper">
+                    <!-- Slides -->
+                    @child
+                </div>
+            </layout>
+            <face filter="link is null">
+                <div class="swiper-slide">
+                    <div class="border border-solid border-primary-100 bg-zinc-50 rounded-3xl p-2">
+                        <div class="mask-image relative">
+                            <img src="@00272X00429prp" alt="@title" class="h-[429px] object-cover rounded-tr-3xl"
+                                width="100%" height="429" loading="lazy">
+                            <div class="article-shadow absolute inset-0"></div>
+                            <div class="absolute z-10 px-6 bottom-0 mb-20">
+                                <h2 class="text-lg font-bold text-white mb-2">@title</h2>
+                                <div class="text-sm text-white line-clamp-3">@prp_7244</div>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-end gap-14 -mt-6">
+                            <span class="flex items-center gap-1 text-sm text-primary-300">
+                                <svg width="24" height="25" class="flex-shrink-0">
+                                    <use xlink:href="./images/sprite-icons.svg#icon-calender"></use>
+                                </svg>
+                                @prp_7249
+                            </span>
+                            <a href="/article.bc?id=@id"
+                                class="flex items-center justify-center w-[106px] h-12 text-lg text-white font-bold bg-primary-900 rounded-[40px]">بخوانید</a>
+                        </div>
+                    </div>
+                </div>
+            </face>
+            <face>
+                <div class="swiper-slide">
+                    <div class="border border-solid border-primary-100 bg-zinc-50 rounded-3xl p-2">
+                        <div class="mask-image relative">
+                            <img src="@00272X00429prp" alt="@title" class="h-[429px] object-cover rounded-tr-3xl"
+                                width="100%" height="429" loading="lazy">
+                            <div class="article-shadow absolute inset-0"></div>
+                            <div class="absolute z-10 px-6 bottom-0 mb-20">
+                                <h2 class="text-lg font-bold text-white mb-2">@title</h2>
+                                <div class="text-sm text-white line-clamp-3">@prp_7244</div>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-end gap-14 -mt-6">
+                            <span class="flex items-center gap-1 text-sm text-primary-300">
+                                <svg width="24" height="25" class="flex-shrink-0">
+                                    <use xlink:href="./images/sprite-icons.svg#icon-calender"></use>
+                                </svg>
+                                @prp_7249
+                            </span>
+                            <a href="@link"
+                                class="flex items-center justify-center w-[106px] h-12 text-lg text-white font-bold bg-primary-900 rounded-[40px]">بخوانید</a>
+                        </div>
+                    </div>
+                </div>
+            </face>
+        </basis>
+    </div>
+</section>

@@ -136,10 +136,8 @@ if (document.getElementById("search-box")) {
     }
   }
 
-  // **لود اولیه با مقدار پیش‌فرض**
   fetchAndLoadContent(`/module-load-items.bc?catid=213870&module=hotel&id=2375544&faqcatid=2375547&articlecatid=213873`);
 
-  // **مدیریت کلیک روی دکمه‌های رزرو**
   reserveBtn.forEach(item => {
     item.addEventListener("click", function () {
       for (const className in classMapping) {

@@ -1,6 +1,6 @@
 <basis core="group" if=" '[##cms.query.module##]' = 'flight' ">
     <basis core="dbsource" source="basiscore" lid="1" mid="1" name="db" catid="[##cms.query.catid##]">
-        <member name="flight-list" type="list" link="article.bc" propertyid="3087600,3087601,3087538,3087539"
+        <member name="flight-list" type="list" link="article.bc" propertyid="3087600,3087601,3087602,3087603"
             perpage="12" size="397x216" pageno="[##cms.query.pagenum|(1)##]" order="ord" />
     </basis>
     <section class="mx-auto max-lg:w-[90%] max-xl:w-[97%] xl:max-w-7xl mt-20">
@@ -12,7 +12,7 @@
                     @child
                 </div>
                 <div class="flex justify-center">
-                    <button 
+                    <button
                         class="showMoreBtn relative group text-xl mt-16 font-bold text-blue-500 transition-all duration-300 hover:text-secondary-600">مشاهده
                         بیشتر
                         <span
@@ -29,7 +29,7 @@
                     <div class="flex flex-col gap-4 mt-4">
                         <div class="flex items-center justify-between mt-4">
                             <h3 class="text-zinc-900 font-bold text-xl dep-text">@prp_3087600</h3>
-                            <span class="hidden dep-id">@prp_3087538</span>
+                            <span class="hidden dep-id">@prp_3087602</span>
                             <span class="hidden flight-type-article"></span>
                             <div class="relative">
                                 <svg width="285" height="1">
@@ -40,7 +40,7 @@
                                 </svg>
                             </div>
                             <h3 class="text-zinc-900 font-bold text-xl des-text">@prp_3087601</h3>
-                            <p class="hidden des-id">@prp_3087539</p>
+                            <p class="hidden des-id">@prp_3087603</p>
                         </div>
                         <button type="button"
                             class="set-ticket relative group/leveltwo z-10 overflow-hidden border border-solid border-primary-900 flex items-center justify-center h-12 text-lg text-white font-bold bg-primary-900 rounded-[40px] transition-all duration-300 hover:text-primary-900">مشاهده
@@ -59,7 +59,7 @@
                     <div class="flex flex-col gap-4 mt-4">
                         <div class="flex items-center justify-between mt-4">
                             <h3 class="text-zinc-900 font-bold text-xl dep-text">@prp_3087600</h3>
-                            <span class="hidden dep-id">@prp_3087538</span>
+                            <span class="hidden dep-id">@prp_3087602</span>
                             <span class="hidden flight-type-article"></span>
                             <div class="relative">
                                 <svg width="285" height="1">
@@ -70,7 +70,7 @@
                                 </svg>
                             </div>
                             <h3 class="text-zinc-900 font-bold text-xl des-text">@prp_3087601</h3>
-                            <p class="hidden des-id">@prp_3087539</p>
+                            <p class="hidden des-id">@prp_3087603</p>
                         </div>
                         <button type="button"
                             class="set-ticket relative group/leveltwo z-10 overflow-hidden border border-solid border-primary-900 flex items-center justify-center h-12 text-lg text-white font-bold bg-primary-900 rounded-[40px] transition-all duration-300 hover:text-primary-900">مشاهده
@@ -92,13 +92,13 @@
     <section class="mx-auto max-lg:w-[90%] max-xl:w-[97%] xl:max-w-7xl mt-20">
         <basis core="list" datamembername="db.flighthotel-list">
             <layout>
-                <h2 class="text-primary-900 font-bold text-2xl mb-20 text-center">هتل-پرواز های پیشنهادی</h2>
+                <h2 class="text-primary-900 font-bold text-2xl mb-20 text-center">پکیج های پیشنهادی</h2>
                 <div class="grid grid-cols-3 gap-2">
                     <!-- items flight-hotel -->
                     @child
                 </div>
                 <div class="flex justify-center">
-                    <button 
+                    <button
                         class="showMoreBtn relative group text-xl mt-16 font-bold text-blue-500 transition-all duration-300 hover:text-secondary-600">مشاهده
                         بیشتر
                         <span
@@ -318,7 +318,7 @@
                     @child
                 </div>
                 <div class="flex justify-center">
-                    <a href="/"
+                    <a href="/tourist-list.bc?catid=153215"
                         class="relative group text-xl mt-16 font-bold text-blue-500 transition-all duration-300 hover:text-secondary-600">مشاهده
                         بیشتر
                         <span
@@ -385,7 +385,7 @@
                     @child
                 </div>
                 <div class="flex justify-center">
-                    <button 
+                    <button
                         class="showMoreBtn relative group text-xl mt-16 font-bold text-blue-500 transition-all duration-300 hover:text-secondary-600">مشاهده
                         بیشتر
                         <span
@@ -404,7 +404,7 @@
                             <svg width="24" height="24">
                                 <use xlink:href="./images/sprite-icons.svg#icon-insurance"></use>
                             </svg>
-                             <span>قیمت : <span>@prp_3087598</span></span>
+                            <span>قیمت : <span>@prp_3087598</span></span>
                         </div>
                         <a href="/article.bc?id=@id"
                             class="relative group/leveltwo z-10 overflow-hidden flex items-center justify-center h-12 text-lg text-primary-900 font-bold border border-primary-900 rounded-[40px] transition-all duration-300 hover:text-white">انتخاب
@@ -606,3 +606,125 @@
         </basis>
     </div>
 </section>
+
+<script>
+    if (document.getElementById("search-box")) {
+        const fetchContentModule = document.querySelector(
+            ".fetch-content-module"
+        );
+        const reserveBtn = document.querySelectorAll(".reserve-btn");
+
+        const classMapping = {
+            "hotel-btn": 213870,
+            "flight-btn": 213871,
+            "tour-btn": 153206,
+            "flighthotel-btn": 213899,
+            "insurance-btn": 213900,
+            "service-btn": 153215
+        };
+
+        const idMapping = {
+            "hotel-btn": 2375544,
+            "flight-btn": 2375572,
+            "tour-btn": 2313340,
+            "flighthotel-btn": 2375575,
+            "insurance-btn": 2375578,
+            "service-btn": 2313859
+        };
+
+        const faqcatidMapping = {
+            "hotel-btn": 2375547,
+            "flight-btn": 2312905,
+            "tour-btn": 2312908,
+            "flighthotel-btn": 2312474,
+            "insurance-btn": 2312907,
+            "service-btn": 2375547
+        };
+
+        const articlecatidMapping = {
+            "hotel-btn": 213873,
+            "flight-btn": 213874,
+            "tour-btn": 213875,
+            "flighthotel-btn": 213892,
+            "insurance-btn": 213890,
+            "service-btn": 213876
+        };
+
+        function showLoading() {
+            fetchContentModule.innerHTML = `<div class="flex justify-center mt-20 mb-24"><span class="loader-fetch"></span></div>`;
+        }
+
+        if (fetchContentModule) {
+            async function firstContent() {
+                try {
+                    showLoading();
+                    const firstResponse = await fetch(
+                        `/module-load-items.bc?catid=213870&module=hotel&id=2375544&faqcatid=2375547&articlecatid=213873`
+                    );
+                    if (!firstResponse.ok) {
+                        throw new Error(
+                            `HTTP error! Status: ${firstResponse.status}`
+                        );
+                    }
+                    const firstData = await firstResponse.text();
+                    fetchContentModule.innerHTML = firstData;
+                } catch (error) {
+                    console.error("Fetch اول با مشکل مواجه شد:", error);
+                    fetchContentModule.innerHTML =
+                        "<p>مشکلی در دریافت اطلاعات رخ داد: " +
+                        error.message +
+                        "</p>";
+                }
+            }
+            firstContent();
+
+            reserveBtn.forEach((item) => {
+                item.addEventListener("click", function () {
+                    let cmsQuery = null;
+                    let module = null;
+                    let id = null;
+                    let faqcatid = null;
+                    let articlecatid = null;
+
+                    for (const className in classMapping) {
+                        if (item.classList.contains(className)) {
+                            cmsQuery = classMapping[className];
+                            module = className.replace("-btn", "");
+                            id = idMapping[className] || "default";
+                            faqcatid = faqcatidMapping[className];
+                            articlecatid = articlecatidMapping[className];
+                            break;
+                        }
+                    }
+
+                    if (!cmsQuery || !module || !id || !faqcatid || !articlecatid) {
+                        return;
+                    }
+
+                    async function secondContent() {
+                        try {
+                            showLoading();
+                            const firstResponse = await fetch(
+                                `/module-load-items.bc?catid=${cmsQuery}&module=${module}&id=${id}&faqcatid=${faqcatid}&articlecatid=${articlecatid}`
+                            );
+                            if (!firstResponse.ok) {
+                                throw new Error(
+                                    `HTTP error! Status: ${firstResponse.status}`
+                                );
+                            }
+                            const firstData = await firstResponse.text();
+                            fetchContentModule.innerHTML = firstData;
+                        } catch (error) {
+                            console.error("Fetch دوم با مشکل مواجه شد:", error);
+                            fetchContentModule.innerHTML =
+                                "<p>مشکلی در دریافت اطلاعات رخ داد: " +
+                                error.message +
+                                "</p>";
+                        }
+                    }
+                    secondContent();
+                });
+            });
+        }
+    }
+</script>

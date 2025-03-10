@@ -915,6 +915,10 @@ body {
   padding: 12px 8px;
   border-radius: 12px;
 }
+.module-banner-image{
+  height: 519px;
+  object-fit: cover;
+}
 
 .module-name {
   color: white;

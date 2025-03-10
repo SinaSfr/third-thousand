@@ -46,29 +46,58 @@ document.addEventListener("DOMContentLoaded", function () {
 
 document.addEventListener("DOMContentLoaded", function () {
   const fetchContentArticle = document;
-  
+
   fetchContentArticle.addEventListener("click", function (event) {
-      const button = event.target.closest(".faq-box");
-      if (!button) return;
+    const button = event.target.closest(".faq-box");
+    if (!button) return;
 
-      const faqBtn = button.querySelector(".faq-btn");
-      const faqAnswer = button.querySelector(".faq-answer");
+    const faqBtn = button.querySelector(".faq-btn");
+    const faqAnswer = button.querySelector(".faq-answer");
 
-      document.querySelectorAll(".faq-box").forEach(otherBox => {
-          if (otherBox !== button) {
-              const otherAnswer = otherBox.querySelector(".faq-answer");
-              otherAnswer.classList.add("max-h-0", "opacity-0");
-              otherAnswer.classList.remove("max-h-screen", "opacity-100");
-          }
-      });
-
-      if (faqAnswer.classList.contains("max-h-0")) {
-          faqAnswer.classList.remove("max-h-0", "opacity-0");
-          faqAnswer.classList.add("max-h-screen", "opacity-100");
-      } else {
-          faqAnswer.classList.add("max-h-0", "opacity-0");
-          faqAnswer.classList.remove("max-h-screen", "opacity-100");
+    document.querySelectorAll(".faq-box").forEach((otherBox) => {
+      if (otherBox !== button) {
+        const otherAnswer = otherBox.querySelector(".faq-answer");
+        otherAnswer.classList.add("max-h-0", "opacity-0");
+        otherAnswer.classList.remove("max-h-screen", "opacity-100");
       }
+    });
+
+    if (faqAnswer.classList.contains("max-h-0")) {
+      faqAnswer.classList.remove("max-h-0", "opacity-0");
+      faqAnswer.classList.add("max-h-screen", "opacity-100");
+    } else {
+      faqAnswer.classList.add("max-h-0", "opacity-0");
+      faqAnswer.classList.remove("max-h-screen", "opacity-100");
+    }
+  });
+});
+
+document.addEventListener("click", function (event) {
+  const button = event.target.closest(".toggleButton");
+  if (!button) return;
+
+  const container = button.previousElementSibling;
+  if (!container || !container.classList.contains("card-container")) return;
+
+  const items = container.querySelectorAll(".card-item");
+  let isExpanded = button.dataset.expanded === "true";
+
+  items.forEach((item, index) => {
+      if (index >= 6) {
+          item.style.display = isExpanded ? "none" : "block";
+      }
+  });
+
+  button.textContent = isExpanded ? "مشاهده بیشتر" : "مشاهده کمتر";
+  button.dataset.expanded = isExpanded ? "false" : "true";
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  document.querySelectorAll(".card-container").forEach(container => {
+      const items = container.querySelectorAll(".card-item");
+      items.forEach((item, index) => {
+          if (index >= 6) item.style.display = "none";
+      });
   });
 });
 
@@ -151,112 +180,38 @@ document.addEventListener("DOMContentLoaded", function () {
             .parentNode.removeChild(scriptTag);
         }
         if (document.getElementById("search-box")) {
-          const fetchContentModule = document.querySelector(".fetch-content-module");
-          const reserveBtn = document.querySelectorAll(".reserve-btn");
-        
-          const classMapping = {
-            "hotel-btn": 213870,
-            "flight-btn": 213871,
-            "tour-btn": 153206,
-            "flighthotel-btn": 213899,
-            "insurance-btn": 213900,
-          };
-        
-          const idMapping = {
-            "hotel-btn": 2375544,
-            "flight-btn": 2375572,
-            "tour-btn": 2313340,
-            "flighthotel-btn": 2375575,
-            "insurance-btn": 2375578,
-          };
-        
-          const faqcatidMapping = {
-            "hotel-btn": 2375547,
-            "flight-btn": 2312905,
-            "tour-btn": 2312908,
-            "flighthotel-btn": 2312474,
-            "insurance-btn": 2312907,
-          };
-        
-          const articlecatidMapping = {
-            "hotel-btn": 213873,
-            "flight-btn": 213874,
-            "tour-btn": 213875,
-            "flighthotel-btn": 213892,
-            "insurance-btn": 213890,
-          };
-        
+          const landingContent = document.querySelector(
+            ".landing-content"
+          );
           function showLoading() {
-            fetchContentModule.innerHTML = `<div class="flex justify-center mt-20 mb-24"><span class="loader-fetch"></span></div>`;
+            landingContent.innerHTML = `<div class="flex justify-center mt-20 mb-24"><span class="loader-fetch"></span></div>`;
           }
-        
-          if (fetchContentModule) {
+
+          if (landingContent) {
             async function firstContent() {
               try {
-                showLoading()
+                showLoading();
                 const firstResponse = await fetch(
-                  `/module-load-items.bc?catid=213870&module=hotel&id=2375544&faqcatid=2375547&articlecatid=213873`
+                  "/default-hotel.bc"
                 );
                 if (!firstResponse.ok) {
-                  throw new Error(`HTTP error! Status: ${firstResponse.status}`);
+                  throw new Error(
+                    `HTTP error! Status: ${firstResponse.status}`
+                  );
                 }
                 const firstData = await firstResponse.text();
-                fetchContentModule.innerHTML = firstData;
+                landingContent.innerHTML = firstData;
               } catch (error) {
                 console.error("Fetch اول با مشکل مواجه شد:", error);
-                fetchContentModule.innerHTML =
-                  "<p>مشکلی در دریافت اطلاعات رخ داد: " + error.message + "</p>";
+                landingContent.innerHTML =
+                  "<p>مشکلی در دریافت اطلاعات رخ داد: " +
+                  error.message +
+                  "</p>";
               }
             }
             firstContent();
-        
-            reserveBtn.forEach((item) => {
-              item.addEventListener("click", function () {
-                let cmsQuery = null;
-                let module = null;
-                let id = null;
-                let faqcatid = null;
-                let articlecatid = null;
-        
-                for (const className in classMapping) {
-                  if (item.classList.contains(className)) {
-                    cmsQuery = classMapping[className];
-                    module = className.replace("-btn", "");
-                    id = idMapping[className] || "default";
-                    faqcatid = faqcatidMapping[className];
-                    articlecatid = articlecatidMapping[className];
-                    break;
-                  }
-                }
-        
-                if (!cmsQuery || !module || !id || !faqcatid || !articlecatid) {
-                  return;
-                }
-        
-                async function secondContent() {
-                  try {
-                    showLoading();
-                    const firstResponse = await fetch(
-                      `/module-load-items.bc?catid=${cmsQuery}&module=${module}&id=${id}&faqcatid=${faqcatid}&articlecatid=${articlecatid}`
-                    );
-                    if (!firstResponse.ok) {
-                      throw new Error(`HTTP error! Status: ${firstResponse.status}`);
-                    }
-                    const firstData = await firstResponse.text();
-                    fetchContentModule.innerHTML = firstData;
-                  } catch (error) {
-                    console.error("Fetch دوم با مشکل مواجه شد:", error);
-                    fetchContentModule.innerHTML =
-                      "<p>مشکلی در دریافت اطلاعات رخ داد: " + error.message + "</p>";
-                  }
-                }
-                secondContent();
-              });
-            });
           }
         }
-        
-        
       }
 
       let s = JSON.parse(localStorage.getItem("flightData"));
@@ -299,8 +254,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
-
-function initSwiper() {
+if (document.querySelector(".swiper-article")) {
   var swiperArticleMobile = new Swiper(".swiper-article", {
     slidesPerView: 4,
     speed: 400,
@@ -308,24 +262,39 @@ function initSwiper() {
     spaceBetween: 8,
     grabCursor: true,
     autoplay: {
-        delay: 2500,
-        disableOnInteraction: false,
+      delay: 2500,
+      disableOnInteraction: false,
     },
     loop: true,
     pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
+      el: ".swiper-pagination",
+      clickable: true,
     },
     navigation: {
-        nextEl: '.swiper-button-next-custom',
-        prevEl: '.swiper-button-prev-custom',
+      nextEl: ".swiper-button-next-custom",
+      prevEl: ".swiper-button-prev-custom",
     },
   });
 }
-document.addEventListener('fetchComplete', function() {
-  initSwiper();
-});
 
+if (document.querySelector(".swiper-article-mobile")) {
+  var swiperArticleMobile = new Swiper(".swiper-article-mobile", {
+    slidesPerView: 1,
+    speed: 400,
+    centeredSlides: false,
+    spaceBetween: 8,
+    grabCursor: true,
+    autoplay: {
+      delay: 2500,
+      disableOnInteraction: false,
+    },
+    loop: true,
+    navigation: {
+      nextEl: ".swiper-button-next-custom",
+      prevEl: ".swiper-button-prev-custom",
+    },
+  });
+}
 
 //form contact
 function uploadDocumentContact(args) {
@@ -381,9 +350,7 @@ async function RenderFormContact() {
     " .about-form-email input[data-bc-text-input]"
   );
   inputElementVisa7.setAttribute("placeholder", "ایمیل");
-
 }
-
 
 //form suggest
 function uploadDocumentSuggest(args) {
@@ -430,7 +397,6 @@ async function OnProcessedEditObjectSuggest(args) {
 }
 
 async function RenderFormSuggest() {
-
   var inputElementVisa7 = document.querySelector(
     " .left-form-message textarea[data-bc-text-input]"
   );

@@ -1,0 +1,244 @@
+<basis core="dbsource" source="basiscore" lid="1" mid="1" name="db" catid="213870">
+    <member name="hotel-list" type="list" link="article.bc" propertyid="3087597,3087598" perpage="6" size="397x284"
+        pageno="[##cms.query.pagenum|(1)##]" order="ord" />
+</basis>
+<basis core="dbsource" source="basiscore" lid="1" mid="1" name="db" usedforid="2375544">
+    <member name="p-undermodule" type="view" propertyid="" />
+</basis>
+<basis core="dbsource" source="basiscore" lid="1" mid="1" name="db" usedforid="2375547">
+    <member name="faq-list" type="view" propertyid="" />
+</basis>
+<basis core="dbsource" source="basiscore" lid="1" mid="1" name="db" catid="213873">
+    <member name="article-list" type="list" link="article.bc" propertyid="7244,7249" perpage="12" size="298x429"
+        pageno="[##cms.query.pagenum|(1)##]" order="ord" />
+</basis>
+
+<section class="mx-auto max-lg:w-[90%] max-xl:w-[97%] xl:max-w-7xl mt-20">
+    <basis core="list" datamembername="db.hotel-list">
+        <layout>
+            <h2 class="text-primary-900 font-bold text-2xl mb-20 text-center">هتل های پیشنهادی</h2>
+            <div class="grid grid-cols-3 gap-2">
+                <!-- items hotel -->
+                @child
+            </div>
+            <div class="flex justify-center">
+                <a href="/hotel-list.bc?catid=213870"
+                    class="relative group text-xl mt-16 font-bold text-blue-500 transition-all duration-300 hover:text-secondary-600">مشاهده
+                    بیشتر
+                    <span
+                        class="absolute -bottom-1 left-0 w-0 transition-all duration-300 h-px bg-secondary-600 group-hover:w-full"></span>
+                </a>
+            </div>
+        </layout>
+        <face filter="link is null">
+            <div class=" group border border-solid border-primary-100 bg-zinc-50 rounded-[42px] px-3 pt-3 pb-6">
+                <img src="@00397X00284prp"
+                    class="h-72 object-cover rounded-[30px] transition-all duration-300 group-hover:grayscale"
+                    alt="@title" width="100%" height="284" loading="lazy">
+                <div class="flex flex-col gap-2 mt-4">
+                    <div class="flex items-center justify-between">
+                        <h2 class="font-bold text-xl">@title</h2>
+                        <span class="flex items-center gap-1 text-sm text-zinc-900 flex-shrink-0">
+                            <svg width="24" height="25" class="flex-shrink-0">
+                                <use xlink:href="./images/sprite-icons.svg#icon-star"></use>
+                            </svg>
+                            @prp_3087597 ستاره
+                        </span>
+                    </div>
+                    <div>
+                        <span class="text-primary-300 text-sm">قیمت هر یک شب</span>
+                        <div class="text-zinc-900 text-xl mt-1">@prp_3087598</div>
+                    </div>
+                    <a href="/article.bc?id=@id"
+                        class="relative group/leveltwo z-10 overflow-hidden border border-solid border-primary-900 flex items-center justify-center h-12 text-lg text-white font-bold bg-primary-900 rounded-[40px] transition-all duration-300 hover:text-primary-900">مشاهده
+                        <span
+                            class="absolute inset-0 transition-transform duration-300 h-12 origin-right scale-x-0 -z-10 bg-zinc-50 group-hover/leveltwo:scale-x-100"></span>
+                    </a>
+                </div>
+            </div>
+        </face>
+        <face>
+            <div class=" group border border-solid border-primary-100 bg-zinc-50 rounded-[42px] px-3 pt-3 pb-6">
+                <img src="@00397X00284prp"
+                    class="h-72 object-cover rounded-[30px] transition-all duration-300 group-hover:grayscale"
+                    alt="@title" width="100%" height="284" loading="lazy">
+                <div class="flex flex-col gap-2 mt-4">
+                    <div class="flex items-center justify-between">
+                        <h2 class="font-bold text-xl">@title</h2>
+                        <span class="flex items-center gap-1 text-sm text-zinc-900 flex-shrink-0">
+                            <svg width="24" height="25" class="flex-shrink-0">
+                                <use xlink:href="./images/sprite-icons.svg#icon-star"></use>
+                            </svg>
+                            @prp_3087597 ستاره
+                        </span>
+                    </div>
+                    <div>
+                        <span class="text-primary-300 text-sm">قیمت هر یک شب</span>
+                        <div class="text-zinc-900 text-xl mt-1">@prp_3087598</div>
+                    </div>
+                    <a href="@link"
+                        class="relative group/leveltwo z-10 overflow-hidden border border-solid border-primary-900 flex items-center justify-center h-12 text-lg text-white font-bold bg-primary-900 rounded-[40px] transition-all duration-300 hover:text-primary-900">مشاهده
+                        <span
+                            class="absolute inset-0 transition-transform duration-300 h-12 origin-right scale-x-0 -z-10 bg-zinc-50 group-hover/leveltwo:scale-x-100"></span>
+                    </a>
+                </div>
+            </div>
+        </face>
+    </basis>
+
+</section>
+<section class="mx-auto max-lg:w-[90%] max-xl:w-[97%] xl:max-w-7xl mt-20">
+    <basis core="print" datamembername="db.p-undermodule">
+        <layout>
+            <div>
+                @child
+            </div>
+        </layout>
+        <face filter="TypeID in(150)">
+            <h2 class="text-zinc-900 font-bold text-2xl mb-4 mt-6">@text</h2>
+        </face>
+        <face filter="TypeID in(129)">
+            <h2 class="text-zinc-900 font-bold text-2xl mb-4 mt-6">@text</h2>
+            <div class="text-zinc-700 text-justify">
+                @largetext
+            </div>
+        </face>
+        <face filter="TypeID in(250)">
+            <h2 class="text-zinc-900 font-bold text-2xl mb-4 mt-6">@text</h2>
+            <div class="text-zinc-700 text-justify">
+                @largetext
+            </div>
+        </face>
+    </basis>
+
+</section>
+
+
+<section
+    class="mx-auto max-lg:w-[90%] max-xl:w-[97%] xl:max-w-7xl mt-20 faq-shadow rounded px-6 pt-6 pb-2 border-[0.2px] border-solid border-zinc-100">
+    <basis core="print" datamembername="db.faq-list">
+        <layout>
+            <h2 class="text-primary-900 text-2xl font-bold mb-2">سوالات متداول</h2>
+            <div class="flex flex-col divide-y divide-primary-100">
+                @child
+            </div>
+        </layout>
+        <face filter="TypeID in(250)">
+            <div class="faq-box cursor-pointer text-primary-900 text-sm flex flex-col py-3">
+                <div class="flex items-center text-justify">
+                    <svg width="48" height="49" class="flex-shrink-0 faq-btn">
+                        <use xlink:href="./images/sprite-icons.svg#icon-question"></use>
+                    </svg>
+                    @text
+                </div>
+                <div
+                    class="flex items-center text-primary-900 pl-4 text-sm text-justify faq-answer overflow-hidden transition-all duration-300 max-h-0 opacity-0">
+                    <svg width="48" height="49" class="flex-shrink-0">
+                        <use xlink:href="./images/sprite-icons.svg#icon-chevron-left"></use>
+                    </svg>
+                    @largetext
+                </div>
+            </div>
+        </face>
+    </basis>
+
+</section>
+
+<section class="mx-auto max-lg:w-[90%] max-xl:w-[97%] xl:max-w-7xl mt-20 mb-24">
+
+    <!-- If we need navigation buttons -->
+    <div class="flex items-center justify-between w-full mb-9 ">
+        <div
+            class="group swiper-button-prev-custom w-12 h-12 rounded-full bg-zinc-100 flex items-center justify-center transition-all duration-300 hover:bg-primary-900">
+            <svg width="24" height="25"
+                class="transition-all duration-300 group-hover:hidden group-hover:invisible group-hover:opacity-0">
+                <use xlink:href="./images/sprite-icons.svg#icon-chevron-right"></use>
+            </svg>
+            <svg width="24" height="25"
+                class="hidden transition-all duration-300 invisible opacity-0 group-hover:visible group-hover:opacity-100 group-hover:block">
+                <use xlink:href="./images/sprite-icons.svg#icon-chevron-right-white"></use>
+            </svg>
+        </div>
+        <h2 class="text-primary-900 font-bold text-2xl text-center">مجله گردشگری</h2>
+        <div
+            class="group swiper-button-next-custom w-12 h-12 rounded-full bg-zinc-100 flex items-center justify-center transition-all duration-300 hover:bg-primary-900">
+            <svg width="48" height="48"
+                class="transition-all duration-300 group-hover:hidden group-hover:invisible group-hover:opacity-0">
+                <use xlink:href="./images/sprite-icons.svg#icon-chevron-left"></use>
+            </svg>
+            <svg width="24" height="24"
+                class="hidden transition-all duration-300 invisible opacity-0 group-hover:visible group-hover:opacity-100 group-hover:block">
+                <use xlink:href="./images/sprite-icons.svg#icon-chevron-left-white"></use>
+            </svg>
+        </div>
+    </div>
+    <!-- Slider main container -->
+    <div class="swiper swiper-article pb-16">
+        <basis core="list" datamembername="db.article-list">
+            <layout>
+                <!-- Additional required wrapper -->
+                <div class="swiper-wrapper">
+                    <!-- Slides -->
+                    @child
+                </div>
+
+                <!-- If we need pagination -->
+                <div class="swiper-pagination"></div>
+            </layout>
+            <face filter="link is null">
+                <div class="swiper-slide group">
+                    <div class="border border-solid border-primary-100 bg-zinc-50 rounded-3xl p-2">
+                        <div class="mask-image relative">
+                            <img src="@00298X00429prp" alt="@title"
+                                class="h-[429px] object-cover rounded-tr-3xl transition-all duration-300 group-hover:sepia"
+                                width="100%" height="429" loading="lazy">
+                            <div class="article-shadow absolute inset-0"></div>
+                            <div class="absolute z-10 px-6 bottom-0 mb-28">
+                                <h2 class="text-lg font-bold text-white mb-2">@title
+                                </h2>
+                                <div class="text-sm text-white line-clamp-3 h-15">@prp_7244</div>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-end gap-14 -mt-10">
+                            <span class="flex items-center gap-1 text-sm text-primary-300">
+                                <svg width="24" height="25" class="flex-shrink-0">
+                                    <use xlink:href="./images/sprite-icons.svg#icon-calender"></use>
+                                </svg>
+                                @prp_7249
+                            </span>
+                            <a href="/article.bc?id=@id"
+                                class="relative z-10 flex items-center justify-center w-[106px] h-12 text-lg text-white font-bold bg-primary-900 rounded-[40px] transition-all duration-300 hover:bg-secondary-600">بخوانید</a>
+                        </div>
+                    </div>
+                </div>
+            </face>
+            <face>
+                <div class="swiper-slide group">
+                    <div class="border border-solid border-primary-100 bg-zinc-50 rounded-3xl p-2">
+                        <div class="mask-image relative">
+                            <img src="@00298X00429prp" alt="@title"
+                                class="h-[429px] object-cover rounded-tr-3xl transition-all duration-300 group-hover:sepia"
+                                width="100%" height="429" loading="lazy">
+                            <div class="article-shadow absolute inset-0"></div>
+                            <div class="absolute z-10 px-6 bottom-0 mb-28">
+                                <h2 class="text-lg font-bold text-white mb-2">@title
+                                </h2>
+                                <div class="text-sm text-white line-clamp-3 h-15">@prp_7244</div>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-end gap-14 -mt-10">
+                            <span class="flex items-center gap-1 text-sm text-primary-300">
+                                <svg width="24" height="25" class="flex-shrink-0">
+                                    <use xlink:href="./images/sprite-icons.svg#icon-calender"></use>
+                                </svg>
+                                @prp_7249
+                            </span>
+                            <a href="@link"
+                                class="relative z-10 flex items-center justify-center w-[106px] h-12 text-lg text-white font-bold bg-primary-900 rounded-[40px] transition-all duration-300 hover:bg-secondary-600">بخوانید</a>
+                        </div>
+                    </div>
+                </div>
+            </face>
+        </basis>
+    </div>
+</section>
