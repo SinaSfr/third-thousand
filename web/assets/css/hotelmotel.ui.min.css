@@ -801,6 +801,10 @@ body {
     max-width: 80rem;
   }
 }
+.drop-shadow-\[2px_4px_6px_rgba\(0\2c 0\2c 0\2c 0\.9\)\] {
+  --tw-drop-shadow: drop-shadow(2px 4px 6px rgba(0,0,0,0.9));
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+}
 
 .loader {
   width: 48px;
@@ -915,9 +919,10 @@ body {
   padding: 12px 8px;
   border-radius: 12px;
 }
-.module-banner-image{
+.module-banner-image img{
   height: 519px;
   object-fit: cover;
+  width: 100%;
 }
 
 .module-name {
@@ -1054,6 +1059,16 @@ body {
 }
 .passenger-counts {
   color: #242453 !important;
+}
+
+.passenger-counts.passenger-count{
+  padding-top: 0.25rem;
+}
+
+.section_prev_month svg,
+.section_next_month svg{
+  width: 28px;
+  height: 28px;
 }
 
 .search-box-container svg {
@@ -1341,6 +1356,11 @@ body {
 .reserve-field.passengers-field label[for="passenger8"]  span {
   display: none;
 }
+.reserve-field.passengers-field label[for="passenger1"] svg,
+.reserve-field.passengers-field label[for="passenger8"] svg {
+  width: 24px;
+  height: 24px;
+}
 
 .reserve-field.passengers-field label .down-icon {
   display: none;
@@ -1509,7 +1529,7 @@ body {
 }
 
 .plus-count span {
-  font-size: 35px;
+  font-size: 28px;
   padding-top: 0.25rem;
   color: white;
 }
@@ -1522,8 +1542,8 @@ body {
 }
 .minus-count div,
 .plus-count div {
-  width: 40px !important;
-  height: 40px !important;
+  width: 32px !important;
+  height: 32px !important;
   background: #ad924c;
   display: flex !important;
   align-items: center !important;

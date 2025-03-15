@@ -92,14 +92,14 @@ document.addEventListener("click", function (event) {
   button.dataset.expanded = isExpanded ? "false" : "true";
 });
 
-document.addEventListener("DOMContentLoaded", function () {
-  document.querySelectorAll(".card-container").forEach(container => {
-      const items = container.querySelectorAll(".card-item");
-      items.forEach((item, index) => {
-          if (index >= 6) item.style.display = "none";
-      });
-  });
-});
+// document.addEventListener("DOMContentLoaded", function () {
+//   document.querySelectorAll(".card-container").forEach(container => {
+//       const items = container.querySelectorAll(".card-item");
+//       items.forEach((item, index) => {
+//           if (index >= 6) item.style.display = "none";
+//       });
+//   });
+// });
 
 let i = document.querySelectorAll(".ticket-article");
 i.forEach((e) => {
@@ -154,103 +154,105 @@ i.forEach((e) => {
 });
 
 document.addEventListener("DOMContentLoaded", function () {
-  try {
-    var xhrobj = new XMLHttpRequest();
-    xhrobj.open("GET", "search-engine.bc");
-    xhrobj.send();
-
-    xhrobj.onreadystatechange = function () {
-      if (this.readyState == 4 && this.status == 200) {
-        var container = document.getElementById("search-box");
-        container.innerHTML = xhrobj.responseText;
-
-        let r = document.querySelector(".flighttype-field");
-        r.classList.add("flighttype-dropDown");
-        var scripts = container.getElementsByTagName("script");
-        for (var i = 0; i < scripts.length; i++) {
-          var scriptTag = document.createElement("script");
-          if (scripts[i].src) {
-            scriptTag.src = scripts[i].src;
-            scriptTag.async = false;
-          } else {
-            scriptTag.text = scripts[i].textContent;
-          }
-          document.head
-            .appendChild(scriptTag)
-            .parentNode.removeChild(scriptTag);
-        }
-        if (document.getElementById("search-box")) {
-          const landingContent = document.querySelector(
-            ".landing-content"
-          );
-          function showLoading() {
-            landingContent.innerHTML = `<div class="flex justify-center mt-20 mb-24"><span class="loader-fetch"></span></div>`;
-          }
-
-          if (landingContent) {
-            async function firstContent() {
-              try {
-                showLoading();
-                const firstResponse = await fetch(
-                  "/default-hotel.bc"
-                );
-                if (!firstResponse.ok) {
-                  throw new Error(
-                    `HTTP error! Status: ${firstResponse.status}`
-                  );
-                }
-                const firstData = await firstResponse.text();
-                landingContent.innerHTML = firstData;
-              } catch (error) {
-                console.error("Fetch اول با مشکل مواجه شد:", error);
-                landingContent.innerHTML =
-                  "<p>مشکلی در دریافت اطلاعات رخ داد: " +
-                  error.message +
-                  "</p>";
-              }
+  if(document.querySelector(".search-box-container")){
+    try {
+      var xhrobj = new XMLHttpRequest();
+      xhrobj.open("GET", "search-engine.bc");
+      xhrobj.send();
+  
+      xhrobj.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+          var container = document.getElementById("search-box");
+          container.innerHTML = xhrobj.responseText;
+  
+          let r = document.querySelector(".flighttype-field");
+          r.classList.add("flighttype-dropDown");
+          var scripts = container.getElementsByTagName("script");
+          for (var i = 0; i < scripts.length; i++) {
+            var scriptTag = document.createElement("script");
+            if (scripts[i].src) {
+              scriptTag.src = scripts[i].src;
+              scriptTag.async = false;
+            } else {
+              scriptTag.text = scripts[i].textContent;
             }
-            firstContent();
+            document.head
+              .appendChild(scriptTag)
+              .parentNode.removeChild(scriptTag);
+          }
+          if (document.getElementById("search-box")) {
+            const landingContent = document.querySelector(
+              ".landing-content"
+            );
+            function showLoading() {
+              landingContent.innerHTML = `<div class="flex justify-center mt-20 mb-24"><span class="loader-fetch"></span></div>`;
+            }
+  
+            if (landingContent) {
+              async function firstContent() {
+                try {
+                  showLoading();
+                  const firstResponse = await fetch(
+                    "/default-hotel.bc"
+                  );
+                  if (!firstResponse.ok) {
+                    throw new Error(
+                      `HTTP error! Status: ${firstResponse.status}`
+                    );
+                  }
+                  const firstData = await firstResponse.text();
+                  landingContent.innerHTML = firstData;
+                } catch (error) {
+                  console.error("Fetch اول با مشکل مواجه شد:", error);
+                  landingContent.innerHTML =
+                    "<p>مشکلی در دریافت اطلاعات رخ داد: " +
+                    error.message +
+                    "</p>";
+                }
+              }
+              firstContent();
+            }
           }
         }
-      }
-
-      let s = JSON.parse(localStorage.getItem("flightData"));
-      if (s && "/" === window.location.pathname) {
-        localStorage.removeItem("searchHistory_flight");
-        let {
-          depId3: c,
-          desId3: d,
-          departureCity2: u,
-          destinationCity2: p,
-          flightType2: f,
-        } = s;
-        (document.querySelector("#flightSearch #departure1").value = u),
-          (document.querySelector(
-            "#flightSearch .departure-route .locationId"
-          ).value = c),
-          (document.querySelector(
-            "#flightSearch .destination-route #destination1"
-          ).value = p),
-          (document.querySelector(
-            "#flightSearch .destination-route .locationId"
-          ).value = d),
-          f.includes("اکونومی") &&
-            ((document.querySelector(".FlightClass-text").innerText =
-              "اکونومی"),
-            (document.querySelector("#FlightClass1").value = "Economy")),
-          f.includes("بیزینس") &&
-            ((document.querySelector(".FlightClass-text").innerText = "بیزینس"),
-            (document.querySelector("#FlightClass1").value = "BusinessClass")),
-          f.includes("فرست") &&
-            ((document.querySelector(".FlightClass-text").innerText = "فرست"),
-            (document.querySelector("#FlightClass1").value = "FirstClass")),
-          document.querySelector("#r-flight").classList.remove("hidden");
-        let h = document.querySelector(".bg-blur-t");
-        h && window.scrollTo({ top: h.offsetTop, behavior: "smooth" });
-      }
-    };
-  } catch (error) {
-    // console.error('مشکلی رخ داده است لطفا صبور باشید.', error);
+  
+        let s = JSON.parse(localStorage.getItem("flightData"));
+        if (s) {
+          localStorage.removeItem("searchHistory_flight");
+          let {
+            depId3: c,
+            desId3: d,
+            departureCity2: u,
+            destinationCity2: p,
+            flightType2: f,
+          } = s;
+          (document.querySelector("#flightSearch #departure1").value = u),
+            (document.querySelector(
+              "#flightSearch .departure-route .locationId"
+            ).value = c),
+            (document.querySelector(
+              "#flightSearch .destination-route #destination1"
+            ).value = p),
+            (document.querySelector(
+              "#flightSearch .destination-route .locationId"
+            ).value = d),
+            f.includes("اکونومی") &&
+              ((document.querySelector(".FlightClass-text").innerText =
+                "اکونومی"),
+              (document.querySelector("#FlightClass1").value = "Economy")),
+            f.includes("بیزینس") &&
+              ((document.querySelector(".FlightClass-text").innerText = "بیزینس"),
+              (document.querySelector("#FlightClass1").value = "BusinessClass")),
+            f.includes("فرست") &&
+              ((document.querySelector(".FlightClass-text").innerText = "فرست"),
+              (document.querySelector("#FlightClass1").value = "FirstClass")),
+            document.querySelector("#r-flight").classList.remove("hidden");
+          let h = document.querySelector(".bg-blur-t");
+          h && window.scrollTo({ top: h.offsetTop, behavior: "smooth" });
+        }
+      };
+    } catch (error) {
+      // console.error('مشکلی رخ داده است لطفا صبور باشید.', error);
+    }
   }
 });
 
@@ -422,3 +424,6 @@ async function RenderFormSuggest() {
   );
   inputElementVisa7.setAttribute("placeholder", "ایمیل");
 }
+
+
+

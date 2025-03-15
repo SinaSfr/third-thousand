@@ -1,4 +1,4 @@
-<basis core="dbsource" source="basiscore" lid="1" mid="1" name="db" catid="[##cms.query.articlecatid##]">
+<basis core="dbsource" source="basiscore" lid="1" mid="1" name="db" catid="[##cms.query.catid##]">
     <member name="article-list" type="list" link="article.bc" propertyid="7244,7249" perpage="12" size="298x429"
         pageno="[##cms.query.pagenum|(1)##]" order="ord" />
         <member name="paging" type="list" request="paging" count="3" parentname="article-list" />
@@ -48,7 +48,7 @@
             <div class="absolute flex flex-col items-center justify-center w-full h-full">
                 <basis core="print" datamembername="db.scalar">
                     <face>
-                        <h1 class="text-white text-3xl">@column1</h1>
+                        <h1 class="text-white text-3xl drop-shadow-[2px_4px_6px_rgba(0,0,0,0.9)]">@column1</h1>
                     </face>
                 </basis>
                 <ul itemscope itemtype="https://schema.org/BreadcrumbList" class="flex items-center text-sm gap-1 mt-2">
