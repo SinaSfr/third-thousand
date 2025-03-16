@@ -22,7 +22,7 @@
                 @child
             </div>
             <div class="flex justify-center">
-                <button 
+                <button data-expanded="true"
                     class="toggleButton relative group text-xl mt-16 font-bold text-blue-500 transition-all duration-300 hover:text-secondary-600">مشاهده
                     بیشتر
                     <span
@@ -232,3 +232,25 @@
         </basis>
     </div>
 </section>
+<script>
+    var swiperArticle = new Swiper(".swiper-article", {
+      slidesPerView: 4,
+      speed: 400,
+      centeredSlides: false,
+      spaceBetween: 8,
+      grabCursor: true,
+      autoplay: {
+        delay: 2500,
+        disableOnInteraction: false,
+      },
+      loop: true,
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+      navigation: {
+        nextEl: ".swiper-button-next-custom",
+        prevEl: ".swiper-button-prev-custom",
+      },
+    });
+  </script>

@@ -17,14 +17,14 @@
     <basis core="list" datamembername="db.flighthotel-list">
         <layout>
             <h2 class="text-primary-900 mb-6 text-center">پکیج های پیشنهادی</h2>
-            <div class="flex flex-col gap-2">
+            <div class="flex flex-col gap-2 card-container">
                 <!-- items flight-hotel -->
                 @child
             </div>
-            <button class="flex justify-center text-sm mt-6 text-blue-500">مشاهده بیشتر</button>
+            <button data-expanded="true" class="toggleButton flex justify-center text-sm mt-6 text-blue-500">مشاهده بیشتر</button>
         </layout>
         <face filter="link is null">
-            <div class="border border-solid border-primary-100 bg-zinc-50 rounded-[42px] px-3 pt-3 pb-6">
+            <div class="card-item border border-solid border-primary-100 bg-zinc-50 rounded-[42px] px-3 pt-3 pb-6">
                 <img src="@00264X00216prp" class="h-56 object-cover rounded-[30px]" alt="@title" width="100%"
                     height="216" loading="lazy">
                 <div class="flex flex-col gap-4 mt-4">
@@ -41,7 +41,7 @@
             </div>
         </face>
         <face>
-            <div class="border border-solid border-primary-100 bg-zinc-50 rounded-[42px] px-3 pt-3 pb-6">
+            <div class="card-item border border-solid border-primary-100 bg-zinc-50 rounded-[42px] px-3 pt-3 pb-6">
                 <img src="@00264X00216prp" class="h-56 object-cover rounded-[30px]" alt="@title" width="100%"
                     height="216" loading="lazy">
                 <div class="flex flex-col gap-4 mt-4">
@@ -192,3 +192,21 @@
         </basis>
     </div>
 </section>
+<script>
+    var swiperArticleMobile = new Swiper(".swiper-article-mobile", {
+    slidesPerView: 1,
+    speed: 400,
+    centeredSlides: false,
+    spaceBetween: 8,
+    grabCursor: true,
+    autoplay: {
+      delay: 2500,
+      disableOnInteraction: false,
+    },
+    loop: true,
+    navigation: {
+      nextEl: ".swiper-button-next-custom",
+      prevEl: ".swiper-button-prev-custom",
+    },
+  });
+</script>

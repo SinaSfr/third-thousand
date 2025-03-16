@@ -72,99 +72,129 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-document.addEventListener("click", function (event) {
-  const button = event.target.closest(".toggleButton");
-  if (!button) return;
+document.addEventListener("DOMContentLoaded", function () {
+  document.addEventListener("click", function (event) {
+    const flightButton = event.target.closest(".flight-btn.reserve-btn");
+    if (flightButton) {
+      const container = document.querySelector(".landing-content");
+      let cardContainer = null;
 
-  const container = button.previousElementSibling;
-  if (!container || !container.classList.contains("card-container")) return;
+      if (container) {
+        setTimeout(() => {
+          cardContainer = container.querySelector(".card-container");
 
-  const items = container.querySelectorAll(".card-item");
-  let isExpanded = button.dataset.expanded === "true";
+          if (cardContainer) {
+            const items = cardContainer.querySelectorAll(".card-item");
 
-  items.forEach((item, index) => {
-      if (index >= 6) {
-          item.style.display = isExpanded ? "none" : "block";
+            items.forEach((item, index) => {
+              if (index > 5) {
+                item.style.display = "none";
+              }
+            });
+          }
+        }, 2000);
       }
-  });
+    }
 
-  button.textContent = isExpanded ? "مشاهده بیشتر" : "مشاهده کمتر";
-  button.dataset.expanded = isExpanded ? "false" : "true";
+    const toggleButton = event.target.closest(".toggleButton");
+    if (toggleButton) {
+      const container = toggleButton.closest(".flex").previousElementSibling;
+      if (!container || !container.classList.contains("card-container")) return;
+
+      const items = container.querySelectorAll(".card-item");
+
+      isExpanded = toggleButton.dataset.expanded === "true";
+
+      items.forEach((item, index) => {
+        if (index > 5) {
+          item.style.display = !isExpanded ? "none" : "block";
+        }
+      });
+
+      toggleButton.textContent = !isExpanded ? "مشاهده بیشتر" : "مشاهده کمتر";
+      toggleButton.dataset.expanded = isExpanded ? "false" : "true";
+    }
+  });
 });
 
-// document.addEventListener("DOMContentLoaded", function () {
-//   document.querySelectorAll(".card-container").forEach(container => {
-//       const items = container.querySelectorAll(".card-item");
-//       items.forEach((item, index) => {
-//           if (index >= 6) item.style.display = "none";
-//       });
-//   });
-// });
-
-let i = document.querySelectorAll(".ticket-article");
-i.forEach((e) => {
-  let t = e.querySelector(".flight-type-article").innerText.trim(),
-    r = e.querySelector(".dep-text").innerText.trim(),
-    i = e.querySelector(".dep-id").innerText.trim(),
-    a = e.querySelector(".des-text").innerText.trim(),
-    l = e.querySelector(".des-id").innerText.trim();
-  e.querySelector(".set-ticket").addEventListener("click", () => {
-    if (window.location.href.endsWith("/")) {
-      (document.querySelector("#r-flight #flightSearch #departure1").value = r),
-        (document.querySelector(
-          "#r-flight #flightSearch .departure-route .locationId"
-        ).value = i),
-        (document.querySelector(
-          "#r-flight #flightSearch .destination-route #destination1"
-        ).value = a),
-        (document.querySelector(
-          "#r-flight #flightSearch .destination-route .locationId"
-        ).value = l),
-        t.includes("اکونومی") &&
-          ((document.querySelector("#r-flight .FlightClass-text").innerText =
-            "اکونومی"),
-          (document.querySelector("#r-flight #FlightClass1").value =
-            "Economy")),
-        t.includes("بیزینس") &&
-          ((document.querySelector("#r-flight .FlightClass-text").innerText =
-            "بیزینس"),
-          (document.querySelector("#r-flight #FlightClass1").value =
-            "BusinessClass")),
-        t.includes("فرست") &&
-          ((document.querySelector("#r-flight .FlightClass-text").innerText =
-            "فرست"),
-          (document.querySelector("#r-flight #FlightClass1").value =
-            "FirstClass")),
-        document.querySelector("#r-flight").classList.remove("hidden");
-      let e = document.querySelector(".bg-search");
-      e && window.scrollTo({ top: e.offsetTop, behavior: "smooth" });
-    } else
-      localStorage.setItem(
-        "flightData",
-        JSON.stringify({
-          depId3: i,
-          desId3: l,
-          departureCity2: r,
-          destinationCity2: a,
-          flightType2: t,
-        })
-      ),
-        (window.location.href = "/");
-  });
+document.addEventListener("click", function (event) {
+  const flightButton = event.target.closest(".flight-btn.reserve-btn");
+  if (flightButton) {
+    const container = document.querySelector(".landing-content");
+    if (container) {
+      setTimeout(() => {
+        let i = container.querySelectorAll(".ticket-article");
+        i.forEach((e) => {
+          let t = e.querySelector(".flight-type-article").innerText.trim(),
+            r = e.querySelector(".dep-text").innerText.trim(),
+            i = e.querySelector(".dep-id").innerText.trim(),
+            a = e.querySelector(".des-text").innerText.trim(),
+            l = e.querySelector(".des-id").innerText.trim();
+          e.querySelector(".set-ticket").addEventListener("click", () => {
+            if (window.location.href.endsWith("/flight")) {
+              (document.querySelector("#r-flight #flightSearch #departure1").value =
+                r),
+                (document.querySelector(
+                  "#r-flight #flightSearch .departure-route .locationId"
+                ).value = i),
+                (document.querySelector(
+                  "#r-flight #flightSearch .destination-route #destination1"
+                ).value = a),
+                (document.querySelector(
+                  "#r-flight #flightSearch .destination-route .locationId"
+                ).value = l),
+                t.includes("اکونومی") &&
+                  ((document.querySelector(
+                    "#r-flight .FlightClass-text"
+                  ).innerText = "اکونومی"),
+                  (document.querySelector("#r-flight #FlightClass1").value =
+                    "Economy")),
+                t.includes("بیزینس") &&
+                  ((document.querySelector(
+                    "#r-flight .FlightClass-text"
+                  ).innerText = "بیزینس"),
+                  (document.querySelector("#r-flight #FlightClass1").value =
+                    "BusinessClass")),
+                t.includes("فرست") &&
+                  ((document.querySelector(
+                    "#r-flight .FlightClass-text"
+                  ).innerText = "فرست"),
+                  (document.querySelector("#r-flight #FlightClass1").value =
+                    "FirstClass")),
+                document.querySelector("#r-flight").classList.remove("hidden");
+              let e = document.querySelector(".bg-search");
+              e && window.scrollTo({ top: e.offsetTop, behavior: "smooth" });
+            } else
+              localStorage.setItem(
+                "flightData",
+                JSON.stringify({
+                  depId3: i,
+                  desId3: l,
+                  departureCity2: r,
+                  destinationCity2: a,
+                  flightType2: t,
+                })
+              ),
+                (window.location.href = "/");
+          });
+        });
+      }, 2000);
+    }
+  }
 });
 
 document.addEventListener("DOMContentLoaded", function () {
-  if(document.querySelector(".search-box-container")){
+  if (document.querySelector(".search-box-container")) {
     try {
       var xhrobj = new XMLHttpRequest();
       xhrobj.open("GET", "search-engine.bc");
       xhrobj.send();
-  
+
       xhrobj.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
           var container = document.getElementById("search-box");
           container.innerHTML = xhrobj.responseText;
-  
+
           let r = document.querySelector(".flighttype-field");
           r.classList.add("flighttype-dropDown");
           var scripts = container.getElementsByTagName("script");
@@ -181,20 +211,16 @@ document.addEventListener("DOMContentLoaded", function () {
               .parentNode.removeChild(scriptTag);
           }
           if (document.getElementById("search-box")) {
-            const landingContent = document.querySelector(
-              ".landing-content"
-            );
+            const landingContent = document.querySelector(".landing-content");
             function showLoading() {
               landingContent.innerHTML = `<div class="flex justify-center mt-20 mb-24"><span class="loader-fetch"></span></div>`;
             }
-  
+
             if (landingContent) {
               async function firstContent() {
                 try {
                   showLoading();
-                  const firstResponse = await fetch(
-                    "/default-hotel.bc"
-                  );
+                  const firstResponse = await fetch("/default-hotel.bc");
                   if (!firstResponse.ok) {
                     throw new Error(
                       `HTTP error! Status: ${firstResponse.status}`
@@ -214,7 +240,7 @@ document.addEventListener("DOMContentLoaded", function () {
             }
           }
         }
-  
+
         let s = JSON.parse(localStorage.getItem("flightData"));
         if (s) {
           localStorage.removeItem("searchHistory_flight");
@@ -240,8 +266,10 @@ document.addEventListener("DOMContentLoaded", function () {
                 "اکونومی"),
               (document.querySelector("#FlightClass1").value = "Economy")),
             f.includes("بیزینس") &&
-              ((document.querySelector(".FlightClass-text").innerText = "بیزینس"),
-              (document.querySelector("#FlightClass1").value = "BusinessClass")),
+              ((document.querySelector(".FlightClass-text").innerText =
+                "بیزینس"),
+              (document.querySelector("#FlightClass1").value =
+                "BusinessClass")),
             f.includes("فرست") &&
               ((document.querySelector(".FlightClass-text").innerText = "فرست"),
               (document.querySelector("#FlightClass1").value = "FirstClass")),
@@ -256,28 +284,73 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
-if (document.querySelector(".swiper-article")) {
-  var swiperArticleMobile = new Swiper(".swiper-article", {
-    slidesPerView: 4,
-    speed: 400,
-    centeredSlides: false,
-    spaceBetween: 8,
-    grabCursor: true,
-    autoplay: {
-      delay: 2500,
-      disableOnInteraction: false,
-    },
-    loop: true,
-    pagination: {
-      el: ".swiper-pagination",
-      clickable: true,
-    },
-    navigation: {
-      nextEl: ".swiper-button-next-custom",
-      prevEl: ".swiper-button-prev-custom",
-    },
-  });
-}
+// const initSwiper = () => {
+//   const swiperElement = document.querySelector(".swiper-article");
+
+//   if (swiperElement) {
+//     console.log("✅ Swiper پیدا شد و مقداردهی شد!");
+
+//     new Swiper(".swiper-article", {
+//       slidesPerView: 4,
+//       speed: 400,
+//       spaceBetween: 8,
+//       grabCursor: true,
+//       autoplay: {
+//         delay: 2500,
+//         disableOnInteraction: false,
+//       },
+//       loop: true,
+//       pagination: {
+//         el: ".swiper-pagination",
+//         clickable: true,
+//       },
+//       navigation: {
+//         nextEl: ".swiper-button-next-custom",
+//         prevEl: ".swiper-button-prev-custom",
+//       },
+//     });
+
+//     clearInterval(checkExist); 
+//   }
+// };
+// const checkExist = setInterval(initSwiper, 500);
+
+const initSwipers = () => {
+  const swiperElements = document.querySelectorAll(".swiper-article");
+  
+  if (swiperElements.length > 0) {
+    swiperElements.forEach((swiperElement) => {
+      if (!swiperElement.dataset.swiperInitialized) { // بررسی اینکه آیا قبلاً مقداردهی شده یا نه
+        new Swiper(swiperElement, {
+          slidesPerView: 4,
+          speed: 400,
+          spaceBetween: 8,
+          grabCursor: true,
+          autoplay: {
+            delay: 2500,
+            disableOnInteraction: false,
+          },
+          loop: true,
+          pagination: {
+            el: swiperElement.querySelector(".swiper-pagination"),
+            clickable: true,
+          },
+          navigation: {
+            nextEl: swiperElement.querySelector(".swiper-button-next-custom"),
+            prevEl: swiperElement.querySelector(".swiper-button-prev-custom"),
+          },
+        });
+
+        swiperElement.dataset.swiperInitialized = "true"; // علامت‌گذاری که مقداردهی شده است
+      }
+    });
+
+    clearInterval(checkExist); // وقتی حداقل یک سوییپر مقداردهی شد، بررسی را متوقف کن
+  }
+};
+
+const checkExist = setInterval(initSwipers, 500); // هر 500 میلی‌ثانیه بررسی کن
+
 
 if (document.querySelector(".swiper-article-mobile")) {
   var swiperArticleMobile = new Swiper(".swiper-article-mobile", {
@@ -386,6 +459,8 @@ async function OnProcessedEditObjectSuggest(args) {
       "none";
     document.querySelector("#suggest-form-resize .message-api").innerHTML =
       "درخواست شما با موفقیت ثبت شد.";
+
+    location.reload();z
   } else {
     refreshCaptchaSuggest();
     setTimeout(() => {
@@ -424,6 +499,3 @@ async function RenderFormSuggest() {
   );
   inputElementVisa7.setAttribute("placeholder", "ایمیل");
 }
-
-
-

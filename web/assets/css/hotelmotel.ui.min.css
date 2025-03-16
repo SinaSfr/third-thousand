@@ -1067,8 +1067,8 @@ body {
 
 .section_prev_month svg,
 .section_next_month svg{
-  width: 28px;
-  height: 28px;
+  width: 28px !important;
+  height: 28px !important;
 }
 
 .search-box-container svg {
@@ -1562,7 +1562,7 @@ body {
 }
 
 .createChildDropdown .select-age {
-  border: 1px solid #ffcdd2;
+  border: 1px solid #7a82ab ;
   border-radius: 8px;
   outline: none;
   height: 48px !important;

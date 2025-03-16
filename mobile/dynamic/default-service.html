@@ -189,3 +189,21 @@
         </basis>
     </div>
 </section>
+<script>
+    var swiperArticleMobile = new Swiper(".swiper-article-mobile", {
+    slidesPerView: 1,
+    speed: 400,
+    centeredSlides: false,
+    spaceBetween: 8,
+    grabCursor: true,
+    autoplay: {
+      delay: 2500,
+      disableOnInteraction: false,
+    },
+    loop: true,
+    navigation: {
+      nextEl: ".swiper-button-next-custom",
+      prevEl: ".swiper-button-prev-custom",
+    },
+  });
+</script>
