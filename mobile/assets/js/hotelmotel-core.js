@@ -45,114 +45,456 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 document.addEventListener("DOMContentLoaded", function () {
-  const faqBox = document.querySelectorAll(".faq-box");
-  const faqBtns = document.querySelectorAll(".faq-btn");
-  const faqAnswers = document.querySelectorAll(".faq-answer");
+  const fetchContentArticle = document;
 
-  faqBox.forEach((button, index) => {
-    button.addEventListener("click", function () {
-      const faqAnswer = faqAnswers[index];
+  fetchContentArticle.addEventListener("click", function (event) {
+    const button = event.target.closest(".faq-box");
+    if (!button) return;
 
-      faqAnswers[index].style.marginTop = "8px"
-      // button.style.backgroundColor = "#FFF3E0";
-      // button.style.border = "1px solid #FFDFB1";
+    const faqBtn = button.querySelector(".faq-btn");
+    const faqAnswer = button.querySelector(".faq-answer");
 
-      if (faqAnswer.classList.contains("max-h-0")) {
-        faqAnswer.classList.remove("max-h-0", "opacity-0");
-        faqAnswer.classList.add("max-h-screen", "opacity-100");
-      } else {
-        faqAnswer.classList.add("max-h-0", "opacity-0");
-        faqAnswer.classList.remove("max-h-screen", "opacity-100");
-
-
-        button.style.backgroundColor = ""; 
-        button.style.border = ""; 
+    document.querySelectorAll(".faq-box").forEach((otherBox) => {
+      if (otherBox !== button) {
+        const otherAnswer = otherBox.querySelector(".faq-answer");
+        otherAnswer.classList.add("max-h-0", "opacity-0");
+        otherAnswer.classList.remove("max-h-screen", "opacity-100");
       }
     });
+
+    if (faqAnswer.classList.contains("max-h-0")) {
+      faqAnswer.classList.remove("max-h-0", "opacity-0");
+      faqAnswer.classList.add("max-h-screen", "opacity-100");
+    } else {
+      faqAnswer.classList.add("max-h-0", "opacity-0");
+      faqAnswer.classList.remove("max-h-screen", "opacity-100");
+    }
   });
 });
 
+document.addEventListener("DOMContentLoaded", function () {
+  document.addEventListener("click", function (event) {
+    const flightButton = event.target.closest(".flight-btn.reserve-btn");
+    if (flightButton) {
+      const container = document.querySelector(".landing-content");
+      let cardContainer = null;
 
-if (document.getElementById("search-box")) {
-  const fetchContentModule = document.querySelector(".fetch-content-module");
-  const reserveBtn = document.querySelectorAll(".reserve-btn");
+      if (container) {
+        setTimeout(() => {
+          cardContainer = container.querySelector(".card-container");
 
-  const classMapping = {
-    "hotel-btn": 213870,
-    "flight-btn": 213871,
-    "tour-btn": 153206,
-    "flighthotel-btn": 213899,
-    "insurance-btn": 213900,
-  };
+          if (cardContainer) {
+            const items = cardContainer.querySelectorAll(".card-item");
 
-  const idMapping = {
-    "hotel-btn": 2375544,
-    "flight-btn": 2375572,
-    "tour-btn": 2313340,
-    "flighthotel-btn": 2375575,
-    "insurance-btn": 2375578,
-  };
+            items.forEach((item, index) => {
+              if (index > 5) {
+                item.style.display = "none";
+              }
+            });
+          }
+        }, 2000);
+      }
+    }
 
-  const faqcatidMapping = {
-    "hotel-btn": 2375547,
-    "flight-btn": 2312905,
-    "tour-btn": 2312908,
-    "flighthotel-btn": 2312474,
-    "insurance-btn": 2312907,
-  };
+    const toggleButton = event.target.closest(".toggleButton");
+    if (toggleButton) {
+      const container = toggleButton.closest(".flex").previousElementSibling;
+      if (!container || !container.classList.contains("card-container")) return;
 
-  const articlecatidMapping = {
-    "hotel-btn": 213873,
-    "flight-btn": 213874,
-    "tour-btn": 213875,
-    "flighthotel-btn": 213892,
-    "insurance-btn": 213890,
-  };
+      const items = container.querySelectorAll(".card-item");
 
-  function showLoading() {
-    fetchContentModule.innerHTML = `<div class="flex justify-center mt-20 mb-24"><span class="loader-fetch"></span></div>`;
-  }
+      isExpanded = toggleButton.dataset.expanded === "true";
 
-  function executeScripts(container) {
-    container.querySelectorAll("script[src]").forEach(script => {
-      let newScript = document.createElement("script");
-      newScript.src = script.src;
-      newScript.type = script.type;
-      document.body.appendChild(newScript);
-    });
-  }
+      items.forEach((item, index) => {
+        if (index > 5) {
+          item.style.display = !isExpanded ? "none" : "block";
+        }
+      });
 
-  async function fetchAndLoadContent(url) {
-    try {
-      showLoading();
-      const response = await fetch(url);
-      if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
-      const data = await response.text();
-      fetchContentModule.innerHTML = data;
-      executeScripts(fetchContentModule);
-    } catch (error) {
-      console.error("مشکل در دریافت داده:", error);
-      fetchContentModule.innerHTML = `<p>مشکلی در دریافت اطلاعات رخ داد: ${error.message}</p>`;
+      toggleButton.textContent = !isExpanded ? "مشاهده بیشتر" : "مشاهده کمتر";
+      toggleButton.dataset.expanded = isExpanded ? "false" : "true";
+    }
+  });
+});
+
+document.addEventListener("click", function (event) {
+  const flightButton = event.target.closest(".flight-btn.reserve-btn");
+  if (flightButton) {
+    const container = document.querySelector(".landing-content");
+    if (container) {
+      setTimeout(() => {
+        let i = container.querySelectorAll(".ticket-article");
+        i.forEach((e) => {
+          let t = e.querySelector(".flight-type-article").innerText.trim(),
+            r = e.querySelector(".dep-text").innerText.trim(),
+            i = e.querySelector(".dep-id").innerText.trim(),
+            a = e.querySelector(".des-text").innerText.trim(),
+            l = e.querySelector(".des-id").innerText.trim();
+          e.querySelector(".set-ticket").addEventListener("click", () => {
+            if (window.location.href.endsWith("/flight")) {
+              (document.querySelector("#r-flight #flightSearch #departure1").value =
+                r),
+                (document.querySelector(
+                  "#r-flight #flightSearch .departure-route .locationId"
+                ).value = i),
+                (document.querySelector(
+                  "#r-flight #flightSearch .destination-route #destination1"
+                ).value = a),
+                (document.querySelector(
+                  "#r-flight #flightSearch .destination-route .locationId"
+                ).value = l),
+                t.includes("اکونومی") &&
+                  ((document.querySelector(
+                    "#r-flight .FlightClass-text"
+                  ).innerText = "اکونومی"),
+                  (document.querySelector("#r-flight #FlightClass1").value =
+                    "Economy")),
+                t.includes("بیزینس") &&
+                  ((document.querySelector(
+                    "#r-flight .FlightClass-text"
+                  ).innerText = "بیزینس"),
+                  (document.querySelector("#r-flight #FlightClass1").value =
+                    "BusinessClass")),
+                t.includes("فرست") &&
+                  ((document.querySelector(
+                    "#r-flight .FlightClass-text"
+                  ).innerText = "فرست"),
+                  (document.querySelector("#r-flight #FlightClass1").value =
+                    "FirstClass")),
+                document.querySelector("#r-flight").classList.remove("hidden");
+              let e = document.querySelector(".bg-search");
+              e && window.scrollTo({ top: e.offsetTop, behavior: "smooth" });
+            } else
+              localStorage.setItem(
+                "flightData",
+                JSON.stringify({
+                  depId3: i,
+                  desId3: l,
+                  departureCity2: r,
+                  destinationCity2: a,
+                  flightType2: t,
+                })
+              ),
+                (window.location.href = "/");
+          });
+        });
+      }, 2000);
     }
   }
+});
 
-  fetchAndLoadContent(`/module-load-items.bc?catid=213870&module=hotel&id=2375544&faqcatid=2375547&articlecatid=213873`);
+document.addEventListener("DOMContentLoaded", function () {
+  if (document.querySelector(".search-box-container")) {
+    try {
+      var xhrobj = new XMLHttpRequest();
+      xhrobj.open("GET", "search-engine.bc");
+      xhrobj.send();
 
-  reserveBtn.forEach(item => {
-    item.addEventListener("click", function () {
-      for (const className in classMapping) {
-        if (item.classList.contains(className)) {
-          let catid = classMapping[className];
-          let module = className.replace("-btn", "");
-          let id = idMapping[className] || "default";
-          let faqcatid = faqcatidMapping[className];
-          let articlecatid = articlecatidMapping[className];
+      xhrobj.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+          var container = document.getElementById("search-box");
+          container.innerHTML = xhrobj.responseText;
 
-          fetchAndLoadContent(`/module-load-items.bc?catid=${catid}&module=${module}&id=${id}&faqcatid=${faqcatid}&articlecatid=${articlecatid}`);
-          break;
+          let r = document.querySelector(".flighttype-field");
+          r.classList.add("flighttype-dropDown");
+          var scripts = container.getElementsByTagName("script");
+          for (var i = 0; i < scripts.length; i++) {
+            var scriptTag = document.createElement("script");
+            if (scripts[i].src) {
+              scriptTag.src = scripts[i].src;
+              scriptTag.async = false;
+            } else {
+              scriptTag.text = scripts[i].textContent;
+            }
+            document.head
+              .appendChild(scriptTag)
+              .parentNode.removeChild(scriptTag);
+          }
+          if (document.getElementById("search-box")) {
+            const landingContent = document.querySelector(".landing-content");
+            function showLoading() {
+              landingContent.innerHTML = `<div class="flex justify-center mt-20 mb-24"><span class="loader-fetch"></span></div>`;
+            }
+
+            if (landingContent) {
+              async function firstContent() {
+                try {
+                  showLoading();
+                  const firstResponse = await fetch("/default-hotel.bc");
+                  if (!firstResponse.ok) {
+                    throw new Error(
+                      `HTTP error! Status: ${firstResponse.status}`
+                    );
+                  }
+                  const firstData = await firstResponse.text();
+                  landingContent.innerHTML = firstData;
+                } catch (error) {
+                  console.error("Fetch اول با مشکل مواجه شد:", error);
+                  landingContent.innerHTML =
+                    "<p>مشکلی در دریافت اطلاعات رخ داد: " +
+                    error.message +
+                    "</p>";
+                }
+              }
+              firstContent();
+            }
+          }
         }
-      }
+
+        let s = JSON.parse(localStorage.getItem("flightData"));
+        if (s) {
+          localStorage.removeItem("searchHistory_flight");
+          let {
+            depId3: c,
+            desId3: d,
+            departureCity2: u,
+            destinationCity2: p,
+            flightType2: f,
+          } = s;
+          (document.querySelector("#flightSearch #departure1").value = u),
+            (document.querySelector(
+              "#flightSearch .departure-route .locationId"
+            ).value = c),
+            (document.querySelector(
+              "#flightSearch .destination-route #destination1"
+            ).value = p),
+            (document.querySelector(
+              "#flightSearch .destination-route .locationId"
+            ).value = d),
+            f.includes("اکونومی") &&
+              ((document.querySelector(".FlightClass-text").innerText =
+                "اکونومی"),
+              (document.querySelector("#FlightClass1").value = "Economy")),
+            f.includes("بیزینس") &&
+              ((document.querySelector(".FlightClass-text").innerText =
+                "بیزینس"),
+              (document.querySelector("#FlightClass1").value =
+                "BusinessClass")),
+            f.includes("فرست") &&
+              ((document.querySelector(".FlightClass-text").innerText = "فرست"),
+              (document.querySelector("#FlightClass1").value = "FirstClass")),
+            document.querySelector("#r-flight").classList.remove("hidden");
+          let h = document.querySelector(".bg-blur-t");
+          h && window.scrollTo({ top: h.offsetTop, behavior: "smooth" });
+        }
+      };
+    } catch (error) {
+      // console.error('مشکلی رخ داده است لطفا صبور باشید.', error);
+    }
+  }
+});
+
+
+const initSwiper = () => {
+  const swiperDesktop = document.querySelector(".swiper-article");
+  const swiperMobile = document.querySelector(".swiper-article-mobile");
+
+  if (swiperDesktop && swiperDesktop.swiper) {
+    swiperDesktop.swiper.destroy(true, true);
+  }
+  if (swiperMobile && swiperMobile.swiper) {
+    swiperMobile.swiper.destroy(true, true);
+  }
+
+  const desktopSlides = swiperDesktop?.querySelectorAll(".swiper-slide").length || 0;
+  const mobileSlides = swiperMobile?.querySelectorAll(".swiper-slide").length || 0;
+
+  if (window.innerWidth >= 1024 && desktopSlides > 0) {
+    new Swiper(".swiper-article", {
+      slidesPerView: 4,
+      speed: 400,
+      spaceBetween: 8,
+      grabCursor: true,
+      autoplay: {
+        delay: 2500,
+        disableOnInteraction: false,
+      },
+      loop: true,
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+      navigation: {
+        nextEl: ".swiper-button-next-custom",
+        prevEl: ".swiper-button-prev-custom",
+      },
     });
+  } else if (window.innerWidth < 1024 && mobileSlides > 0) {
+    new Swiper(".swiper-article-mobile", {
+      slidesPerView: 1,
+      speed: 400,
+      centeredSlides: false,
+      spaceBetween: 8,
+      grabCursor: true,
+      autoplay: {
+        delay: 2500,
+        disableOnInteraction: false,
+      },
+      loop: true,
+      navigation: {
+        nextEl: ".swiper-button-next-custom",
+        prevEl: ".swiper-button-prev-custom",
+      },
+    });
+  }
+};
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  setTimeout(initSwiper, 2000);
+});
+
+document.addEventListener("click", function (event) {
+  if (event.target.closest(".reserve-btn") || event.target.closest(".swiper-article")) {
+    setTimeout(initSwiper, 2000);
+  }
+});
+
+window.addEventListener("resize", () => {
+  initSwiper();
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  setTimeout(() => {
+    initSwiper();
+  }, 2000); 
+});
+
+document.addEventListener("click", function (event) {
+  if (event.target.closest(".reserve-btn") || event.target.closest(".swiper-article")) {
+    setTimeout(() => {
+      initSwiper();
+    }, 2000); 
+  }
+});
+
+
+
+//form contact
+function uploadDocumentContact(args) {
+  document.querySelector("#contact-form-resize .Loading_Form").style.display =
+    "block";
+  const captcha = document
+    .querySelector("#contact-form-resize")
+    .querySelector("#captchaContainer input[name='captcha']").value;
+  const captchaid = document
+    .querySelector("#contact-form-resize")
+    .querySelector("#captchaContainer input[name='captchaid']").value;
+  const stringJson = JSON.stringify(args.source?.rows[0]);
+  $bc.setSource("cms.uploadContact", {
+    value: stringJson,
+    captcha: captcha,
+    captchaid: captchaid,
+    run: true,
   });
 }
 
+function refreshCaptchaContact(e) {
+  $bc.setSource("captcha.refreshContact", true);
+}
+
+async function OnProcessedEditObjectContact(args) {
+  var response = args.response;
+  var json = await response.json();
+  var errorid = json.errorid;
+  if (errorid == "6") {
+    document.querySelector("#contact-form-resize .Loading_Form").style.display =
+      "none";
+    document.querySelector("#contact-form-resize .message-api").innerHTML =
+      "درخواست شما با موفقیت ثبت شد.";
+  } else {
+    refreshCaptchaContact();
+    setTimeout(() => {
+      document.querySelector(
+        "#contact-form-resize .Loading_Form"
+      ).style.display = "none";
+      document.querySelector("#contact-form-resize .message-api").innerHTML =
+        "خطایی رخ داده, لطفا مجدد اقدام کنید.";
+    }, 2000);
+  }
+}
+
+async function RenderFormContact() {
+  var inputElementVisa7 = document.querySelector(
+    " .about-form-message textarea[data-bc-text-input]"
+  );
+  inputElementVisa7.setAttribute("placeholder", "متن");
+
+  var inputElementVisa7 = document.querySelector(
+    " .about-form-email input[data-bc-text-input]"
+  );
+  inputElementVisa7.setAttribute("placeholder", "ایمیل");
+}
+
+//form suggest
+function uploadDocumentSuggest(args) {
+  document.querySelector("#suggest-form-resize .Loading_Form").style.display =
+    "block";
+  const captcha = document
+    .querySelector("#suggest-form-resize")
+    .querySelector("#captchaContainer input[name='captcha']").value;
+  const captchaid = document
+    .querySelector("#suggest-form-resize")
+    .querySelector("#captchaContainer input[name='captchaid']").value;
+  const stringJson = JSON.stringify(args.source?.rows[0]);
+  $bc.setSource("cms.uploadSuggest", {
+    value: stringJson,
+    captcha: captcha,
+    captchaid: captchaid,
+    run: true,
+  });
+}
+
+function refreshCaptchaSuggest(e) {
+  $bc.setSource("captcha.refreshSuggest", true);
+}
+
+async function OnProcessedEditObjectSuggest(args) {
+  var response = args.response;
+  var json = await response.json();
+  var errorid = json.errorid;
+  if (errorid == "6") {
+    document.querySelector("#suggest-form-resize .Loading_Form").style.display =
+      "none";
+    document.querySelector("#suggest-form-resize .message-api").innerHTML =
+      "درخواست شما با موفقیت ثبت شد.";
+
+    location.reload();z
+  } else {
+    refreshCaptchaSuggest();
+    setTimeout(() => {
+      document.querySelector(
+        "#suggest-form-resize .Loading_Form"
+      ).style.display = "none";
+      document.querySelector("#suggest-form-resize .message-api").innerHTML =
+        "خطایی رخ داده, لطفا مجدد اقدام کنید.";
+    }, 2000);
+  }
+}
+
+async function RenderFormSuggest() {
+  var inputElementVisa7 = document.querySelector(
+    " .left-form-message textarea[data-bc-text-input]"
+  );
+  inputElementVisa7.setAttribute("placeholder", "متن");
+
+  var inputElementVisa7 = document.querySelector(
+    " .left-form-name input[data-bc-text-input]"
+  );
+  inputElementVisa7.setAttribute("placeholder", "نام و نام خانوادگی");
+
+  var inputElementVisa7 = document.querySelector(
+    " .left-form-number input[data-bc-text-input]"
+  );
+  inputElementVisa7.setAttribute("placeholder", "شماره موبایل");
+
+  var inputElementVisa7 = document.querySelector(
+    " .left-form-payment input[data-bc-text-input]"
+  );
+  inputElementVisa7.setAttribute("placeholder", "شماره صورت حساب");
+
+  var inputElementVisa7 = document.querySelector(
+    " .left-form-email input[data-bc-text-input]"
+  );
+  inputElementVisa7.setAttribute("placeholder", "ایمیل");
+}

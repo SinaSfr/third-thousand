@@ -284,92 +284,91 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
-// const initSwiper = () => {
-//   const swiperElement = document.querySelector(".swiper-article");
 
-//   if (swiperElement) {
-//     console.log("✅ Swiper پیدا شد و مقداردهی شد!");
+const initSwiper = () => {
+  const swiperDesktop = document.querySelector(".swiper-article");
+  const swiperMobile = document.querySelector(".swiper-article-mobile");
 
-//     new Swiper(".swiper-article", {
-//       slidesPerView: 4,
-//       speed: 400,
-//       spaceBetween: 8,
-//       grabCursor: true,
-//       autoplay: {
-//         delay: 2500,
-//         disableOnInteraction: false,
-//       },
-//       loop: true,
-//       pagination: {
-//         el: ".swiper-pagination",
-//         clickable: true,
-//       },
-//       navigation: {
-//         nextEl: ".swiper-button-next-custom",
-//         prevEl: ".swiper-button-prev-custom",
-//       },
-//     });
+  if (swiperDesktop && swiperDesktop.swiper) {
+    swiperDesktop.swiper.destroy(true, true);
+  }
+  if (swiperMobile && swiperMobile.swiper) {
+    swiperMobile.swiper.destroy(true, true);
+  }
 
-//     clearInterval(checkExist); 
-//   }
-// };
-// const checkExist = setInterval(initSwiper, 500);
+  const desktopSlides = swiperDesktop?.querySelectorAll(".swiper-slide").length || 0;
+  const mobileSlides = swiperMobile?.querySelectorAll(".swiper-slide").length || 0;
 
-const initSwipers = () => {
-  const swiperElements = document.querySelectorAll(".swiper-article");
-  
-  if (swiperElements.length > 0) {
-    swiperElements.forEach((swiperElement) => {
-      if (!swiperElement.dataset.swiperInitialized) { // بررسی اینکه آیا قبلاً مقداردهی شده یا نه
-        new Swiper(swiperElement, {
-          slidesPerView: 4,
-          speed: 400,
-          spaceBetween: 8,
-          grabCursor: true,
-          autoplay: {
-            delay: 2500,
-            disableOnInteraction: false,
-          },
-          loop: true,
-          pagination: {
-            el: swiperElement.querySelector(".swiper-pagination"),
-            clickable: true,
-          },
-          navigation: {
-            nextEl: swiperElement.querySelector(".swiper-button-next-custom"),
-            prevEl: swiperElement.querySelector(".swiper-button-prev-custom"),
-          },
-        });
-
-        swiperElement.dataset.swiperInitialized = "true"; // علامت‌گذاری که مقداردهی شده است
-      }
+  if (window.innerWidth >= 1024 && desktopSlides > 0) {
+    new Swiper(".swiper-article", {
+      slidesPerView: 4,
+      speed: 400,
+      spaceBetween: 8,
+      grabCursor: true,
+      autoplay: {
+        delay: 2500,
+        disableOnInteraction: false,
+      },
+      loop: true,
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+      navigation: {
+        nextEl: ".swiper-button-next-custom",
+        prevEl: ".swiper-button-prev-custom",
+      },
     });
-
-    clearInterval(checkExist); // وقتی حداقل یک سوییپر مقداردهی شد، بررسی را متوقف کن
+  } else if (window.innerWidth < 1024 && mobileSlides > 0) {
+    new Swiper(".swiper-article-mobile", {
+      slidesPerView: 1,
+      speed: 400,
+      centeredSlides: false,
+      spaceBetween: 8,
+      grabCursor: true,
+      autoplay: {
+        delay: 2500,
+        disableOnInteraction: false,
+      },
+      loop: true,
+      navigation: {
+        nextEl: ".swiper-button-next-custom",
+        prevEl: ".swiper-button-prev-custom",
+      },
+    });
   }
 };
 
-const checkExist = setInterval(initSwipers, 500); // هر 500 میلی‌ثانیه بررسی کن
+
+document.addEventListener("DOMContentLoaded", () => {
+  setTimeout(initSwiper, 2000);
+});
+
+document.addEventListener("click", function (event) {
+  if (event.target.closest(".reserve-btn") || event.target.closest(".swiper-article")) {
+    setTimeout(initSwiper, 2000);
+  }
+});
+
+window.addEventListener("resize", () => {
+  initSwiper();
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  setTimeout(() => {
+    initSwiper();
+  }, 2000); 
+});
+
+document.addEventListener("click", function (event) {
+  if (event.target.closest(".reserve-btn") || event.target.closest(".swiper-article")) {
+    setTimeout(() => {
+      initSwiper();
+    }, 2000); 
+  }
+});
 
 
-if (document.querySelector(".swiper-article-mobile")) {
-  var swiperArticleMobile = new Swiper(".swiper-article-mobile", {
-    slidesPerView: 1,
-    speed: 400,
-    centeredSlides: false,
-    spaceBetween: 8,
-    grabCursor: true,
-    autoplay: {
-      delay: 2500,
-      disableOnInteraction: false,
-    },
-    loop: true,
-    navigation: {
-      nextEl: ".swiper-button-next-custom",
-      prevEl: ".swiper-button-prev-custom",
-    },
-  });
-}
 
 //form contact
 function uploadDocumentContact(args) {

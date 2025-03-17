@@ -1139,6 +1139,7 @@ body {
 }
 .reserve-field.flightclass-field .down-icon {
   margin-top: 0;
+  height: 48px !important;
 }
 .reserve-field.flightclass-field .clr {
   position: absolute;
