@@ -101,7 +101,7 @@
 
 
 <section
-    class="mx-auto max-lg:w-[90%] max-xl:w-[97%] xl:max-w-7xl mt-20 faq-shadow rounded px-6 pt-6 pb-2 border-[0.2px] border-solid border-zinc-100">
+    class="mx-auto max-lg:w-[90%] max-xl:w-[97%] xl:max-w-7xl mt-20 mb-24 faq-shadow rounded px-6 pt-6 pb-2 border-[0.2px] border-solid border-zinc-100">
     <basis core="print" datamembername="db.faq-list">
         <layout>
             <h2 class="text-primary-900 text-2xl font-bold mb-2">سوالات متداول</h2>
@@ -130,38 +130,38 @@
 
 </section>
 
-<section class="mx-auto max-lg:w-[90%] max-xl:w-[97%] xl:max-w-7xl mt-20 mb-24">
+<section class="mx-auto max-lg:w-[90%] max-xl:w-[97%] xl:max-w-7xl mb-24">
+    <basis core="list" datamembername="db.article-list">
+        <layout>
+            <!-- If we need navigation buttons -->
+            <div class="flex items-center justify-between w-full mb-9 ">
+                <div
+                    class="group swiper-button-prev-custom cursor-pointer w-12 h-12 rounded-full bg-zinc-100 flex items-center justify-center transition-all duration-300 hover:bg-primary-900">
+                    <svg width="24" height="25"
+                        class="transition-all duration-300 group-hover:hidden group-hover:invisible group-hover:opacity-0">
+                        <use xlink:href="./images/sprite-icons.svg#icon-chevron-right"></use>
+                    </svg>
+                    <svg width="24" height="25"
+                        class="hidden transition-all duration-300 invisible opacity-0 group-hover:visible group-hover:opacity-100 group-hover:block">
+                        <use xlink:href="./images/sprite-icons.svg#icon-chevron-right-white"></use>
+                    </svg>
+                </div>
+                <h2 class="text-primary-900 font-bold text-2xl text-center">مجله گردشگری</h2>
+                <div
+                    class="group swiper-button-next-custom cursor-pointer w-12 h-12 rounded-full bg-zinc-100 flex items-center justify-center transition-all duration-300 hover:bg-primary-900">
+                    <svg width="48" height="48"
+                        class="transition-all duration-300 group-hover:hidden group-hover:invisible group-hover:opacity-0">
+                        <use xlink:href="./images/sprite-icons.svg#icon-chevron-left"></use>
+                    </svg>
+                    <svg width="24" height="24"
+                        class="hidden transition-all duration-300 invisible opacity-0 group-hover:visible group-hover:opacity-100 group-hover:block">
+                        <use xlink:href="./images/sprite-icons.svg#icon-chevron-left-white"></use>
+                    </svg>
+                </div>
+            </div>
+            <!-- Slider main container -->
+            <div class="swiper swiper-article pb-16">
 
-    <!-- If we need navigation buttons -->
-    <div class="flex items-center justify-between w-full mb-9 ">
-        <div
-            class="group swiper-button-prev-custom cursor-pointer w-12 h-12 rounded-full bg-zinc-100 flex items-center justify-center transition-all duration-300 hover:bg-primary-900">
-            <svg width="24" height="25"
-                class="transition-all duration-300 group-hover:hidden group-hover:invisible group-hover:opacity-0">
-                <use xlink:href="./images/sprite-icons.svg#icon-chevron-right"></use>
-            </svg>
-            <svg width="24" height="25"
-                class="hidden transition-all duration-300 invisible opacity-0 group-hover:visible group-hover:opacity-100 group-hover:block">
-                <use xlink:href="./images/sprite-icons.svg#icon-chevron-right-white"></use>
-            </svg>
-        </div>
-        <h2 class="text-primary-900 font-bold text-2xl text-center">مجله گردشگری</h2>
-        <div
-            class="group swiper-button-next-custom cursor-pointer w-12 h-12 rounded-full bg-zinc-100 flex items-center justify-center transition-all duration-300 hover:bg-primary-900">
-            <svg width="48" height="48"
-                class="transition-all duration-300 group-hover:hidden group-hover:invisible group-hover:opacity-0">
-                <use xlink:href="./images/sprite-icons.svg#icon-chevron-left"></use>
-            </svg>
-            <svg width="24" height="24"
-                class="hidden transition-all duration-300 invisible opacity-0 group-hover:visible group-hover:opacity-100 group-hover:block">
-                <use xlink:href="./images/sprite-icons.svg#icon-chevron-left-white"></use>
-            </svg>
-        </div>
-    </div>
-    <!-- Slider main container -->
-    <div class="swiper swiper-article pb-16">
-        <basis core="list" datamembername="db.article-list">
-            <layout>
                 <!-- Additional required wrapper -->
                 <div class="swiper-wrapper">
                     <!-- Slides -->
@@ -170,83 +170,84 @@
 
                 <!-- If we need pagination -->
                 <div class="swiper-pagination"></div>
-            </layout>
-            <face filter="link is null">
-                <div class="swiper-slide group">
-                    <div class="border border-solid border-primary-100 bg-zinc-50 rounded-3xl p-2">
-                        <div class="mask-image relative">
-                            <img src="@00298X00429prp" alt="@title"
-                                class="h-[429px] object-cover rounded-tr-3xl transition-all duration-300 group-hover:sepia"
-                                width="100%" height="429" loading="lazy">
-                            <div class="article-shadow absolute inset-0"></div>
-                            <div class="absolute z-10 px-6 bottom-0 mb-28">
-                                <h2 class="text-lg font-bold text-white mb-2">@title
-                                </h2>
-                                <div class="text-sm text-white line-clamp-3 h-15">@prp_7244</div>
-                            </div>
-                        </div>
-                        <div class="flex items-center justify-end gap-14 -mt-10">
-                            <span class="flex items-center gap-1 text-sm text-primary-300">
-                                <svg width="24" height="25" class="flex-shrink-0">
-                                    <use xlink:href="./images/sprite-icons.svg#icon-calender"></use>
-                                </svg>
-                                @prp_7249
-                            </span>
-                            <a href="/article.bc?id=@id"
-                                class="relative z-10 flex items-center justify-center w-[106px] h-12 text-lg text-white font-bold bg-primary-900 rounded-[40px] transition-all duration-300 hover:bg-secondary-600">بخوانید</a>
+            </div>
+        </layout>
+        <face filter="link is null">
+            <div class="swiper-slide group">
+                <div class="border border-solid border-primary-100 bg-zinc-50 rounded-3xl p-2">
+                    <div class="mask-image relative">
+                        <img src="@00298X00429prp" alt="@title"
+                            class="h-[429px] object-cover rounded-tr-3xl transition-all duration-300 group-hover:sepia"
+                            width="100%" height="429" loading="lazy">
+                        <div class="article-shadow absolute inset-0"></div>
+                        <div class="absolute z-10 px-6 bottom-0 mb-28">
+                            <h2 class="text-lg font-bold text-white mb-2">@title
+                            </h2>
+                            <div class="text-sm text-white line-clamp-3 h-15">@prp_7244</div>
                         </div>
                     </div>
-                </div>
-            </face>
-            <face>
-                <div class="swiper-slide group">
-                    <div class="border border-solid border-primary-100 bg-zinc-50 rounded-3xl p-2">
-                        <div class="mask-image relative">
-                            <img src="@00298X00429prp" alt="@title"
-                                class="h-[429px] object-cover rounded-tr-3xl transition-all duration-300 group-hover:sepia"
-                                width="100%" height="429" loading="lazy">
-                            <div class="article-shadow absolute inset-0"></div>
-                            <div class="absolute z-10 px-6 bottom-0 mb-28">
-                                <h2 class="text-lg font-bold text-white mb-2">@title
-                                </h2>
-                                <div class="text-sm text-white line-clamp-3 h-15">@prp_7244</div>
-                            </div>
-                        </div>
-                        <div class="flex items-center justify-end gap-14 -mt-10">
-                            <span class="flex items-center gap-1 text-sm text-primary-300">
-                                <svg width="24" height="25" class="flex-shrink-0">
-                                    <use xlink:href="./images/sprite-icons.svg#icon-calender"></use>
-                                </svg>
-                                @prp_7249
-                            </span>
-                            <a href="@link"
-                                class="relative z-10 flex items-center justify-center w-[106px] h-12 text-lg text-white font-bold bg-primary-900 rounded-[40px] transition-all duration-300 hover:bg-secondary-600">بخوانید</a>
-                        </div>
+                    <div class="flex items-center justify-end gap-14 -mt-10">
+                        <span class="flex items-center gap-1 text-sm text-primary-300">
+                            <svg width="24" height="25" class="flex-shrink-0">
+                                <use xlink:href="./images/sprite-icons.svg#icon-calender"></use>
+                            </svg>
+                            @prp_7249
+                        </span>
+                        <a href="/article.bc?id=@id"
+                            class="relative z-10 flex items-center justify-center w-[106px] h-12 text-lg text-white font-bold bg-primary-900 rounded-[40px] transition-all duration-300 hover:bg-secondary-600">بخوانید</a>
                     </div>
                 </div>
-            </face>
-        </basis>
-    </div>
+            </div>
+        </face>
+        <face>
+            <div class="swiper-slide group">
+                <div class="border border-solid border-primary-100 bg-zinc-50 rounded-3xl p-2">
+                    <div class="mask-image relative">
+                        <img src="@00298X00429prp" alt="@title"
+                            class="h-[429px] object-cover rounded-tr-3xl transition-all duration-300 group-hover:sepia"
+                            width="100%" height="429" loading="lazy">
+                        <div class="article-shadow absolute inset-0"></div>
+                        <div class="absolute z-10 px-6 bottom-0 mb-28">
+                            <h2 class="text-lg font-bold text-white mb-2">@title
+                            </h2>
+                            <div class="text-sm text-white line-clamp-3 h-15">@prp_7244</div>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-end gap-14 -mt-10">
+                        <span class="flex items-center gap-1 text-sm text-primary-300">
+                            <svg width="24" height="25" class="flex-shrink-0">
+                                <use xlink:href="./images/sprite-icons.svg#icon-calender"></use>
+                            </svg>
+                            @prp_7249
+                        </span>
+                        <a href="@link"
+                            class="relative z-10 flex items-center justify-center w-[106px] h-12 text-lg text-white font-bold bg-primary-900 rounded-[40px] transition-all duration-300 hover:bg-secondary-600">بخوانید</a>
+                    </div>
+                </div>
+            </div>
+        </face>
+
+    </basis>
 </section>
 <script>
     var swiperArticle = new Swiper(".swiper-article", {
-      slidesPerView: 4,
-      speed: 400,
-      centeredSlides: false,
-      spaceBetween: 8,
-      grabCursor: true,
-      autoplay: {
-        delay: 2500,
-        disableOnInteraction: false,
-      },
-      loop: true,
-      pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-      },
-      navigation: {
-        nextEl: ".swiper-button-next-custom",
-        prevEl: ".swiper-button-prev-custom",
-      },
+        slidesPerView: 4,
+        speed: 400,
+        centeredSlides: false,
+        spaceBetween: 8,
+        grabCursor: true,
+        autoplay: {
+            delay: 2500,
+            disableOnInteraction: false,
+        },
+        loop: true,
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+        },
+        navigation: {
+            nextEl: ".swiper-button-next-custom",
+            prevEl: ".swiper-button-prev-custom",
+        },
     });
-  </script>
+</script>

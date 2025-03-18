@@ -21,7 +21,8 @@
                 <!-- items flight-hotel -->
                 @child
             </div>
-            <button data-expanded="true" class="toggleButton flex justify-center text-sm mt-6 text-blue-500">مشاهده بیشتر</button>
+            <button data-expanded="true" class="toggleButton flex justify-center text-sm mt-6 text-blue-500">مشاهده
+                بیشتر</button>
         </layout>
         <face filter="link is null">
             <div class="card-item border border-solid border-primary-100 bg-zinc-50 rounded-[42px] px-3 pt-3 pb-6">
@@ -85,7 +86,7 @@
 
 </section>
 <section
-    class="mx-auto max-lg:w-[90%] max-xl:w-[97%] xl:max-w-7xl mt-6 faq-shadow rounded pt-3 px-3 border-[0.2px] border-solid border-zinc-300">
+    class="mx-auto max-lg:w-[90%] max-xl:w-[97%] xl:max-w-7xl mt-6 mb-10 faq-shadow rounded pt-3 px-3 border-[0.2px] border-solid border-zinc-300">
     <h2 class="text-primary-900 text-lg mb-3">سوالات متداول</h2>
     <basis core="print" datamembername="db.faq-list">
         <layout>
@@ -113,100 +114,104 @@
     </basis>
 
 </section>
-<section class="mx-auto max-lg:w-[90%] max-xl:w-[97%] xl:max-w-7xl mt-6 mb-10">
+<section class="mx-auto max-lg:w-[90%] max-xl:w-[97%] xl:max-w-7xl mb-10">
+    <basis core="list" datamembername="db.article-list">
+        <layout>
 
-    <!-- If we need navigation buttons -->
-    <div class="flex items-center justify-between w-full mb-6 ">
-        <div class="swiper-button-prev-custom w-12 h-12 rounded-full bg-zinc-100 flex items-center justify-center">
-            <svg width="24" height="25" class="flex-shrink-0">
-                <use xlink:href="./images/sprite-icons.svg#icon-chevron-right"></use>
-            </svg>
-        </div>
-        <h2 class="text-primary-900 text-center">مجله گردشگری</h2>
-        <div class="swiper-button-next-custom w-12 h-12 rounded-full bg-zinc-100 flex items-center justify-center">
-            <svg width="48" height="48" class="flex-shrink-0">
-                <use xlink:href="./images/sprite-icons.svg#icon-chevron-left"></use>
-            </svg>
-        </div>
-    </div>
-    <!-- Slider main container -->
-    <div class="swiper swiper-article-mobile">
-        <basis core="list" datamembername="db.article-list">
-            <layout>
+            <!-- If we need navigation buttons -->
+            <div class="flex items-center justify-between w-full mb-6 ">
+                <div
+                    class="swiper-button-prev-custom w-12 h-12 rounded-full bg-zinc-100 flex items-center justify-center">
+                    <svg width="24" height="25" class="flex-shrink-0">
+                        <use xlink:href="./images/sprite-icons.svg#icon-chevron-right"></use>
+                    </svg>
+                </div>
+                <h2 class="text-primary-900 text-center">مجله گردشگری</h2>
+                <div
+                    class="swiper-button-next-custom w-12 h-12 rounded-full bg-zinc-100 flex items-center justify-center">
+                    <svg width="48" height="48" class="flex-shrink-0">
+                        <use xlink:href="./images/sprite-icons.svg#icon-chevron-left"></use>
+                    </svg>
+                </div>
+            </div>
+            <!-- Slider main container -->
+            <div class="swiper swiper-article-mobile">
+
                 <!-- Additional required wrapper -->
                 <div class="swiper-wrapper">
                     <!-- Slides -->
                     @child
                 </div>
-            </layout>
-            <face filter="link is null">
-                <div class="swiper-slide">
-                    <div class="border border-solid border-primary-100 bg-zinc-50 rounded-3xl p-2">
-                        <div class="mask-image relative">
-                            <img src="@00272X00429prp" alt="@title" class="h-[429px] object-cover rounded-tr-3xl"
-                                width="100%" height="429" loading="lazy">
-                            <div class="article-shadow absolute inset-0"></div>
-                            <div class="absolute z-10 px-6 bottom-0 mb-20">
-                                <h2 class="text-lg font-bold text-white mb-2">@title</h2>
-                                <div class="text-sm text-white line-clamp-3">@prp_7244</div>
-                            </div>
-                        </div>
-                        <div class="flex items-center justify-end gap-14 -mt-6">
-                            <span class="flex items-center gap-1 text-sm text-primary-300">
-                                <svg width="24" height="25" class="flex-shrink-0">
-                                    <use xlink:href="./images/sprite-icons.svg#icon-calender"></use>
-                                </svg>
-                                @prp_7249
-                            </span>
-                            <a href="/article.bc?id=@id"
-                                class="flex items-center justify-center w-[106px] h-12 text-lg text-white font-bold bg-primary-900 rounded-[40px]">بخوانید</a>
+            </div>
+        </layout>
+        <face filter="link is null">
+            <div class="swiper-slide">
+                <div class="border border-solid border-primary-100 bg-zinc-50 rounded-3xl p-2">
+                    <div class="mask-image relative">
+                        <img src="@00272X00429prp" alt="@title" class="h-[429px] object-cover rounded-tr-3xl"
+                            width="100%" height="429" loading="lazy">
+                        <div class="article-shadow absolute inset-0"></div>
+                        <div class="absolute z-10 px-6 bottom-0 mb-20">
+                            <h2 class="text-lg font-bold text-white mb-2">@title</h2>
+                            <div class="text-sm text-white line-clamp-3">@prp_7244</div>
                         </div>
                     </div>
-                </div>
-            </face>
-            <face>
-                <div class="swiper-slide">
-                    <div class="border border-solid border-primary-100 bg-zinc-50 rounded-3xl p-2">
-                        <div class="mask-image relative">
-                            <img src="@00272X00429prp" alt="@title" class="h-[429px] object-cover rounded-tr-3xl"
-                                width="100%" height="429" loading="lazy">
-                            <div class="article-shadow absolute inset-0"></div>
-                            <div class="absolute z-10 px-6 bottom-0 mb-20">
-                                <h2 class="text-lg font-bold text-white mb-2">@title</h2>
-                                <div class="text-sm text-white line-clamp-3">@prp_7244</div>
-                            </div>
-                        </div>
-                        <div class="flex items-center justify-end gap-14 -mt-6">
-                            <span class="flex items-center gap-1 text-sm text-primary-300">
-                                <svg width="24" height="25" class="flex-shrink-0">
-                                    <use xlink:href="./images/sprite-icons.svg#icon-calender"></use>
-                                </svg>
-                                @prp_7249
-                            </span>
-                            <a href="@link"
-                                class="flex items-center justify-center w-[106px] h-12 text-lg text-white font-bold bg-primary-900 rounded-[40px]">بخوانید</a>
-                        </div>
+                    <div class="flex items-center justify-end gap-14 -mt-6">
+                        <span class="flex items-center gap-1 text-sm text-primary-300">
+                            <svg width="24" height="25" class="flex-shrink-0">
+                                <use xlink:href="./images/sprite-icons.svg#icon-calender"></use>
+                            </svg>
+                            @prp_7249
+                        </span>
+                        <a href="/article.bc?id=@id"
+                            class="flex items-center justify-center w-[106px] h-12 text-lg text-white font-bold bg-primary-900 rounded-[40px]">بخوانید</a>
                     </div>
                 </div>
-            </face>
-        </basis>
-    </div>
+            </div>
+        </face>
+        <face>
+            <div class="swiper-slide">
+                <div class="border border-solid border-primary-100 bg-zinc-50 rounded-3xl p-2">
+                    <div class="mask-image relative">
+                        <img src="@00272X00429prp" alt="@title" class="h-[429px] object-cover rounded-tr-3xl"
+                            width="100%" height="429" loading="lazy">
+                        <div class="article-shadow absolute inset-0"></div>
+                        <div class="absolute z-10 px-6 bottom-0 mb-20">
+                            <h2 class="text-lg font-bold text-white mb-2">@title</h2>
+                            <div class="text-sm text-white line-clamp-3">@prp_7244</div>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-end gap-14 -mt-6">
+                        <span class="flex items-center gap-1 text-sm text-primary-300">
+                            <svg width="24" height="25" class="flex-shrink-0">
+                                <use xlink:href="./images/sprite-icons.svg#icon-calender"></use>
+                            </svg>
+                            @prp_7249
+                        </span>
+                        <a href="@link"
+                            class="flex items-center justify-center w-[106px] h-12 text-lg text-white font-bold bg-primary-900 rounded-[40px]">بخوانید</a>
+                    </div>
+                </div>
+            </div>
+        </face>
+
+    </basis>
 </section>
 <script>
     var swiperArticleMobile = new Swiper(".swiper-article-mobile", {
-    slidesPerView: 1,
-    speed: 400,
-    centeredSlides: false,
-    spaceBetween: 8,
-    grabCursor: true,
-    autoplay: {
-      delay: 2500,
-      disableOnInteraction: false,
-    },
-    loop: true,
-    navigation: {
-      nextEl: ".swiper-button-next-custom",
-      prevEl: ".swiper-button-prev-custom",
-    },
-  });
+        slidesPerView: 1,
+        speed: 400,
+        centeredSlides: false,
+        spaceBetween: 8,
+        grabCursor: true,
+        autoplay: {
+            delay: 2500,
+            disableOnInteraction: false,
+        },
+        loop: true,
+        navigation: {
+            nextEl: ".swiper-button-next-custom",
+            prevEl: ".swiper-button-prev-custom",
+        },
+    });
 </script>
