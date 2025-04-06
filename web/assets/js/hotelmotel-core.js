@@ -1,122 +1,3 @@
-const headerMenu = document.querySelector(".header-menu");
-const headerMenuClose = document.querySelector(".header-menu-close");
-const bars3 = document.querySelector(".bars3");
-
-if (window.innerWidth >= 1024) {
-  headerMenuClose.addEventListener("click", function () {
-    headerMenu.style.visibility = "hidden";
-    headerMenu.style.opacity = "0";
-    // headerMenu.style.display = "none";
-  });
-  bars3.addEventListener("click", function () {
-    headerMenu.style.visibility = "visible";
-    headerMenu.style.opacity = "1";
-    // headerMenu.style.display = "block";
-  });
-} else {
-  headerMenuClose.addEventListener("click", function () {
-    headerMenu.style.transform = "translateX(1024px)";
-  });
-  bars3.addEventListener("click", function () {
-    headerMenu.style.transform = "translateX(0)";
-  });
-}
-
-document.addEventListener("DOMContentLoaded", function () {
-  const toggleDropdowns = document.querySelectorAll(".toggle-dropdown");
-  const dropdownIcons = document.querySelectorAll(".dropdown-icon");
-
-  toggleDropdowns.forEach((toggle, index) => {
-    const submenu = toggle.nextElementSibling;
-    const dropdownIcon = dropdownIcons[index];
-
-    toggle.addEventListener("click", function () {
-      dropdownIcon.classList.toggle("rotate-180");
-
-      if (submenu.style.maxHeight) {
-        submenu.style.maxHeight = null;
-        submenu.style.opacity = "0";
-      } else {
-        submenu.style.maxHeight = submenu.scrollHeight * 10 + "px";
-        submenu.style.opacity = "1";
-      }
-    });
-  });
-});
-
-document.addEventListener("DOMContentLoaded", function () {
-  const fetchContentArticle = document;
-
-  fetchContentArticle.addEventListener("click", function (event) {
-    const button = event.target.closest(".faq-box");
-    if (!button) return;
-
-    const faqBtn = button.querySelector(".faq-btn");
-    const faqAnswer = button.querySelector(".faq-answer");
-
-    document.querySelectorAll(".faq-box").forEach((otherBox) => {
-      if (otherBox !== button) {
-        const otherAnswer = otherBox.querySelector(".faq-answer");
-        otherAnswer.classList.add("max-h-0", "opacity-0");
-        otherAnswer.classList.remove("max-h-screen", "opacity-100");
-      }
-    });
-
-    if (faqAnswer.classList.contains("max-h-0")) {
-      faqAnswer.classList.remove("max-h-0", "opacity-0");
-      faqAnswer.classList.add("max-h-screen", "opacity-100");
-    } else {
-      faqAnswer.classList.add("max-h-0", "opacity-0");
-      faqAnswer.classList.remove("max-h-screen", "opacity-100");
-    }
-  });
-});
-
-document.addEventListener("DOMContentLoaded", function () {
-  document.addEventListener("click", function (event) {
-    const flightButton = event.target.closest(".flight-btn.reserve-btn");
-    if (flightButton) {
-      const container = document.querySelector(".landing-content");
-      let cardContainer = null;
-
-      if (container) {
-        setTimeout(() => {
-          cardContainer = container.querySelector(".card-container");
-
-          if (cardContainer) {
-            const items = cardContainer.querySelectorAll(".card-item");
-
-            items.forEach((item, index) => {
-              if (index > 5) {
-                item.style.display = "none";
-              }
-            });
-          }
-        }, 2000);
-      }
-    }
-
-    const toggleButton = event.target.closest(".toggleButton");
-    if (toggleButton) {
-      const container = toggleButton.closest(".flex").previousElementSibling;
-      if (!container || !container.classList.contains("card-container")) return;
-
-      const items = container.querySelectorAll(".card-item");
-
-      isExpanded = toggleButton.dataset.expanded === "true";
-
-      items.forEach((item, index) => {
-        if (index > 5) {
-          item.style.display = !isExpanded ? "none" : "block";
-        }
-      });
-
-      toggleButton.textContent = !isExpanded ? "مشاهده بیشتر" : "مشاهده کمتر";
-      toggleButton.dataset.expanded = isExpanded ? "false" : "true";
-    }
-  });
-});
-
 document.addEventListener("click", function (event) {
   const flightButton = event.target.closest(".flight-btn.reserve-btn");
   if (flightButton) {
@@ -283,6 +164,127 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 });
+
+const headerMenu = document.querySelector(".header-menu");
+const headerMenuClose = document.querySelector(".header-menu-close");
+const bars3 = document.querySelector(".bars3");
+
+if (window.innerWidth >= 1024) {
+  headerMenuClose.addEventListener("click", function () {
+    headerMenu.style.visibility = "hidden";
+    headerMenu.style.opacity = "0";
+    // headerMenu.style.display = "none";
+  });
+  bars3.addEventListener("click", function () {
+    headerMenu.style.visibility = "visible";
+    headerMenu.style.opacity = "1";
+    // headerMenu.style.display = "block";
+  });
+} else {
+  headerMenuClose.addEventListener("click", function () {
+    headerMenu.style.transform = "translateX(1024px)";
+  });
+  bars3.addEventListener("click", function () {
+    headerMenu.style.transform = "translateX(0)";
+  });
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+  const toggleDropdowns = document.querySelectorAll(".toggle-dropdown");
+  const dropdownIcons = document.querySelectorAll(".dropdown-icon");
+
+  toggleDropdowns.forEach((toggle, index) => {
+    const submenu = toggle.nextElementSibling;
+    const dropdownIcon = dropdownIcons[index];
+
+    toggle.addEventListener("click", function () {
+      dropdownIcon.classList.toggle("rotate-180");
+
+      if (submenu.style.maxHeight) {
+        submenu.style.maxHeight = null;
+        submenu.style.opacity = "0";
+      } else {
+        submenu.style.maxHeight = submenu.scrollHeight * 10 + "px";
+        submenu.style.opacity = "1";
+      }
+    });
+  });
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  const fetchContentArticle = document;
+
+  fetchContentArticle.addEventListener("click", function (event) {
+    const button = event.target.closest(".faq-box");
+    if (!button) return;
+
+    const faqBtn = button.querySelector(".faq-btn");
+    const faqAnswer = button.querySelector(".faq-answer");
+
+    document.querySelectorAll(".faq-box").forEach((otherBox) => {
+      if (otherBox !== button) {
+        const otherAnswer = otherBox.querySelector(".faq-answer");
+        otherAnswer.classList.add("max-h-0", "opacity-0");
+        otherAnswer.classList.remove("max-h-screen", "opacity-100");
+      }
+    });
+
+    if (faqAnswer.classList.contains("max-h-0")) {
+      faqAnswer.classList.remove("max-h-0", "opacity-0");
+      faqAnswer.classList.add("max-h-screen", "opacity-100");
+    } else {
+      faqAnswer.classList.add("max-h-0", "opacity-0");
+      faqAnswer.classList.remove("max-h-screen", "opacity-100");
+    }
+  });
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  document.addEventListener("click", function (event) {
+    const flightButton = event.target.closest(".flight-btn.reserve-btn");
+    if (flightButton) {
+      const container = document.querySelector(".landing-content");
+      let cardContainer = null;
+
+      if (container) {
+        setTimeout(() => {
+          cardContainer = container.querySelector(".card-container");
+
+          if (cardContainer) {
+            const items = cardContainer.querySelectorAll(".card-item");
+
+            items.forEach((item, index) => {
+              if (index > 5) {
+                item.style.display = "none";
+              }
+            });
+          }
+        }, 2000);
+      }
+    }
+
+    const toggleButton = event.target.closest(".toggleButton");
+    if (toggleButton) {
+      const container = toggleButton.closest(".flex").previousElementSibling;
+      if (!container || !container.classList.contains("card-container")) return;
+
+      const items = container.querySelectorAll(".card-item");
+
+      isExpanded = toggleButton.dataset.expanded === "true";
+
+      items.forEach((item, index) => {
+        if (index > 5) {
+          item.style.display = !isExpanded ? "none" : "block";
+        }
+      });
+
+      toggleButton.textContent = !isExpanded ? "مشاهده بیشتر" : "مشاهده کمتر";
+      toggleButton.dataset.expanded = isExpanded ? "false" : "true";
+    }
+  });
+});
+
+
 
 
 const initSwiper = () => {

@@ -19,9 +19,9 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0,shrink-to-fit=no,viewport-fit=cover">
         <!-- Title & Description -->
-        <title>[##cms.seo.title|(هتل متل)##]
+        <title>[##cms.seo.title|(رزرو هتل - خرید بلیط هواپیما - هتل متل)##]
         </title>
-        <meta name="description" content="[##cms.seo.description|(هتل متل)##]">
+        <meta name="description" content="[##cms.seo.description|(آژانس گردشگری هتل متل؛ تخصص در ارائه هتل های زیبا و به یاد ماندنی در کیش، اقامتگاه‌های لوکس ، و تجربه سفرهای به‌یادماندنی. با بهترین قیمت‌ها و خدمات VIP، سفری دلپذیر را تجربه کنید.)##]">
         <!-- Title & Description -->
         <basis core="dbsource" source="hosting" name="tag" urlid="[##cms.seo.urlid##]">
             <member type="list" name="list" request="taglist" preview=""></member>
@@ -111,7 +111,7 @@
                     </div>
                 </layout>
                 <face filter="link is null">
-                    <div class="border border-solid border-primary-100 bg-zinc-50 rounded-[42px] px-3 pt-3 pb-6">
+                    <a href="/article.bc?id=@id" class="flex flex-col border border-solid border-primary-100 bg-zinc-50 rounded-[42px] px-3 pt-3 pb-6">
                         <img src="@00264X00205prp" class="h-52 object-cover rounded-[30px]" alt="@title"
                             width="100%" height="208" loading="lazy">
                         <div class="flex flex-col gap-6 mt-4">
@@ -121,13 +121,13 @@
                                 </svg>
                                 @title
                             </div>
-                            <a href="/article.bc?id=@id"
-                                class="flex items-center justify-center h-12 text-lg text-primary-900 font-bold border border-primary-900 rounded-[40px]">مشاهده</a>
+                            <span
+                                class="flex items-center justify-center h-12 text-lg text-primary-900 font-bold border border-primary-900 rounded-[40px]">مشاهده</span>
                         </div>
-                    </div>
+                    </a>
                 </face>
                 <face>
-                    <div class="border border-solid border-primary-100 bg-zinc-50 rounded-[42px] px-3 pt-3 pb-6">
+                    <a href="@link" class="flex flex-col border border-solid border-primary-100 bg-zinc-50 rounded-[42px] px-3 pt-3 pb-6">
                         <img src="@00264X00205prp" class="h-52 object-cover rounded-[30px]" alt="@title"
                             width="100%" height="208" loading="lazy">
                         <div class="flex flex-col gap-6 mt-4">
@@ -137,10 +137,10 @@
                                 </svg>
                                 @title
                             </div>
-                            <a href="@link"
-                                class="flex items-center justify-center h-12 text-lg text-primary-900 font-bold border border-primary-900 rounded-[40px]">مشاهده</a>
+                            <span
+                                class="flex items-center justify-center h-12 text-lg text-primary-900 font-bold border border-primary-900 rounded-[40px]">مشاهده</span>
                         </div>
-                    </div>
+                    </a>
                 </face>
             </basis>
 

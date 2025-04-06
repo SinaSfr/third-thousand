@@ -20,9 +20,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0,shrink-to-fit=no,viewport-fit=cover">
     <!-- Title & Description -->
-    <title>[##cms.seo.title|(هتل متل)##]
+    <title>[##cms.seo.title|(رزرو هتل - خرید بلیط هواپیما - هتل متل)##]
     </title>
-    <meta name="description" content="[##cms.seo.description|(هتل متل)##]">
+    <meta name="description" content="[##cms.seo.description|(آژانس گردشگری هتل متل؛ تخصص در ارائه هتل های زیبا و به یاد ماندنی در کیش، اقامتگاه‌های لوکس ، و تجربه سفرهای به‌یادماندنی. با بهترین قیمت‌ها و خدمات VIP، سفری دلپذیر را تجربه کنید.)##]">
     <!-- Title & Description -->
     <basis core="dbsource" source="hosting" name="tag" urlid="[##cms.seo.urlid##]">
         <member type="list" name="list" request="taglist" preview=""></member>
@@ -114,7 +114,7 @@
                     </div>
                 </layout>
                 <face filter="link is null">
-                    <div class="group border border-solid border-primary-100 bg-zinc-50 rounded-[42px] px-3 pt-3 pb-6">
+                    <a href="/tour.bc?id=@id" class="flex flex-col group border border-solid border-primary-100 bg-zinc-50 rounded-[42px] px-3 pt-3 pb-6">
                         <img src="@00397X00284prp"
                             class="h-72 object-cover rounded-[30px] transition-all duration-300 group-hover:grayscale"
                             alt="@title" width="100%" height="284" loading="lazy">
@@ -126,17 +126,17 @@
                                 </svg>
                                 @prp_3087625
                             </div>
-                            <a href="/tour.bc?id=@id"
+                            <span
                                 class="relative group/leveltwo z-10 overflow-hidden border border-solid border-primary-900 flex items-center justify-center h-12 text-lg text-white font-bold bg-primary-900 rounded-[40px] transition-all duration-300 hover:text-primary-900">مشاهده
                                 جزئیات
                                 <span
                                     class="absolute inset-0 transition-transform duration-300 origin-right scale-x-0 -z-10 bg-zinc-50 group-hover/leveltwo:scale-x-100"></span>
-                            </a>
+                            </span>
                         </div>
-                    </div>
+                    </a>
                 </face>
                 <face>
-                    <div class="group border border-solid border-primary-100 bg-zinc-50 rounded-[42px] px-3 pt-3 pb-6">
+                    <a href="@link" class="flex flex-col group border border-solid border-primary-100 bg-zinc-50 rounded-[42px] px-3 pt-3 pb-6">
                         <img src="@00397X00284prp"
                             class="h-72 object-cover rounded-[30px] transition-all duration-300 group-hover:grayscale"
                             alt="@title" width="100%" height="284" loading="lazy">
@@ -148,14 +148,14 @@
                                 </svg>
                                 @prp_3087625
                             </div>
-                            <a href="@link"
+                            <span
                                 class="relative group/leveltwo z-10 overflow-hidden border border-solid border-primary-900 flex items-center justify-center h-12 text-lg text-white font-bold bg-primary-900 rounded-[40px] transition-all duration-300 hover:text-primary-900">مشاهده
                                 جزئیات
                                 <span
                                     class="absolute inset-0 transition-transform duration-300 origin-right scale-x-0 -z-10 bg-zinc-50 group-hover/leveltwo:scale-x-100"></span>
-                            </a>
+                            </span>
                         </div>
-                    </div>
+                    </a>
                 </face>
             </basis>
             <div id="paging" class="flex justify-center mt-20">

@@ -1,7 +1,7 @@
 <basis core="dbsource" source="basiscore" lid="1" mid="1" name="db" catid="[##cms.query.catid##]">
     <member name="article-list" type="list" link="article.bc" propertyid="7244,7249" perpage="12" size="298x429"
         pageno="[##cms.query.pagenum|(1)##]" order="ord" />
-        <member name="paging" type="list" request="paging" count="3" parentname="article-list" />
+    <member name="paging" type="list" request="paging" count="3" parentname="article-list" />
 </basis>
 <basis core="dbsource" source="basiscore" lid="1" mid="1" name="db" catid="[##cms.query.catid##]">
     <member name="navigation" type="tree" request="navcatid" parentid="[##cms.query.catid##]" />
@@ -20,9 +20,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0,shrink-to-fit=no,viewport-fit=cover">
     <!-- Title & Description -->
-    <title>[##cms.seo.title|(هتل متل)##]
+    <title>[##cms.seo.title|(رزرو هتل - خرید بلیط هواپیما - هتل متل)##]
     </title>
-    <meta name="description" content="[##cms.seo.description|(هتل متل)##]">
+    <meta name="description" content="[##cms.seo.description|(آژانس گردشگری هتل متل؛ تخصص در ارائه هتل های زیبا و به یاد ماندنی در کیش، اقامتگاه‌های لوکس ، و تجربه سفرهای به‌یادماندنی. با بهترین قیمت‌ها و خدمات VIP، سفری دلپذیر را تجربه کنید.)##]">
     <!-- Title & Description -->
     <basis core="dbsource" source="hosting" name="tag" urlid="[##cms.seo.urlid##]">
         <member type="list" name="list" request="taglist" preview=""></member>
@@ -54,8 +54,8 @@
                 <ul itemscope itemtype="https://schema.org/BreadcrumbList" class="flex items-center text-sm gap-1 mt-2">
                     <li class="inline-block font-normal" itemprop="itemListElement" itemscope
                         itemtype="https://schema.org/ListItem">
-                        <a class="text-white transition-all duration-300 hover:text-secondary-600" itemprop="item" href="/" aria-label="home"><span
-                                itemprop="name">صفحه اصلی</span>
+                        <a class="text-white transition-all duration-300 hover:text-secondary-600" itemprop="item"
+                            href="/" aria-label="home"><span itemprop="name">صفحه اصلی</span>
                             <meta itemprop="position" content="1" />
                         </a>
                     </li>
@@ -71,8 +71,8 @@
                         <face filter="link is null and parentcatid<>152240">
                             <li class="flex gap-1 font-normal " itemprop="itemListElement" itemscope
                                 itemtype="https://schema.org/ListItem">
-                                <a class="text-white transition-all duration-300 hover:text-secondary-600" itemprop="item"
-                                    href="/article-list.bc?catid=@parentcatid" aria-label="@title"><span
+                                <a class="text-white transition-all duration-300 hover:text-secondary-600"
+                                    itemprop="item" href="/article-list.bc?catid=@parentcatid" aria-label="@title"><span
                                         itemprop="name">@title</span>
                                     <meta itemprop="position" content="@rownumber" />
                                 </a>
@@ -82,8 +82,9 @@
                         <face filter="parentcatid<>152240">
                             <li class="flex gap-1 font-normal " itemprop="itemListElement" itemscope
                                 itemtype="https://schema.org/ListItem">
-                                <a class="text-white transition-all duration-300 hover:text-secondary-600" itemprop="item" href="@link"
-                                    aria-label="@title"><span class="text-white transition-all duration-300 hover:text-secondary-600"
+                                <a class="text-white transition-all duration-300 hover:text-secondary-600"
+                                    itemprop="item" href="@link" aria-label="@title"><span
+                                        class="text-white transition-all duration-300 hover:text-secondary-600"
                                         itemprop="name">@title</span>
                                     <meta itemprop="position" content="@rownumber" />
                                 </a>
@@ -100,8 +101,7 @@
                     </div>
                 </layout>
                 <face>
-                    <img src="@image" class="h-80 object-cover" alt="@title" width="100%"
-                    height="320" loading="lazy">
+                    <img src="@image" class="h-80 object-cover" alt="@title" width="100%" height="320" loading="lazy">
                 </face>
             </basis>
 
@@ -114,29 +114,29 @@
                     </div>
                 </layout>
                 <face filter="link is null">
-                        <div class="group border border-solid border-primary-100 bg-zinc-50 rounded-3xl p-2">
-                            <div class="mask-image relative">
-                                <img src="@00298X00429prp" alt="@title"
-                                    class="h-[429px] object-cover rounded-tr-3xl transition-all duration-300 group-hover:sepia"
-                                    width="100%" height="429" loading="lazy">
-                                <div class="article-shadow absolute inset-0"></div>
-                                <div class="absolute z-10 px-6 bottom-0 mb-28">
-                                    <h2 class="text-lg font-bold text-white mb-2">@title
-                                    </h2>
-                                    <div class="text-sm text-white line-clamp-3 h-15">@prp_7244</div>
-                                </div>
-                            </div>
-                            <div class="flex items-center justify-end gap-14 -mt-10">
-                                <span class="flex items-center gap-1 text-sm text-primary-300">
-                                    <svg width="24" height="25" class="flex-shrink-0">
-                                        <use xlink:href="./images/sprite-icons.svg#icon-calender"></use>
-                                    </svg>
-                                    @prp_7249
-                                </span>
-                                <a href="/article.bc?id=@id"
-                                    class="relative z-10 flex items-center justify-center w-[106px] h-12 text-lg text-white font-bold bg-primary-900 rounded-[40px] transition-all duration-300 hover:bg-secondary-600">بخوانید</a>
+                    <div class="group border border-solid border-primary-100 bg-zinc-50 rounded-3xl p-2">
+                        <div class="mask-image relative">
+                            <img src="@00298X00429prp" alt="@title"
+                                class="h-[429px] object-cover rounded-tr-3xl transition-all duration-300 group-hover:sepia"
+                                width="100%" height="429" loading="lazy">
+                            <div class="article-shadow absolute inset-0"></div>
+                            <div class="absolute z-10 px-6 bottom-0 mb-28">
+                                <h2 class="text-lg font-bold text-white mb-2">@title
+                                </h2>
+                                <div class="text-sm text-white line-clamp-3 h-15">@prp_7244</div>
                             </div>
                         </div>
+                        <div class="flex items-center justify-end gap-14 -mt-10">
+                            <span class="flex items-center gap-1 text-sm text-primary-300">
+                                <svg width="24" height="25" class="flex-shrink-0">
+                                    <use xlink:href="./images/sprite-icons.svg#icon-calender"></use>
+                                </svg>
+                                @prp_7249
+                            </span>
+                            <a href="/article.bc?id=@id"
+                                class="relative z-10 flex items-center justify-center w-[106px] h-12 text-lg text-white font-bold bg-primary-900 rounded-[40px] transition-all duration-300 hover:bg-secondary-600">بخوانید</a>
+                        </div>
+                    </div>
                 </face>
                 <face>
                     <div class="group border border-solid border-primary-100 bg-zinc-50 rounded-3xl p-2">
@@ -162,7 +162,7 @@
                                 class="relative z-10 flex items-center justify-center w-[106px] h-12 text-lg text-white font-bold bg-primary-900 rounded-[40px] transition-all duration-300 hover:bg-secondary-600">بخوانید</a>
                         </div>
                     </div>
-            </face>
+                </face>
             </basis>
             <div id="paging" class="flex justify-center mt-20">
                 <ul class="flex items-center gap-1 cd-pagination no-space direction-ltr" id="wibpaging">

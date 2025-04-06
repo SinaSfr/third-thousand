@@ -25,7 +25,7 @@
                 بیشتر</button>
         </layout>
         <face filter="link is null">
-            <div class="card-item border border-solid border-primary-100 bg-zinc-50 rounded-[42px] px-3 pt-3 pb-6">
+            <a href="/article.bc?id=@id" class="card-item flex flex-col border border-solid border-primary-100 bg-zinc-50 rounded-[42px] px-3 pt-3 pb-6">
                 <img src="@00264X00184prp" class="h-48 object-cover rounded-[30px]" alt="@title" width="100%"
                     height="184" loading="lazy">
                 <div class="flex flex-col gap-2 mt-4">
@@ -36,14 +36,14 @@
                         </svg>
                         <span>قیمت : <span>@prp_3087598</span></span>
                     </div>
-                    <a href="/article.bc?id=@id"
+                    <span
                         class="flex items-center justify-center h-12 text-lg text-primary-900 font-bold border border-primary-900 rounded-[40px]">انتخاب
-                        سرویس</a>
+                        سرویس</span>
                 </div>
-            </div>
+            </a>
         </face>
         <face>
-            <div class="card-item border border-solid border-primary-100 bg-zinc-50 rounded-[42px] px-3 pt-3 pb-6">
+            <a href="@link" class="card-item flex flex-col border border-solid border-primary-100 bg-zinc-50 rounded-[42px] px-3 pt-3 pb-6">
                 <img src="@00264X00184prp" class="h-48 object-cover rounded-[30px]" alt="@title" width="100%"
                     height="184" loading="lazy">
                 <div class="flex flex-col gap-2 mt-4">
@@ -54,11 +54,11 @@
                         </svg>
                         <span>قیمت : <span>@prp_3087598</span></span>
                     </div>
-                    <a href="@link"
+                    <span
                         class="flex items-center justify-center h-12 text-lg text-primary-900 font-bold border border-primary-900 rounded-[40px]">انتخاب
-                        سرویس</a>
+                        سرویس</span>
                 </div>
-            </div>
+            </a>
         </face>
     </basis>
 </section>
@@ -147,7 +147,7 @@
         </layout>
         <face filter="link is null">
             <div class="swiper-slide">
-                <div class="border border-solid border-primary-100 bg-zinc-50 rounded-3xl p-2">
+                <a href="/article.bc?id=@id" class="flex flex-col border border-solid border-primary-100 bg-zinc-50 rounded-3xl p-2">
                     <div class="mask-image relative">
                         <img src="@00272X00429prp" alt="@title" class="h-[429px] object-cover rounded-tr-3xl"
                             width="100%" height="429" loading="lazy">
@@ -164,15 +164,15 @@
                             </svg>
                             @prp_7249
                         </span>
-                        <a href="/article.bc?id=@id"
-                            class="flex items-center justify-center w-[106px] h-12 text-lg text-white font-bold bg-primary-900 rounded-[40px]">بخوانید</a>
+                        <span
+                            class="flex items-center justify-center w-[106px] h-12 text-lg text-white font-bold bg-primary-900 rounded-[40px]">بخوانید</span>
                     </div>
-                </div>
+                </a>
             </div>
         </face>
         <face>
             <div class="swiper-slide">
-                <div class="border border-solid border-primary-100 bg-zinc-50 rounded-3xl p-2">
+                <a href="@link" class="flex flex-col border border-solid border-primary-100 bg-zinc-50 rounded-3xl p-2">
                     <div class="mask-image relative">
                         <img src="@00272X00429prp" alt="@title" class="h-[429px] object-cover rounded-tr-3xl"
                             width="100%" height="429" loading="lazy">
@@ -189,10 +189,10 @@
                             </svg>
                             @prp_7249
                         </span>
-                        <a href="@link"
-                            class="flex items-center justify-center w-[106px] h-12 text-lg text-white font-bold bg-primary-900 rounded-[40px]">بخوانید</a>
+                        <span
+                            class="flex items-center justify-center w-[106px] h-12 text-lg text-white font-bold bg-primary-900 rounded-[40px]">بخوانید</span>
                     </div>
-                </div>
+                </a>
             </div>
         </face>
 

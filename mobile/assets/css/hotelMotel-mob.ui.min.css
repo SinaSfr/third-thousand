@@ -1325,7 +1325,7 @@ body {
 }
 
 .plus-count span {
-  font-size: 28px;
+  font-size: 19px;
   padding-top: 0.25rem;
   color: white;
 }
@@ -1347,7 +1347,7 @@ body {
   border-radius: 12px;
 }
 .minus-count span {
-  font-size: 35px;
+  font-size: 18px;
   padding-top: 0.25rem;
   color: white;
 }

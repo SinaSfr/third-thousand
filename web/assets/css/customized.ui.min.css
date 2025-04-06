@@ -1225,6 +1225,10 @@ body {
     width: 15rem;
   }
 
+  .lg\:w-3\/5 {
+    width: 60%;
+}
+
   .lg\:w-full {
     width: 100%;
   }
