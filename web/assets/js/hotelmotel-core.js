@@ -165,6 +165,45 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
+document.addEventListener("DOMContentLoaded", function () {
+  const isHomePage = window.location.pathname === "/"; 
+  const isNotHome = !isHomePage;
+
+  const flightItem = document.querySelector('li[data-id="flight"]');
+  const hotelItem = document.querySelector('li[data-id="hotel"]');
+
+  if (isNotHome) {
+    if (flightItem) {
+      flightItem.addEventListener("click", function (e) {
+        e.preventDefault();
+        window.location.href = "/flight"; 
+      });
+    }
+
+    if (hotelItem) {
+      hotelItem.addEventListener("click", function (e) {
+        e.preventDefault();
+        window.location.href = "/hotel"; 
+      });
+    }
+  } 
+  else {
+    if (flightItem) {
+      flightItem.addEventListener("click", function () {
+        check_searchHistory('flight');
+        check_landing('flight');
+      });
+    }
+
+    if (hotelItem) {
+      hotelItem.addEventListener("click", function () {
+        check_searchHistory('hotel');
+        check_landing('hotel');
+      });
+    }
+  }
+});
+
 const headerMenu = document.querySelector(".header-menu");
 const headerMenuClose = document.querySelector(".header-menu-close");
 const bars3 = document.querySelector(".bars3");
