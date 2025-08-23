@@ -619,37 +619,48 @@ body {
 }
 
 .drop-shadow-\[2px_4px_6px_rgba\(0\2c 0\2c 0\2c 0\.9\)\] {
-  --tw-drop-shadow: drop-shadow(2px 4px 6px rgba(0,0,0,0.9));
-  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+  --tw-drop-shadow: drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.9));
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast)
+    var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate)
+    var(--tw-sepia) var(--tw-drop-shadow);
 }
 
 .loader-fetch {
   width: 48px;
   height: 48px;
-  border:10px solid #FFF;
+  border: 10px solid #fff;
   border-radius: 50%;
   position: relative;
-  transform:rotate(45deg);
+  transform: rotate(45deg);
   box-sizing: border-box;
 }
 .loader-fetch::before {
   content: "";
   position: absolute;
   box-sizing: border-box;
-  inset:-10px;
+  inset: -10px;
   border-radius: 50%;
-  border:10px solid #8e7430;
+  border: 10px solid #8e7430;
   animation: prixClipFix 2s infinite linear;
 }
 
 @keyframes prixClipFix {
-    0%   {clip-path:polygon(50% 50%,0 0,0 0,0 0,0 0,0 0)}
-    25%  {clip-path:polygon(50% 50%,0 0,100% 0,100% 0,100% 0,100% 0)}
-    50%  {clip-path:polygon(50% 50%,0 0,100% 0,100% 100%,100% 100%,100% 100%)}
-    75%  {clip-path:polygon(50% 50%,0 0,100% 0,100% 100%,0 100%,0 100%)}
-    100% {clip-path:polygon(50% 50%,0 0,100% 0,100% 100%,0 100%,0 0)}
+  0% {
+    clip-path: polygon(50% 50%, 0 0, 0 0, 0 0, 0 0, 0 0);
+  }
+  25% {
+    clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 0, 100% 0, 100% 0);
+  }
+  50% {
+    clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 100% 100%, 100% 100%);
+  }
+  75% {
+    clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 0 100%, 0 100%);
+  }
+  100% {
+    clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 0 100%, 0 0);
+  }
 }
-  
 
 .r-flighthotel.module-form {
   padding: 81px 16px 8px 16px;
@@ -691,8 +702,8 @@ body {
 }
 
 .reservation-item {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
   justify-content: space-between;
 }
 
@@ -719,7 +730,7 @@ body {
   padding-left: 0 !important;
 }
 
-.reserve-btn .module-name{
+.reserve-btn .module-name {
   display: none !important;
 }
 .reserve-btn.active-module .module-name {
@@ -727,7 +738,7 @@ body {
 }
 .reserve-field.departure-route,
 .reserve-field.destination-route,
-.Basis_Date_Box{
+.Basis_Date_Box {
   margin-bottom: 0.25rem !important;
 }
 
@@ -839,12 +850,12 @@ body {
   color: #242453 !important;
 }
 
-.passenger-counts.passenger-count{
+.passenger-counts.passenger-count {
   padding-top: 0.25rem;
 }
 
 .section_prev_month svg,
-.section_next_month svg{
+.section_next_month svg {
   width: 28px !important;
   height: 28px !important;
 }
@@ -876,7 +887,7 @@ body {
 .flighttype-field.flighttype-dropDown span {
   margin-bottom: 0;
 }
-.flighttype-field.flighttype-dropDown .flighttype-dropDown-text{
+.flighttype-field.flighttype-dropDown .flighttype-dropDown-text {
   line-height: 3.25rem;
 }
 
@@ -905,11 +916,22 @@ body {
   width: 113px !important;
   height: 56px !important;
   position: absolute !important;
+  top: 157px;
+  left: 1rem;
+  background-color: #fff;
+  border-radius: 12px;
+}
+
+#flightHotelSearch .reserve-field.flightclass-field {
+  width: 113px !important;
+  height: 56px !important;
+  position: absolute !important;
   top: 17px;
   left: 1rem;
   background-color: #fff;
   border-radius: 12px;
 }
+
 .reserve-field.flightclass-field div:first-of-type {
   display: flex;
   align-items: center;
@@ -969,7 +991,7 @@ body {
   padding-top: 0 !important;
 }
 
-.reserve-field.flightclass-field svg:first-of-type {
+.reserve-field.flightclass-field label svg:first-of-type {
   display: none;
 }
 
@@ -1091,6 +1113,18 @@ body {
 .exchangeRoute svg {
   width: 26px !important;
   height: 18px !important;
+}
+
+.confirm-passenger {
+  width: 100%;
+  height: 48px !important;
+  margin-top: 2rem;
+  background: var(--secondary-600);
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  color: white;
 }
 
 .reserve-search {
@@ -1230,20 +1264,20 @@ body {
   display: none;
 }
 
-.removeroute-icon{
+.removeroute-icon {
   width: 24px !important;
   height: 24px !important;
 }
 
-.flighttype-field-icon{
+.flighttype-field-icon {
   display: block !important;
 }
-.flighttype-field-icon svg{
+.flighttype-field-icon svg {
   height: 48px !important;
   margin-top: 0 !important;
 }
 
-.reserve-location.form-search-input{
+.reserve-location.form-search-input {
   font-weight: bold;
   padding-right: 0 !important;
   font-size: 16px !important;
@@ -1255,6 +1289,11 @@ body {
   border: 1px solid #737373;
   background-color: #fff;
   width: 100%;
+  z-index: 60 !important;
+}
+
+.FlightClass.hidden-box ul {
+  clear: both;
 }
 
 .FlightClass.hidden-box li {
@@ -1282,9 +1321,8 @@ body {
   box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 }
 .passengerbox.hidden-box {
-  border-radius: 8px;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
-  margin-top: 9px;
+  z-index: 60 !important;
 }
 
 .ul-list ul li:not(:last-child) {
@@ -1321,7 +1359,11 @@ body {
 .passenger-item.room-passenger-item,
 .passengerbox.hidden-box .passenger-item {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
+}
+
+.passenger-item .clr {
+  position: absolute;
 }
 
 .plus-count span {
@@ -1352,13 +1394,28 @@ body {
   color: white;
 }
 
+.close-passenger-box {
+  margin-bottom: 4rem !important;
+  width: auto !important;
+  height: auto !important;
+}
+
 .close-passenger-box svg {
-  width: 24px !important;
-  height: 24px !important;
+  width: 48px !important;
+  height: 48px !important;
+}
+
+.close-module-form {
+  display: none;
+}
+
+.close-searchList {
+  width: auto !important;
+  height: auto !important;
 }
 
 .createChildDropdown .select-age {
-  border: 1px solid #7a82ab ;
+  border: 1px solid #7a82ab;
   border-radius: 8px;
   outline: none;
   height: 48px !important;
@@ -1375,6 +1432,22 @@ body {
   margin-top: 0.5rem;
 }
 
+.Basis_Calendar {
+  position: fixed !important;
+  height: 100vh !important;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: white;
+  overflow-y: auto;
+  width: 100%;
+}
+
+.search-box-container.mobile-search-box .Basis_Calendar .year {
+  padding-top: 60px !important;
+}
+
 .contact-form
   [data-bc-schema-direction="rtl"]
   [data-bc-title-container]
@@ -1383,7 +1456,7 @@ body {
 }
 .contact-form [data-bc-answer-container] input[type="text"] {
   background-color: white !important;
-  color: #18181B !important;
+  color: #18181b !important;
   height: 56px !important;
   padding: 16px 12px;
   font-weight: 400 !important;
@@ -1394,7 +1467,7 @@ body {
 }
 .contact-form [data-bc-answer-container] textarea {
   background-color: white !important;
-  color: #18181B !important;
+  color: #18181b !important;
   height: 56px;
   padding: 16px 12px;
   font-weight: 400 !important;
@@ -1408,10 +1481,10 @@ body {
   height: 56px;
 }
 .contact-form [data-bc-answer-container] input[type="text"]::placeholder {
-  color: #18181B !important;
+  color: #18181b !important;
 }
 .contact-form [data-bc-answer-container] textarea::placeholder {
-  color: #18181B !important;
+  color: #18181b !important;
 }
 .contact-form [data-bc-answer-container] {
   width: 100% !important;
@@ -1426,10 +1499,10 @@ body {
 .contact-form [data-bc-question] {
   width: 100%;
 }
-.contact-form [data-bc-question]:first-of-type{
+.contact-form [data-bc-question]:first-of-type {
   margin-bottom: 7px;
 }
-.contact-form [data-bc-question]:nth-child(2){
+.contact-form [data-bc-question]:nth-child(2) {
   margin-bottom: 11px;
 }
 
@@ -1442,11 +1515,9 @@ body {
   padding: 0 !important;
 }
 
-
 .contact-form [data-bc-part] {
   margin-bottom: 0 !important;
 }
-
 
 .suggest-form [data-bc-schema-direction="rtl"] [data-bc-title-container] {
   display: none !important;
@@ -1459,18 +1530,18 @@ body {
 }
 .suggest-form [data-bc-answer-container] input[type="text"] {
   background-color: white !important;
-  color: #18181B !important;
+  color: #18181b !important;
   height: 56px !important;
   padding: 16px 12px !important;
   font-weight: 400 !important;
   outline: none !important;
   border-radius: 8px !important;
   border: none !important;
-  font-size: 16px !important; 
+  font-size: 16px !important;
 }
-.suggest-form [data-bc-answer-container]  textarea {
+.suggest-form [data-bc-answer-container] textarea {
   background-color: white !important;
-  color: #18181B !important;
+  color: #18181b !important;
   height: 71px !important;
   padding: 16px 12px !important;
   font-weight: 400 !important;
@@ -1479,25 +1550,25 @@ body {
   border: none !important;
   font-size: 16px !important;
 }
-.suggest-form [data-bc-answer-container] select{
+.suggest-form [data-bc-answer-container] select {
   background-color: white !important;
-  color: #18181B !important;
+  color: #18181b !important;
   height: 56px !important;
   padding: 16px 12px !important;
   font-weight: 400 !important;
   outline: none !important;
   border-radius: 8px !important;
   border: none !important;
-  font-size: 16px !important; 
+  font-size: 16px !important;
 }
 .suggest-form [data-bc-schema-direction="rtl"] [data-bc-part-container] {
   width: 100%;
 }
 .suggest-form [data-bc-answer-container] input[type="text"]::placeholder {
-  color: #18181B !important;
+  color: #18181b !important;
 }
 .suggest-form [data-bc-answer-container] textarea::placeholder {
-  color: #18181B !important;
+  color: #18181b !important;
 }
 .suggest-form [data-bc-answer-container] {
   width: 100% !important;
@@ -1505,7 +1576,7 @@ body {
 .suggest-form [data-bc-schema-info-part="1"] [data-bc-part-related-cell] {
   width: 100% !important;
 }
-.suggest-form [data-bc-section]{
+.suggest-form [data-bc-section] {
   margin: 0 !important;
   padding: 0 !important;
 }
@@ -1517,18 +1588,18 @@ body {
 }
 
 .suggest-form fieldset:first-of-type {
-  border-bottom: 1px solid #E0CFA5;
+  border-bottom: 1px solid #e0cfa5;
   margin-bottom: 24px !important;
   padding-bottom: 24px !important;
 }
 
-.suggest-form .left-form-message{
+.suggest-form .left-form-message {
   margin-bottom: 0;
 }
 
 .suggest-form [data-bc-question] {
   margin-bottom: 9px;
 }
-.suggest-form [data-bc-question]:nth-child(2){
+.suggest-form [data-bc-question]:nth-child(2) {
   margin-bottom: 0 !important;
 }
